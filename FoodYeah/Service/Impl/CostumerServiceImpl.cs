@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebApiTodo.Commons;
-using WebApiTodo.Dto;
-using WebApiTodo.Model;
-using WebApiTodo.Persistence;
+using FoodYeah.Commons;
+using FoodYeah.Dto;
+using FoodYeah.Model;
+using FoodYeah.Persistence;
 
-namespace WebApiTodo.Service
+namespace FoodYeah.Service
 {
     public class ClientServiceImpl : ClientService
     {

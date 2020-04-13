@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiTodo.Commons
+namespace FoodYeah.Commons
 {
     public class DataCollection<T> where T : class
     {

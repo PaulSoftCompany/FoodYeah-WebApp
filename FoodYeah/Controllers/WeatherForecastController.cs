@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace WebApiTodo.Controllers
+namespace FoodYeah.Controllers
 {
     [ApiController]
     [Route("[controller]")]

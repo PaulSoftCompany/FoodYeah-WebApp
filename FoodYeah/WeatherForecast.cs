@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApiTodo
+namespace FoodYeah
 {
     public class WeatherForecast
     {

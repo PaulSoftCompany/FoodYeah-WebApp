@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApiTodo.Dto;
-using WebApiTodo.Model;
-using WebApiTodo.Service;
+using FoodYeah.Dto;
+using FoodYeah.Model;
+using FoodYeah.Service;
 
-namespace WebApiTodo.Controllers
+namespace FoodYeah.Controllers
 {
     [ApiController]
     [Route("warehouses")]

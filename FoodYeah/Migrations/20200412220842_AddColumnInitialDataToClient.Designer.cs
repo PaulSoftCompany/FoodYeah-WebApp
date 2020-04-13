@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApiTodo.Persistence;
+using FoodYeah.Persistence;
 
-namespace WebApiTodo.Migrations
+namespace FoodYeah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20200412220842_AddColumnInitialDataToClient")]

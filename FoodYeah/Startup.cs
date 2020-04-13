@@ -10,12 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using WebApiTodo.Persistence;
-using WebApiTodo.Service;
+using FoodYeah.Persistence;
+using FoodYeah.Service;
 using AutoMapper;
-using WebApiTodo.Service.Impl;
+using FoodYeah.Service.Impl;
 
-namespace WebApiTodo
+namespace FoodYeah
 {
     public class Startup
     {

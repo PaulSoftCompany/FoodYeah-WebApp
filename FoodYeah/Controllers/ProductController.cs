@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using WebApiTodo.Commons;
-using WebApiTodo.Dto;
-using WebApiTodo.Model;
-using WebApiTodo.Service;
+using FoodYeah.Commons;
+using FoodYeah.Dto;
+using FoodYeah.Model;
+using FoodYeah.Service;
 
-namespace WebApiTodo.Controllers
+namespace FoodYeah.Controllers
 {
     [ApiController]
     [Route("products")]

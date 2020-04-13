@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApiTodo.Commons;
-using WebApiTodo.Dto;
-using WebApiTodo.Model;
+using FoodYeah.Commons;
+using FoodYeah.Dto;
+using FoodYeah.Model;
 
 
-namespace WebApiTodo.Service
+namespace FoodYeah.Service
 {
     public interface ProductService
     {

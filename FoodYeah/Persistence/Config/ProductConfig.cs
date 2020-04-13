@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApiTodo.Model;
+using FoodYeah.Model;
 
-namespace WebApiTodo.Persistence.Config
+namespace FoodYeah.Persistence.Config
 {
     public class ProductConfig
     {

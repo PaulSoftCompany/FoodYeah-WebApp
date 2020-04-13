@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApiTodo.Model;
-using WebApiTodo.Persistence.Config;
+using FoodYeah.Model;
+using FoodYeah.Persistence.Config;
 
-namespace WebApiTodo.Persistence
+namespace FoodYeah.Persistence
 {
     public class ApplicationDbContext : DbContext
     {

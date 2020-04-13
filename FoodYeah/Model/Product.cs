@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiTodo.Model
+namespace FoodYeah.Model
 {
     public class Product
     {
-        public int ProductId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public uint productId { get; set; }
 
-        public List<WarehouseProduct> Warehouses { get; set; }
+        public List<Product_Category> product_Categories { get; set; }
 
+        public List<OrderDetail> orderDetails { get; set; }
+        [Required]
+        public string productName { get; set; }
+        public decimal productPrice { get; set; }
     }
 }

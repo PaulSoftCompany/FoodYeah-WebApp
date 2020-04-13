@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiTodo.Model
+namespace FoodYeah.Model
 {
     public class OrderDetail
     {
-        public int OrderDetailId { get; set; }
+        public uint orderDetailId { get; set; }
 
-        public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public uint orderId { get; set; }
+        public Order order { get; set; }
 
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
-        public decimal UnitPrice { get; set; }
+        public uint productId { get; set; }
+        public Product product { get; set; }
 
-        public int Quantity { get; set; }
-
-        public decimal Iva { get; set; }
-        public decimal SubTotal { get; set; }
-        public decimal Total { get; set; }
+        public uint time { get; set; }
+        public DateTime date { get; set; }
+        public byte quantity { get; set; }
+        public decimal price { get; set; }
+        public decimal totalPrice { get; set; }
     }
 }

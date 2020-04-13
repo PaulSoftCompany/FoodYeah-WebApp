@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApiTodo.Commons;
-using WebApiTodo.Dto;
+using FoodYeah.Commons;
+using FoodYeah.Dto;
 
-namespace WebApiTodo.Service
+namespace FoodYeah.Service
 {
     public interface OrderService
     {

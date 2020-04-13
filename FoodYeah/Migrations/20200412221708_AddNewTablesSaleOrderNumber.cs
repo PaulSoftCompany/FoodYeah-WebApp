@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebApiTodo.Migrations
+namespace FoodYeah.Migrations
 {
     public partial class AddNewTablesSaleOrderNumber : Migration
     {

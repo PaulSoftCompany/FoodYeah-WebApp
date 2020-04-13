@@ -4,32 +4,24 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiTodo.Dto
+namespace FoodYeah.Dto
 {
     public class ProductCreateDto
     {
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public string productName { get; set; }
+        public decimal productPrice { get; set; }
     }
 
     public class ProductUpdateDto
     {
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public string productName { get; set; }
+        public decimal productPrice { get; set; }
     }
 
     public class ProductDto
     {
-        public int ProductId { get; set; }
-        public string Name { get; set; }
-        [Required]
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public uint productId { get; set; }
+        public string productName { get; set; }
+        public decimal productPrice { get; set; }
     }
 }
