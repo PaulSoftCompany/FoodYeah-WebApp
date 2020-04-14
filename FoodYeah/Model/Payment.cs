@@ -7,11 +7,10 @@ namespace FoodYeah.Model
 {
     public class Payment
     {
-        public uint paymentId { get; set; }
-
-        public uint cardNumber { get; set; }    
-        public Card card { get; set; }
-
+        public uint PaymentId { get; set; }
+        public Order Order { get; set; }
+        public uint CardNumber { get; set; }    
+        public Card Card { get; set; }
 
     }
 }

@@ -5,16 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace FoodYeah.Model
-{
+{ 
+    //Dejamelo comentado, porque eso se hace relación
+    //Estoy en CostumerCofig porsiaca
     public class Product_Category
     {
-        public uint costumer_CategoryId { get; set; }
+        public uint Costumer_CategoryId { get; set; }
 
-        public uint productId { get; set; }
-        public Product product { get; set; }
+        public uint ProductId { get; set; }
+        public Product Product { get; set; }
         [Required]
-        public string costumer_categoryName { get; set; }
+        public string Costumer_categoryName { get; set; }
         [Required]
-        public string costumer_categoryDescription { get; set; }
+        public string Costumer_categoryDescription { get; set; }
     }
 }

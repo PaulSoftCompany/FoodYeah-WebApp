@@ -7,14 +7,14 @@ namespace FoodYeah.Model
 {
     public class Order
     {
-        public uint orderId { get; set; }
+        public uint OrderId { get; set; }
       
-        public List<OrderDetail> orderDetails { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
 
-        public uint costumerId { get; set; }
-        public Costumer costumer { get; set; }
+        public uint CostumerId { get; set; }
+        public Costumer Costumer { get; set; }
         
-        public uint paymentId { get; set; }
-        public Payment payment { get; set; }
+        public uint PaymentId { get; set; }
+        public Payment Payment { get; set; }
     }
 }

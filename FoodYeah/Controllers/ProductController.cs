@@ -28,7 +28,7 @@ namespace FoodYeah.Controllers
 
         // Ex: Products/1
         [HttpGet("{id}")]
-        public ActionResult<ProductDto> GetById(int id)
+        public ActionResult<ProductDto> GetById(uint id)
         {
             return  _productService.GetById(id);
         }
@@ -46,14 +46,14 @@ namespace FoodYeah.Controllers
         }
 
         [HttpPut("{id}")]
-        public  ActionResult Update(int id, ProductUpdateDto model)
+        public  ActionResult Update(uint id, ProductUpdateDto model)
         {
             _productService.Update(id, model);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public  ActionResult Remove(int id)
+        public  ActionResult Remove(uint id)
         {
             _productService.Remove(id);
             return NoContent();

@@ -8,12 +8,12 @@ namespace FoodYeah.Model
 {
     public class Costumer_Category
     {
-        public uint costumer_categoryId { get; set; }
+        public uint Costumer_categoryId { get; set; }
 
-        public uint costumerId { get; set; }
-        public Costumer costumer { get; set; }
+        public uint CostumerId { get; set; }
+        public Costumer Costumer { get; set; }
         [Required]
-        public string costumer_categoryName { get; set; }
+        public string Costumer_categoryName { get; set; }
         
     }
 }

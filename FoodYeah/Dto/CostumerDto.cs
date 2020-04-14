@@ -10,21 +10,21 @@ namespace FoodYeah.Dto
     public class CostumerCreateDto
     {
         [Required]
-        public string costumerName { get; set; }
-        public byte costumerAge { get; set; }
+        public string CostumerName { get; set; }
+        public byte CostumerAge { get; set; }
     }
 
     public class CostumerUpdateDto
     {
         [Required]
-        public string costumerName { get; set; }
-        public byte costumerAge { get; set; }
+        public string CostumerName { get; set; }
+        public byte CostumerAge { get; set; }
     }
 
     public class CostumerDto
     {
-        public uint costumerId { get; set; }
-        public string costumerName { get; set; }
-        public byte costumerAge { get; set; }
+        public uint CostumerId { get; set; }
+        public string CostumerName { get; set; }
+        public byte CostumerAge { get; set; }
     }
 }

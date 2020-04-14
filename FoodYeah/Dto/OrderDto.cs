@@ -8,45 +8,45 @@ namespace FoodYeah.Dto
 {
     public class OrderCreateDto
     {
-        public List<OrderDetailCreateDto> orderDetails { get; set; }
-        public uint costumerId { get; set; }
-        public uint paymentId { get; set; }
+        public List<OrderDetailCreateDto> OrderDetails { get; set; }
+        public uint CostumerId { get; set; }
+        public uint PaymentId { get; set; }
     }
 
     public class OrderDetailCreateDto
     {
-        public uint productId { get; set; }
-        public byte quantity { get; set; }
-        public decimal unitPrice { get; set; }
-        public decimal totalPrice { get; set; }
+        public uint ProductId { get; set; }
+        public byte Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 
     public class OrderDto
     {
-        public uint orderId { get; set; }
+        public uint OrderId { get; set; }
       
-        public List<OrderDetailDto> orderDetails { get; set; }
+        public List<OrderDetailDto> OrderDetails { get; set; }
 
-        public uint costumerId { get; set; }
-        public CostumerDto costumer { get; set; }
+        public uint CostumerId { get; set; }
+        public CostumerDto Costumer { get; set; }
         
-        public uint paymentId { get; set; }
+        public uint PaymentId { get; set; }
     }
 
     public class OrderDetailDto
     {
-        public uint orderDetailId { get; set; }
+        public uint OrderDetailId { get; set; }
 
-        public uint orderId { get; set; }
-        public OrderDto order { get; set; }
+        public uint OrderId { get; set; }
+        public OrderDto Order { get; set; }
 
-        public uint productId { get; set; }
-        public ProductDto product { get; set; }
+        public uint ProductId { get; set; }
+        public ProductDto Product { get; set; }
 
-        public string time { get; set; }
-        public DateTime date { get; set; }
-        public byte quantity { get; set; }
-        public decimal unitPrice { get; set; }
-        public decimal totalPrice { get; set; }
+        public string Time { get; set; }
+        public DateTime Date { get; set; }
+        public byte Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

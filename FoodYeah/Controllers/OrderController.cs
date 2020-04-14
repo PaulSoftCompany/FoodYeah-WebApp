@@ -23,12 +23,12 @@ namespace FoodYeah.Controllers
         [HttpGet]
         public ActionResult<DataCollection<OrderDto>> GetById(int page, int take = 20)
         {
-            return  _orderService.GetAll(page, take);
+            return _orderService.GetAll(page, take);
         }
 
         // Ex: Orders/1
         [HttpGet("{id}")]
-        public ActionResult<OrderDto> GetById(int id)
+        public ActionResult<OrderDto> GetById(uint id)
         {
             return  _orderService.GetById(id);
         }

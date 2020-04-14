@@ -11,26 +11,27 @@ namespace FoodYeah.Persistence
 
         }
 
-        public DbSet<Card> cards { get; set; }
-        public DbSet<Costumer> costumers { get; set; }
-        public DbSet<Order> orders { get; set; }
-        public DbSet<OrderDetail> orderDetails { get; set; }
-        public DbSet<Payment> payments { get; set; }
-        public DbSet<Product_Category> product_categories { get; set; }
-        public DbSet<Product> products { get; set; }
-        public DbSet<Costumer_Category> costumer_categories { get; set; }
+        public DbSet<Card> Cards { get; set; }
+        public DbSet<Costumer> Costumers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Product_Category> Product_categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Costumer_Category> Costumer_categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            new ClientConfig(builder.Entity<Client>());
-            new OrderConfig(builder.Entity<Order>());
+            new CardConfig(builder.Entity<Card>());
+            new CostumerConfig(builder.Entity<Costumer>());
+            new OrderConfig(builder.Entity<Order>()); 
             new OrderDetailConfig(builder.Entity<OrderDetail>());
+            new PaymentConfig(builder.Entity<Payment>());
+            new Product_CategoryConfig(builder.Entity<Product_Category>());
             new ProductConfig(builder.Entity<Product>());
-            new OrderNumberConfig(builder.Entity<OrderNumber>());
-            new SaleConfig(builder.Entity<Sale>());
-            new CountryConfig(builder.Entity<Country>());
-            new WarehouseConfig(builder.Entity<Warehouse>());
+            new Costumer_CategoryConfig(builder.Entity<Costumer_Category>());
+
         }
     }
 }

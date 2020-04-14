@@ -29,8 +29,8 @@ namespace FoodYeah.Service
         {
             var entry = new Costumer
             {
-                costumerName = model.costumerName,
-                costumerAge=model.costumerAge
+                CostumerName = model.CostumerName,
+                CostumerAge=model.CostumerAge
             };
 
              _context.Add(entry);
@@ -45,7 +45,7 @@ namespace FoodYeah.Service
         {
             _context.Remove(new Costumer
             {
-                costumerId = id
+                CostumerId = id
             });
 
              _context.SaveChanges();
@@ -54,8 +54,8 @@ namespace FoodYeah.Service
 
         public void Update(uint id, CostumerUpdateDto model)
         {
-            var entry = _context.costumers.Single(x => x.costumerId == id);
-            entry.costumerName = model.costumerName;
+            var entry = _context.Costumers.Single(x => x.CostumerId == id);
+            entry.CostumerName = model.CostumerName;
 
              _context.SaveChanges();
         }
@@ -63,9 +63,9 @@ namespace FoodYeah.Service
         public DataCollection<CostumerDto> GetAll(int page, int take)
         {
             return _mapper.Map<DataCollection<CostumerDto>>(
-                 _context.costumers
-                              .Include(x => x.orders)
-                              .OrderByDescending(x => x.costumerId)
+                 _context.Costumers
+                              .Include(x => x.Orders)
+                              .OrderByDescending(x => x.CostumerId)
                               .AsQueryable()
                               .Paged(page, take)
             );
@@ -74,7 +74,7 @@ namespace FoodYeah.Service
         public CostumerDto GetById(uint id)
         {
             return _mapper.Map<CostumerDto>(
-                 _context.costumers.Single(x => x.costumerId == id)
+                 _context.Costumers.Single(x => x.CostumerId == id)
             );
         }
     }

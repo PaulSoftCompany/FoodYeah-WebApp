@@ -8,13 +8,13 @@ namespace FoodYeah.Model
 {
     public class Costumer
     {
-        public uint costumerId { get; set; }
-        
-        public List<Costumer_Category> costumer_Categories { get; set; }
-        public List<Card> cards { get; set; } 
-        public List<Order> orders {get; set;}
+        public uint CostumerId { get; set; }
+        public List<Costumer_Category> Costumer_Categories { get; set; }
+        public List<Card> Cards { get; set; } 
+        public List<Order> Orders {get; set;}
+     
         [Required]
-        public string costumerName { get; set; }
-        public byte costumerAge { get; set; }
+        public string CostumerName { get; set; }
+        public byte CostumerAge { get; set; }
     }
 }

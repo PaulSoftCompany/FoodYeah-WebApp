@@ -8,11 +8,11 @@ namespace FoodYeah.Model
 {
     public class Card
     {
-        public uint cardId { get; set; }
-        public bool cardType { get; set; }
-        public byte cardCvi  { get; set; }
+        public uint CardId { get; set; }
+        public bool CardType { get; set; }
+        public byte CardCvi  { get; set; }
         [Required]
-        public string cardOwnerName { get; set; }
-        public DateTime cardExpireDate { get; set; }
+        public string CardOwnerName { get; set; }
+        public DateTime CardExpireDate { get; set; }
     }
 }

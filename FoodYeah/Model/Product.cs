@@ -8,13 +8,13 @@ namespace FoodYeah.Model
 {
     public class Product
     {
-        public uint productId { get; set; }
+        public uint ProductId { get; set; }
 
-        public List<Product_Category> product_Categories { get; set; }
+        public List<Product_Category> Product_Categories { get; set; }
 
-        public List<OrderDetail> orderDetails { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
         [Required]
-        public string productName { get; set; }
-        public decimal productPrice { get; set; }
+        public string ProductName { get; set; }
+        public decimal ProductPrice { get; set; }
     }
 }
