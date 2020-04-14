@@ -15,10 +15,10 @@ namespace FoodYeah.Model
         public uint productId { get; set; }
         public Product product { get; set; }
 
-        public uint time { get; set; }
+        public string time { get; set; }
         public DateTime date { get; set; }
         public byte quantity { get; set; }
-        public decimal price { get; set; }
+        public decimal unitPrice { get; set; }
         public decimal totalPrice { get; set; }
     }
 }

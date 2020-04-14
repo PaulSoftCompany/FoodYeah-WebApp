@@ -9,13 +9,13 @@ using FoodYeah.Model;
 
 namespace FoodYeah.Service
 {
-    public interface ClientService
+    public interface CostumerService
     {
-        DataCollection<ClientDto> GetAll(int page, int take);
+        DataCollection<CostumerDto> GetAll(int page, int take);
        
-        ClientDto GetById(int id);
-        ClientDto Create(ClientCreateDto model);
-        void Update(int id, ClientUpdateDto model);
-        void Remove(int id);
+        CostumerDto GetById(uint id);
+        CostumerDto Create(CostumerCreateDto model);
+        void Update(uint id, CostumerUpdateDto model);
+        void Remove(uint id);
     }
 }

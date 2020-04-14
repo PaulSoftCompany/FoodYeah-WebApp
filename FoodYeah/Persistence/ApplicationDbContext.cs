@@ -11,15 +11,14 @@ namespace FoodYeah.Persistence
 
         }
 
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetail { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<OrderNumber> OrderNumbers { get; set; }
-        public DbSet<Sale> Sales { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Warehouse> Warehouses { get; set; }
-        public DbSet<WarehouseProduct> WarehouseProduct { get; set; }
+        public DbSet<Card> cards { get; set; }
+        public DbSet<Costumer> costumers { get; set; }
+        public DbSet<Order> orders { get; set; }
+        public DbSet<OrderDetail> orderDetails { get; set; }
+        public DbSet<Payment> payments { get; set; }
+        public DbSet<Product_Category> product_categories { get; set; }
+        public DbSet<Product> products { get; set; }
+        public DbSet<Costumer_Category> costumer_categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

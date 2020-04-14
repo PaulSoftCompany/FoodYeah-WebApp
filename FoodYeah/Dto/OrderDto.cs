@@ -17,7 +17,7 @@ namespace FoodYeah.Dto
     {
         public uint productId { get; set; }
         public byte quantity { get; set; }
-        public decimal price { get; set; }
+        public decimal unitPrice { get; set; }
         public decimal totalPrice { get; set; }
     }
 
@@ -43,10 +43,10 @@ namespace FoodYeah.Dto
         public uint productId { get; set; }
         public ProductDto product { get; set; }
 
-        public uint time { get; set; }
+        public string time { get; set; }
         public DateTime date { get; set; }
         public byte quantity { get; set; }
-        public decimal price { get; set; }
+        public decimal unitPrice { get; set; }
         public decimal totalPrice { get; set; }
     }
 }

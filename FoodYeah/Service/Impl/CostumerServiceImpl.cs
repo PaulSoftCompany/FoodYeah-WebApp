@@ -10,12 +10,12 @@ using FoodYeah.Persistence;
 
 namespace FoodYeah.Service
 {
-    public class ClientServiceImpl : ClientService
+    public class CostumerServiceImpl : CostumerService
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
 
-        public ClientServiceImpl(ApplicationDbContext context,
+        public CostumerServiceImpl(ApplicationDbContext context,
             IMapper mapper)
         {
             _context = context;
@@ -25,58 +25,56 @@ namespace FoodYeah.Service
         
         
 
-        public ClientDto Create(ClientCreateDto model)
+        public CostumerDto Create(CostumerCreateDto model)
         {
-            var entry = new Client
+            var entry = new Costumer
             {
-                Name = model.Name,
-                ClientNumber=model.ClientNumber,
-                Country_Id =model.Country_Id
+                costumerName = model.costumerName,
+                costumerAge=model.costumerAge
             };
 
              _context.Add(entry);
              _context.SaveChanges();
 
-            return _mapper.Map<ClientDto>(entry);
+            return _mapper.Map<CostumerDto>(entry);
         }
 
         
 
-        public void Remove(int id)
+        public void Remove(uint id)
         {
-            _context.Remove(new Client
+            _context.Remove(new Costumer
             {
-                ClientId = id
+                costumerId = id
             });
 
              _context.SaveChanges();
         }
 
 
-        public void Update(int id, ClientUpdateDto model)
+        public void Update(uint id, CostumerUpdateDto model)
         {
-            var entry = _context.Clients.Single(x => x.ClientId == id);
-            entry.Name = model.Name;
+            var entry = _context.costumers.Single(x => x.costumerId == id);
+            entry.costumerName = model.costumerName;
 
              _context.SaveChanges();
         }
 
-        public DataCollection<ClientDto> GetAll(int page, int take)
+        public DataCollection<CostumerDto> GetAll(int page, int take)
         {
-            return _mapper.Map<DataCollection<ClientDto>>(
-                 _context.Clients
-                              .Include(x => x.Country)
-                              .OrderByDescending(x => x.ClientId)
+            return _mapper.Map<DataCollection<CostumerDto>>(
+                 _context.costumers
+                              .Include(x => x.orders)
+                              .OrderByDescending(x => x.costumerId)
                               .AsQueryable()
                               .Paged(page, take)
             );
         }
         
-
-        public ClientDto GetById(int id)
+        public CostumerDto GetById(uint id)
         {
-            return _mapper.Map<ClientDto>(
-                 _context.Clients.Single(x => x.ClientId == id)
+            return _mapper.Map<CostumerDto>(
+                 _context.costumers.Single(x => x.costumerId == id)
             );
         }
     }

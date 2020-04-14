@@ -32,59 +32,48 @@ namespace FoodYeah.Service.Impl
         {
             var entry = _mapper.Map<Order>(model);
 
-            // Prepare order detail
-            PrepareDetail(entry.Items);
-
-            // Prepare order header
-            PrepareHeader(entry);
+            PrepareDetail(entry.orderDetails);
 
              _context.Add(entry);
              _context.SaveChanges();
 
             return _mapper.Map<OrderDto>(
-                 GetById(entry.OrderId)
+                 GetById(entry.orderId)
             );
         }
 
         public DataCollection<OrderDto> GetAll(int page, int take)
         {
             return _mapper.Map<DataCollection<OrderDto>>(
-                _context.Orders.OrderByDescending(x => x.OrderId)
-                                   .Include(x => x.Client)
-                                   .Include(x => x.Items)
-                                       .ThenInclude(x => x.Product)
+                _context.orders.OrderByDescending(x => x.orderId)
+                                   .Include(x => x.costumer)
+                                   .Include(x => x.orderDetails)
+                                       .ThenInclude(x => x.product)
                                    .AsQueryable()
                                    .Paged(page, take)
            );
         }
 
-        public OrderDto GetById(int id)
+        public OrderDto GetById(uint id)
         {
             return _mapper.Map<OrderDto>(
-                  _context.Orders
-                     .Include(x => x.Client)
-                     .Include(x => x.Items)
-                         .ThenInclude(x => x.Product)
-                     .Single(x => x.OrderId == id)
+                  _context.orders
+                     .Include(x => x.costumer)
+                     .Include(x => x.orderDetails)
+                         .ThenInclude(x => x.product)
+                     .Single(x => x.orderId == id)
              );
         }
 
 
-        private void PrepareDetail(IEnumerable<OrderDetail> items)
+        private void PrepareDetail(IEnumerable<OrderDetail> orderDetails)
         {
-            foreach (var item in items)
+            foreach (var item in orderDetails)
             {
-                item.Total = item.UnitPrice * item.Quantity;
-                item.Iva = item.Total * IvaRate;
-                item.SubTotal = item.Total - item.Iva;
+                item.totalPrice = item.unitPrice * item.quantity;
+                item.time = DateTime.Now.ToString("h:mm:ss tt");
+                item.date = DateTime.Now.Date;
             }
-        }
-
-        private void PrepareHeader(Order order)
-        {
-            order.SubTotal = order.Items.Sum(x => x.SubTotal);
-            order.Iva = order.Items.Sum(x => x.Iva);
-            order.Total = order.Items.Sum(x => x.Total);
         }
     }
 }
