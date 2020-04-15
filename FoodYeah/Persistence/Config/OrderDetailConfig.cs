@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodYeah.Model;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +9,16 @@ namespace FoodYeah.Persistence.Config
 {
     public class OrderDetailConfig
     {
-        //TODO
+        public OrderDetailConfig(EntityTypeBuilder<OrderDetail> entityBuilder)
+        {
+            entityBuilder.Property(x => x.OrderDetailId).IsRequired();
+            entityBuilder.Property(x => x.OrderId).IsRequired();
+            entityBuilder.Property(x => x.ProductId).IsRequired();
+            entityBuilder.Property(x => x.Time).IsRequired();
+            entityBuilder.Property(x => x.Date).IsRequired();
+            entityBuilder.Property(x => x.Quantity).IsRequired();
+            entityBuilder.Property(x => x.UnitPrice).IsRequired();
+            entityBuilder.Property(x => x.TotalPrice).IsRequired();
+        }
     }
 }

@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace FoodYeah.Model
 { 
-    //Dejamelo comentado, porque eso se hace relación
-    //Estoy en CostumerCofig porsiaca
     public class Product_Category
     {
-        public uint Costumer_CategoryId { get; set; }
+        public uint Product_CategoryId { get; set; }
 
         public uint ProductId { get; set; }
         public Product Product { get; set; }
         [Required]
-        public string Costumer_categoryName { get; set; }
+        public string Product_categoryName { get; set; }
         [Required]
-        public string Costumer_categoryDescription { get; set; }
+        public string Product_categoryDescription { get; set; }
     }
 }

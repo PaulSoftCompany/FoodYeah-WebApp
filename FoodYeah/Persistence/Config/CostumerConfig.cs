@@ -11,14 +11,9 @@ namespace FoodYeah.Persistence.Config
     {
         public CostumerConfig(EntityTypeBuilder<Costumer> entityBuilder)
         {
-
-            //Vente a orderconfig tu vente a orderconfig
-
             entityBuilder.Property(x => x.CostumerId).IsRequired();            
             entityBuilder.Property(x => x.CostumerName).IsRequired();
             entityBuilder.Property(x => x.CostumerAge).IsRequired();
         }
     }
-}
-//https://www.entityframeworktutorial.net/efcore/configure-one-to-one-relationship-using-fluent-api-in-ef-core.aspx
-//https://www.learnentityframeworkcore.com/configuration/one-to-one-relationship-configuration          
+}        

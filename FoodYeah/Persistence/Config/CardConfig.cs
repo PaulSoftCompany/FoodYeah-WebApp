@@ -12,13 +12,12 @@ namespace FoodYeah.Persistence.Config
     {
         public CardConfig(EntityTypeBuilder<Card> entityBuilder)
         {
-            entityBuilder.Property(x => x.CardId).IsRequired();
+            entityBuilder.Property(x => x.CardNumber).IsRequired();
+            entityBuilder.Property(x => x.CostumerId).IsRequired();
             entityBuilder.Property(x => x.CardType).IsRequired();
             entityBuilder.Property(x => x.CardCvi).IsRequired();
             entityBuilder.Property(x => x.CardOwnerName).IsRequired();
             entityBuilder.Property(x => x.CardExpireDate).IsRequired();
         }
-        //Chapas los atributos y los pones dentro del lambda y lo dejas ahí nomás
-        //falta en todos los otros config?
     }
 }
