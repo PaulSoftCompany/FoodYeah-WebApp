@@ -11,9 +11,9 @@ namespace FoodYeah.Persistence.Config
     {
         public Costumer_CategoryConfig(EntityTypeBuilder<Costumer_Category> entityBuilder)
         {
-            entityBuilder.Property(x => x.CostumerId).IsRequired();
-            entityBuilder.Property(x => x.Costumer_categoryName).IsRequired();
             entityBuilder.Property(x => x.Costumer_categoryId).IsRequired();
+            entityBuilder.Property(x => x.Costumer_categoryName).IsRequired().HasMaxLength(100);
+            entityBuilder.Property(x => x.Card_Counter).IsRequired();
         }
     }
 }

@@ -1,0 +1,5 @@
+C:\Users\alexi\Documents\GitHub\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csprojAssemblyReference.cache
+C:\Users\alexi\Documents\GitHub\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csproj.CoreCompileInputs.cache
+C:\Users\alexi\Documents\GitHub\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alexi\Documents\GitHub\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.AssemblyInfoInputs.cache
+C:\Users\alexi\Documents\GitHub\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.AssemblyInfo.cs

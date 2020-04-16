@@ -5058,11 +5058,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexi\\Documents\\git repo\\auxiliar\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+      "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
       "projectName": "FoodYeah",
-      "projectPath": "C:\\Users\\alexi\\Documents\\git repo\\auxiliar\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+      "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
       "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexi\\Documents\\git repo\\auxiliar\\FoodYeah\\FoodYeah\\obj\\",
+      "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",

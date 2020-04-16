@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z6jr8jzftDmPDzgai5UKbGVuvTnrwXbZ1OIAMXYHdZetB/de12wAssgmorKKIZuRCbfGnJI0RnL66VOCr4CdgA==",
+  "dgSpecHash": "kK+7sgjthjwJtmvVS+167SQmt7QNNPefopsmydgH5MBq92TY3X3nLTI1H+53slEAy+t57x5h0lp1iGCVG7plkQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexi\\Documents\\git repo\\auxiliar\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+  "projectFilePath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexi\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
