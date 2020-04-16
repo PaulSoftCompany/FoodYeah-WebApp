@@ -13,8 +13,8 @@ namespace FoodYeah.ConfigMapper
     {
         public AutoMapperConfig()
         {
-            CreateMap<Client, ClientDto>();
-            CreateMap<DataCollection<Client>, DataCollection<ClientDto>>();
+            CreateMap<Costumer, CostumerDto>();
+            CreateMap<DataCollection<Costumer>, DataCollection<CostumerDto>>();
 
             CreateMap<Product, ProductDto>();
             CreateMap<DataCollection<Product>, DataCollection<ProductDto>>();

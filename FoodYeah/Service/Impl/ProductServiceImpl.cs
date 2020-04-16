@@ -27,8 +27,8 @@ namespace FoodYeah.Service.Impl
         {
             var entry = new Product
             {
-                productName = model.productName,
-                productPrice = model.productPrice
+                ProductName = model.ProductName,
+                ProductPrice = model.ProductPrice
             };
 
              _context.Add(entry);
@@ -40,7 +40,7 @@ namespace FoodYeah.Service.Impl
         public DataCollection<ProductDto> GetAll(int page, int take)
         {
             return _mapper.Map<DataCollection<ProductDto>>(
-                  _context.products.OrderByDescending(x => x.productId)
+                  _context.Products.OrderByDescending(x => x.ProductId)
                                .AsQueryable()
                                .Paged(page, take)
              );
@@ -49,7 +49,7 @@ namespace FoodYeah.Service.Impl
         public ProductDto GetById(uint id)
         {
             return _mapper.Map<ProductDto>(
-                _context.products.Single(x => x.productId == id)
+                _context.Products.Single(x => x.ProductId == id)
            );
         }
 
@@ -57,7 +57,7 @@ namespace FoodYeah.Service.Impl
         {
             _context.Remove(new Product
             {
-                productId = id
+                ProductId = id
             });
 
             _context.SaveChanges();
@@ -65,10 +65,10 @@ namespace FoodYeah.Service.Impl
 
         public void Update(uint id, ProductUpdateDto model)
         {
-            var entry = _context.products.Single(x => x.productId == id);
+            var entry = _context.Products.Single(x => x.ProductId == id);
 
-            entry.productName = model.productName;
-            entry.productPrice = model.productPrice;
+            entry.ProductName = model.ProductName;
+            entry.ProductPrice = model.ProductPrice;
 
             _context.SaveChanges();
         }

@@ -14,6 +14,7 @@ using FoodYeah.Persistence;
 using FoodYeah.Service;
 using AutoMapper;
 using FoodYeah.Service.Impl;
+using FoodYeah.Model;
 
 namespace FoodYeah
 {
@@ -35,12 +36,9 @@ namespace FoodYeah
             );
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddTransient<ClientService, ClientServiceImpl>();
+            services.AddTransient<CostumerService, CostumerServiceImpl>();
             services.AddTransient<ProductService, ProductServiceImpl>();
             services.AddTransient<OrderService, OrderServiceImpl>();
-
-            services.AddTransient<WarehouseService, WarehouseServiceImpl>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

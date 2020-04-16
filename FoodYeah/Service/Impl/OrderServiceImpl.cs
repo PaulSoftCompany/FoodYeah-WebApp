@@ -32,23 +32,23 @@ namespace FoodYeah.Service.Impl
         {
             var entry = _mapper.Map<Order>(model);
 
-            PrepareDetail(entry.orderDetails);
+            PrepareDetail(entry.OrderDetails);
 
              _context.Add(entry);
              _context.SaveChanges();
 
             return _mapper.Map<OrderDto>(
-                 GetById(entry.orderId)
+                 GetById(entry.OrderId)
             );
         }
 
         public DataCollection<OrderDto> GetAll(int page, int take)
         {
             return _mapper.Map<DataCollection<OrderDto>>(
-                _context.orders.OrderByDescending(x => x.orderId)
-                                   .Include(x => x.costumer)
-                                   .Include(x => x.orderDetails)
-                                       .ThenInclude(x => x.product)
+                _context.Orders.OrderByDescending(x => x.OrderId)
+                                   .Include(x => x.Costumer)
+                                   .Include(x => x.OrderDetails)
+                                       .ThenInclude(x => x.Product)
                                    .AsQueryable()
                                    .Paged(page, take)
            );
@@ -57,11 +57,11 @@ namespace FoodYeah.Service.Impl
         public OrderDto GetById(uint id)
         {
             return _mapper.Map<OrderDto>(
-                  _context.orders
-                     .Include(x => x.costumer)
-                     .Include(x => x.orderDetails)
-                         .ThenInclude(x => x.product)
-                     .Single(x => x.orderId == id)
+                  _context.Orders
+                     .Include(x => x.Costumer)
+                     .Include(x => x.OrderDetails)
+                         .ThenInclude(x => x.Product)
+                     .Single(x => x.OrderId == id)
              );
         }
 
@@ -70,9 +70,9 @@ namespace FoodYeah.Service.Impl
         {
             foreach (var item in orderDetails)
             {
-                item.totalPrice = item.unitPrice * item.quantity;
-                item.time = DateTime.Now.ToString("h:mm:ss tt");
-                item.date = DateTime.Now.Date;
+                item.TotalPrice = item.UnitPrice * item.Quantity;
+                item.Time = DateTime.Now.ToString("h:mm:ss tt");
+                item.Date = DateTime.Now.Date;
             }
         }
     }
