@@ -34,8 +34,8 @@ namespace FoodYeah.Service.Impl
 
             PrepareDetail(entry.OrderDetails);
 
-             _context.Add(entry);
-             _context.SaveChanges();
+            _context.Add(entry);
+            _context.SaveChanges();
 
             return _mapper.Map<OrderDto>(
                  GetById(entry.OrderId)
@@ -48,7 +48,9 @@ namespace FoodYeah.Service.Impl
                 _context.Orders.OrderByDescending(x => x.OrderId)
                                    .Include(x => x.Costumer)
                                    .Include(x => x.OrderDetails)
-                                       .ThenInclude(x => x.Product)
+                                    .ThenInclude(x => x.Order)
+                                   .Include(x => x.OrderDetails)
+                                    .ThenInclude(x => x.Product)
                                    .AsQueryable()
                                    .Paged(page, take)
            );
@@ -60,7 +62,9 @@ namespace FoodYeah.Service.Impl
                   _context.Orders
                      .Include(x => x.Costumer)
                      .Include(x => x.OrderDetails)
-                         .ThenInclude(x => x.Product)
+                        .ThenInclude(x => x.Order)
+                     .Include(x => x.OrderDetails)
+                        .ThenInclude(x => x.Product)
                      .Single(x => x.OrderId == id)
              );
         }

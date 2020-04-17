@@ -7,6 +7,7 @@ using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace FoodYeah.Service.Impl
 {
@@ -41,6 +42,7 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<DataCollection<ProductDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
+                               .Include(x => x.Product_Categories)
                                .AsQueryable()
                                .Paged(page, take)
              );

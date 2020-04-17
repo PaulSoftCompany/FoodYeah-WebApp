@@ -65,6 +65,7 @@ namespace FoodYeah.Service
             return _mapper.Map<DataCollection<CostumerDto>>(
                  _context.Costumers
                               .Include(x => x.Orders)
+                              .Include(x => x.Cards)                              
                               .OrderByDescending(x => x.CostumerId)
                               .AsQueryable()
                               .Paged(page, take)
