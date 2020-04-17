@@ -13,8 +13,8 @@ namespace FoodYeah.Model
         public uint ProductId { get; set; }
         public Product Product { get; set; }
         [Required]
-        public string Product_categoryName { get; set; }
+        public string Product_CategoryName { get; set; }
         [Required]
-        public string Product_categoryDescription { get; set; }
+        public string Product_CategoryDescription { get; set; }
     }
 }

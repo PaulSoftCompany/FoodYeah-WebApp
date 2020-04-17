@@ -13,7 +13,6 @@ namespace FoodYeah.Service.Impl
 {
     public class OrderServiceImpl : OrderService
     {
-
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private const decimal IvaRate = 0.18m;
@@ -27,12 +26,21 @@ namespace FoodYeah.Service.Impl
             _mapper = mapper;
         }
 
-
         public OrderDto Create(OrderCreateDto model)
         {
             var entry = _mapper.Map<Order>(model);
 
             PrepareDetail(entry.OrderDetails);
+
+            decimal totalPrice=0;
+
+            foreach (var item in entry.OrderDetails)
+            {
+                totalPrice += item.UnitPrice * item.Quantity;
+            }
+
+            entry.Time = (new Random().Next(1, 8)).ToString() + ":" + (new Random().Next(1, 59)).ToString();
+            entry.TotalPrice = totalPrice;
 
             _context.Add(entry);
             _context.SaveChanges();
@@ -47,6 +55,7 @@ namespace FoodYeah.Service.Impl
             return _mapper.Map<DataCollection<OrderDto>>(
                 _context.Orders.OrderByDescending(x => x.OrderId)
                                    .Include(x => x.Costumer)
+                                   
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Order)
                                    .Include(x => x.OrderDetails)
@@ -61,22 +70,20 @@ namespace FoodYeah.Service.Impl
             return _mapper.Map<OrderDto>(
                   _context.Orders
                      .Include(x => x.Costumer)
-                     .Include(x => x.OrderDetails)
-                        .ThenInclude(x => x.Order)
-                     .Include(x => x.OrderDetails)
-                        .ThenInclude(x => x.Product)
+                                  
+                                   .Include(x => x.OrderDetails)
+                                    .ThenInclude(x => x.Order)
+                                   .Include(x => x.OrderDetails)
+                                    .ThenInclude(x => x.Product)
                      .Single(x => x.OrderId == id)
              );
         }
-
 
         private void PrepareDetail(IEnumerable<OrderDetail> orderDetails)
         {
             foreach (var item in orderDetails)
             {
                 item.TotalPrice = item.UnitPrice * item.Quantity;
-                item.Time = DateTime.Now.ToString("h:mm:ss tt");
-                item.Date = DateTime.Now.Date;
             }
         }
     }

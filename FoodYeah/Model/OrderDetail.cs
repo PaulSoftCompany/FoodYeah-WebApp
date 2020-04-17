@@ -15,8 +15,6 @@ namespace FoodYeah.Model
         public uint ProductId { get; set; }
         public Product Product { get; set; }
 
-        public string Time { get; set; }
-        public DateTime Date { get; set; }
         public byte Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }

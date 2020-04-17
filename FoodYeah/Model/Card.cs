@@ -10,9 +10,11 @@ namespace FoodYeah.Model
 {
     public class Card
     {
+        [Key]
         public uint CardNumber { get; set; }
         public uint CostumerId { get; set; }
         public Costumer Costumer { get; set; }
+        //public List<Order> Orders { get; set; }
         public bool CardType { get; set; }
         public byte CardCvi  { get; set; }
         [Required]

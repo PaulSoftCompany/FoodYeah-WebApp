@@ -8,10 +8,9 @@ namespace FoodYeah.Model
 {
     public class Costumer_Category
     {
-        public uint Costumer_categoryId { get; set; }
+        public uint Costumer_CategoryId { get; set; }
         public List<Costumer> Costumers { get; set; }
         [Required]
-        public string Costumer_categoryName { get; set; }
-        public uint Card_Counter { get; set; }
+        public string Costumer_CategoryName { get; set; }
     }
 }
