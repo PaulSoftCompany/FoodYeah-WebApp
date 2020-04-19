@@ -12,6 +12,7 @@ namespace FoodYeah.Dto
         [Required]
         public string CostumerName { get; set; }
         public byte CostumerAge { get; set; }
+        public int Costumer_CategoryId { get; set; }
     }
 
     public class CostumerUpdateDto
@@ -23,7 +24,7 @@ namespace FoodYeah.Dto
 
     public class CostumerDto
     {
-        public uint CostumerId { get; set; }
+        public int CostumerId { get; set; }
         public string CostumerName { get; set; }
         public byte CostumerAge { get; set; }
     }

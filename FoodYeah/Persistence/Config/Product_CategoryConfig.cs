@@ -14,7 +14,6 @@ namespace FoodYeah.Persistence.Config
             entityBuilder.Property(x => x.Product_CategoryId).IsRequired();
             entityBuilder.Property(x => x.Product_CategoryName).IsRequired();
             entityBuilder.Property(x => x.Product_CategoryDescription).IsRequired();
-            entityBuilder.HasOne(x => x.Product).WithMany(x => x.Product_Categories).HasForeignKey(x => x.ProductId);
         }
     }
 }

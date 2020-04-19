@@ -16,10 +16,11 @@ namespace FoodYeah.Service.Impl
 
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
-
+        private static int id;
         public ProductServiceImpl(ApplicationDbContext context,
             IMapper mapper)
         {
+            id = 0;
             _context = context;
             _mapper = mapper;
         }
@@ -29,11 +30,13 @@ namespace FoodYeah.Service.Impl
             var entry = new Product
             {
                 ProductName = model.ProductName,
-                ProductPrice = model.ProductPrice
+                ProductPrice = model.ProductPrice,
+                Product_CategoryId = model.Product_CategoryId,
+                ProductId = id
             };
-
-             _context.Add(entry);
-             _context.SaveChanges();
+            id++;
+            _context.Add(entry);
+            _context.SaveChanges();
 
             return _mapper.Map<ProductDto>(entry);
         }
@@ -42,20 +45,20 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<DataCollection<ProductDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
-                               .Include(x => x.Product_Categories)
+                               .Include(x => x.Product_Category)
                                .AsQueryable()
                                .Paged(page, take)
              );
         }
 
-        public ProductDto GetById(uint id)
+        public ProductDto GetById(int id)
         {
             return _mapper.Map<ProductDto>(
                 _context.Products.Single(x => x.ProductId == id)
            );
         }
 
-        public void Remove(uint id)
+        public void Remove(int id)
         {
             _context.Remove(new Product
             {
@@ -65,7 +68,7 @@ namespace FoodYeah.Service.Impl
             _context.SaveChanges();
         }
 
-        public void Update(uint id, ProductUpdateDto model)
+        public void Update(int id, ProductUpdateDto model)
         {
             var entry = _context.Products.Single(x => x.ProductId == id);
 

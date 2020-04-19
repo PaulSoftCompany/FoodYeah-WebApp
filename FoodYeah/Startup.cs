@@ -39,6 +39,9 @@ namespace FoodYeah
             services.AddTransient<CostumerService, CostumerServiceImpl>();
             services.AddTransient<ProductService, ProductServiceImpl>();
             services.AddTransient<OrderService, OrderServiceImpl>();
+            services.AddTransient<CardService, CardServiceImpl>();            
+            services.AddTransient<Product_CategoryService, Product_CategoryServiceImpl>();    
+            services.AddTransient<Costumer_CategoryService, Costumer_CategoryServiceImpl>();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,9 +13,9 @@ namespace FoodYeah.Service
     {
         DataCollection<CostumerDto> GetAll(int page, int take);
        
-        CostumerDto GetById(uint id);
+        CostumerDto GetById(int id);
         CostumerDto Create(CostumerCreateDto model);
-        void Update(uint id, CostumerUpdateDto model);
-        void Remove(uint id);
+        void Update(int id, CostumerUpdateDto model);
+        void Remove(int id);
     }
 }

@@ -10,7 +10,7 @@ namespace FoodYeah.Service
     public interface OrderService
     {
         DataCollection<OrderDto> GetAll(int page, int take);
-        OrderDto GetById(uint id);
+        OrderDto GetById(int id);
         OrderDto Create(OrderCreateDto model);
     }
 }

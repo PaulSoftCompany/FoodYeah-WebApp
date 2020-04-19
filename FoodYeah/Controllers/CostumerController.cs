@@ -25,7 +25,7 @@ namespace FoodYeah.Controllers
             return _costumerService.GetAll(page,take);
         }
         [HttpGet]
-        public ActionResult<CostumerDto> GetById(uint id)
+        public ActionResult<CostumerDto> GetById(int id)
         {
             return _costumerService.GetById(id);
         }
@@ -38,14 +38,14 @@ namespace FoodYeah.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(uint id, CostumerUpdateDto model)
+        public ActionResult Update(int id, CostumerUpdateDto model)
         {
             _costumerService.Update(id, model);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Remove(uint id)
+        public ActionResult Remove(int id)
         {
             _costumerService.Remove(id);
             return NoContent();

@@ -12,10 +12,10 @@ namespace FoodYeah.Service
     public interface ProductService
     {
         DataCollection<ProductDto> GetAll(int page, int take);
-        ProductDto GetById(uint id);
+        ProductDto GetById(int id);
         ProductDto Create(ProductCreateDto model);
-        void Update(uint id, ProductUpdateDto model);
-        void Remove(uint id);
+        void Update(int id, ProductUpdateDto model);
+        void Remove(int id);
     }
 }
     

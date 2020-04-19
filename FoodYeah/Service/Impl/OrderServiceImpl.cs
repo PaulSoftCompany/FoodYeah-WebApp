@@ -15,13 +15,14 @@ namespace FoodYeah.Service.Impl
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private const decimal IvaRate = 0.18m;
+        private static int id;
 
         public OrderServiceImpl(
             ApplicationDbContext context,
             IMapper mapper
         )
         {
+            id = 0;
             _context = context;
             _mapper = mapper;
         }
@@ -32,15 +33,7 @@ namespace FoodYeah.Service.Impl
 
             PrepareDetail(entry.OrderDetails);
 
-            decimal totalPrice=0;
-
-            foreach (var item in entry.OrderDetails)
-            {
-                totalPrice += item.UnitPrice * item.Quantity;
-            }
-
-            entry.Time = (new Random().Next(1, 8)).ToString() + ":" + (new Random().Next(1, 59)).ToString();
-            entry.TotalPrice = totalPrice;
+            PrepareHeader(entry);
 
             _context.Add(entry);
             _context.SaveChanges();
@@ -55,7 +48,6 @@ namespace FoodYeah.Service.Impl
             return _mapper.Map<DataCollection<OrderDto>>(
                 _context.Orders.OrderByDescending(x => x.OrderId)
                                    .Include(x => x.Costumer)
-                                   
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Order)
                                    .Include(x => x.OrderDetails)
@@ -65,12 +57,12 @@ namespace FoodYeah.Service.Impl
            );
         }
 
-        public OrderDto GetById(uint id)
+        public OrderDto GetById(int id)
         {
             return _mapper.Map<OrderDto>(
                   _context.Orders
                      .Include(x => x.Costumer)
-                                  
+
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Order)
                                    .Include(x => x.OrderDetails)
@@ -85,6 +77,23 @@ namespace FoodYeah.Service.Impl
             {
                 item.TotalPrice = item.UnitPrice * item.Quantity;
             }
+        }
+
+        private void PrepareHeader(Order order)
+        {
+            decimal totalPrice = 0;
+
+            foreach (var item in order.OrderDetails)
+            {
+                totalPrice += item.UnitPrice * item.Quantity;
+            }
+
+            order.OrderId = id;
+            order.Date = DateTime.Now.ToString("yyyy-MM-dd");
+            order.Time = DateTime.Now.ToString("h:mm tt");
+            //order.Time = (new Random().Next(1, 8)).ToString() + ":" + (new Random().Next(1, 59)).ToString();
+            order.TotalPrice = totalPrice;
+            id++;
         }
     }
 }

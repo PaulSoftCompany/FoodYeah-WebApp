@@ -8,9 +8,10 @@ namespace FoodYeah.Model
 {
     public class Product
     {
-        public uint ProductId { get; set; }
+        public int ProductId { get; set; }
 
-        public List<Product_Category> Product_Categories { get; set; }
+        public int Product_CategoryId { get; set; }
+        public Product_Category Product_Category { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }
         [Required]
