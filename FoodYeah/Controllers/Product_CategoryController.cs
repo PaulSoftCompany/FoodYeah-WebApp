@@ -24,8 +24,8 @@ namespace FoodYeah.Controllers
         public ActionResult<DataCollection<Product_CategoryDto>> GetAll(int page, int take = 20) {
             return _Product_CategoryService.GetAll(page,take);
         }
-        [HttpGet("{id}")]
-        public ActionResult<Product_CategoryDto> GetById(int id)
+        [HttpGet("{id}")] 
+        public ActionResult<Product_CategoryDto> GetAll(int id)
         {
             return _Product_CategoryService.GetById(id);
         }
