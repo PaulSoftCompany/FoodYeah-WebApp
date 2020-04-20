@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200412220356_AddCountryColumnToClient.cs" />
     <Compile Remove="Migrations\20200412220356_AddCountryColumnToClient.Designer.cs" />
+    <Compile Remove="Migrations\20200420201513_SellDay.cs" />
+    <Compile Remove="Migrations\20200420201513_SellDay.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

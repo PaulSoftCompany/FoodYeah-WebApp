@@ -45,7 +45,7 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<DataCollection<ProductDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
-                               .Include(x => x.Product_Category) //eliminar el id
+                               .Include(x => x.Product_Category)
                                .AsQueryable()
                                .Paged(page, take)
              );
@@ -76,6 +76,16 @@ namespace FoodYeah.Service.Impl
             entry.ProductPrice = model.ProductPrice;
 
             _context.SaveChanges();
+        }
+
+        public DataCollection<ProductDto> GetByWeek(int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductDto>>(
+                     _context.Products.Where(x=>x.SellDay > 0)
+                                  .OrderBy(x => x.SellDay)
+                                  .AsQueryable()
+                                  .Paged(page, take)
+                );
         }
     }
 }

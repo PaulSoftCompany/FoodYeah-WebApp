@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z8ANlbmr/WXWKOgcYDWXv20yQgf4qWoZVgUbmlFpgEHiwTsgzTucKt7qui+a1NkOC1Ixxo9gFdGKfdFfRgiP3A==",
+  "dgSpecHash": "IGmCMEJvEjPTVNc4YREN3TxPn9beswkMTz8GdQ6lr0hivKxrO7i06jHSVGhEZYUY8ZN9osnYKan4Y/zJ5f+gZw==",
   "success": true,
-  "projectFilePath": "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\.vs\\FoodYeah\\FoodYeah.csproj",
+  "projectFilePath": "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\FoodYeah\\FoodYeah.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

@@ -26,6 +26,13 @@ namespace FoodYeah.Controllers
             return  _productService.GetAll(page, take);
         }
 
+        [HttpGet("week")]
+        public ActionResult<DataCollection<ProductDto>> GetByWeek(int page, int take = 20)
+        {
+            return _productService.GetByWeek(page, take);
+        }
+
+
         // Ex: Products/1
         [HttpGet("{id}")]
         public ActionResult<ProductDto> GetById(int id)

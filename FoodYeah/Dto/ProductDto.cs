@@ -18,6 +18,8 @@ namespace FoodYeah.Dto
     {
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
+        public SellDay SellDay { get; set; }
+
     }
 
     public class ProductDto
@@ -31,5 +33,6 @@ namespace FoodYeah.Dto
         public List<OrderDetailDto> OrderDetails { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
+        public SellDay SellDay { get; set; }
     }
 }

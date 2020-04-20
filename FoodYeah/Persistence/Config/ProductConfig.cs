@@ -11,6 +11,8 @@ namespace FoodYeah.Persistence.Config
     {
         public ProductConfig(EntityTypeBuilder<Product> entityBuilder)
         {
+            entityBuilder.Property(x=>x.SellDay).HasConversion(x => x.ToString(), // to converter
+                x => (SellDay)Enum.Parse(typeof(SellDay), x));
             entityBuilder.Property(x => x.ProductId).IsRequired();
             entityBuilder.Property(x => x.ProductName).IsRequired();
             entityBuilder.Property(x => x.ProductPrice).IsRequired();

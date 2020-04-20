@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace FoodYeah.Model
 {
+    public enum SellDay
+    {
+        Lunes=1,
+        Martes=2,
+        Miercoles=3,
+        Jueves=4,
+        Viernes=5
+    }
     public class Product
     {
         public int ProductId { get; set; }
@@ -17,5 +25,6 @@ namespace FoodYeah.Model
         [Required]
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
+        public SellDay SellDay { get; set; }
     }
 }

@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {}
+    "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\FoodYeah\\FoodYeah.csproj": {}
   },
   "projects": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {
+    "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\FoodYeah\\FoodYeah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+        "projectUniqueName": "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\FoodYeah\\FoodYeah.csproj",
         "projectName": "FoodYeah",
-        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
-        "packagesPath": "C:\\Users\\akira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\obj\\",
+        "projectPath": "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\FoodYeah\\FoodYeah.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\Cursos\\Aplicaciones Web\\Foodyeah\\FoodYeah\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\akira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
