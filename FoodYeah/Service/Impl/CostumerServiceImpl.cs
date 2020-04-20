@@ -32,9 +32,9 @@ namespace FoodYeah.Service
                 CostumerName = model.CostumerName,
                 CostumerAge = model.CostumerAge,
                 Costumer_CategoryId = model.Costumer_CategoryId,
-                CostumerId = id
+                CostumerId = id++
             };
-            id++;
+            
             _context.Add(entry);
             _context.SaveChanges();
 

@@ -26,9 +26,9 @@ namespace FoodYeah.Service
             {
                 Costumer_CategoryName = model.Costumer_CategoryName,
                 Costumer_CategoryDescription = model.Costumer_CategoryDescription,
-                Costumer_CategoryId = id
+                Costumer_CategoryId = id++
             };
-            id++;
+            
             _context.Add(entry);
             _context.SaveChanges();
 

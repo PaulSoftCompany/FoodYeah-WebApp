@@ -2,7 +2,7 @@
 
 namespace FoodYeah.Migrations
 {
-    public partial class Initialize : Migration
+    public partial class Initalize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -80,8 +80,9 @@ namespace FoodYeah.Migrations
                 name: "Cards",
                 columns: table => new
                 {
-                    CardNumber = table.Column<int>(nullable: false)
+                    CardId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CardNumber = table.Column<int>(nullable: false),
                     CostumerId = table.Column<int>(nullable: false),
                     CardType = table.Column<bool>(nullable: false),
                     CardCvi = table.Column<byte>(nullable: false),
@@ -90,7 +91,7 @@ namespace FoodYeah.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cards", x => x.CardNumber);
+                    table.PrimaryKey("PK_Cards", x => x.CardId);
                     table.ForeignKey(
                         name: "FK_Cards_Costumers_CostumerId",
                         column: x => x.CostumerId,

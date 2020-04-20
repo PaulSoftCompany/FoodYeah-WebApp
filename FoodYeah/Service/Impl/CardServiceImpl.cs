@@ -25,16 +25,18 @@ namespace FoodYeah.Service
 
         public CardDto Create(CardCreateDto model)
         {
+            Costumer costumer = _context.Costumers.Single(x => x.CostumerId == model.CostumerId);
             var entry = new Card
             {
-                CardId = id,
+                CardId = id++,
                 CardNumber = model.CardNumber,
                 CostumerId = model.CostumerId,
                 CardType = model.CardType,
                 CardCvi = model.CardCvi,
+                CardOwnerName = costumer.CostumerName,
                 CardExpireDate = model.CardExpireDate
             };
-            id++;
+            
             _context.Add(entry);
             _context.SaveChanges();
 

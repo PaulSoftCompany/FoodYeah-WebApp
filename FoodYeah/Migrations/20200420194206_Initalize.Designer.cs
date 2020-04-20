@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodYeah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200420141246_Initialize")]
-    partial class Initialize
+    [Migration("20200420194206_Initalize")]
+    partial class Initalize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace FoodYeah.Migrations
 
             modelBuilder.Entity("FoodYeah.Model.Card", b =>
                 {
-                    b.Property<int>("CardNumber")
+                    b.Property<int>("CardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -34,6 +34,9 @@ namespace FoodYeah.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CardNumber")
+                        .HasColumnType("int");
+
                     b.Property<string>("CardOwnerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -44,7 +47,7 @@ namespace FoodYeah.Migrations
                     b.Property<int>("CostumerId")
                         .HasColumnType("int");
 
-                    b.HasKey("CardNumber");
+                    b.HasKey("CardId");
 
                     b.HasIndex("CostumerId");
 
