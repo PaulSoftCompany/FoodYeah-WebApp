@@ -12,6 +12,7 @@ namespace FoodYeah.Persistence.Config
     {
         public CardConfig(EntityTypeBuilder<Card> entityBuilder)
         {
+            entityBuilder.HasKey(x => x.CardNumber);
             entityBuilder.Property(x => x.CardNumber).IsRequired();
             entityBuilder.Property(x => x.CardType).IsRequired();
             entityBuilder.Property(x => x.CardCvi).IsRequired();

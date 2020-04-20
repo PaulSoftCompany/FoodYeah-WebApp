@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodYeah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200419045112_Initial")]
-    partial class Initial
+    [Migration("20200420141246_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

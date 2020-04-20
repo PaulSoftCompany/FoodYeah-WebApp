@@ -81,18 +81,11 @@ namespace FoodYeah.Service.Impl
 
         private void PrepareHeader(Order order)
         {
-            decimal totalPrice = 0;
-
-            foreach (var item in order.OrderDetails)
-            {
-                totalPrice += item.UnitPrice * item.Quantity;
-            }
-
             order.OrderId = id;
             order.Date = DateTime.Now.ToString("yyyy-MM-dd");
             order.Time = DateTime.Now.ToString("h:mm tt");
             //order.Time = (new Random().Next(1, 8)).ToString() + ":" + (new Random().Next(1, 59)).ToString();
-            order.TotalPrice = totalPrice;
+            order.TotalPrice = order.OrderDetails.Sum(x => x.TotalPrice);
             id++;
         }
     }

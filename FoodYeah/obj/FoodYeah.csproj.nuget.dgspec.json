@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah Web\\FoodYeah.csproj": {}
+    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {}
   },
   "projects": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah Web\\FoodYeah.csproj": {
+    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah Web\\FoodYeah.csproj",
+        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
         "projectName": "FoodYeah",
-        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah Web\\FoodYeah.csproj",
+        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
         "packagesPath": "C:\\Users\\akira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah Web\\obj\\",
+        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah\\FoodYeah\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\akira\\AppData\\Roaming\\NuGet\\NuGet.Config",
