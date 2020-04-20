@@ -25,10 +25,13 @@ namespace FoodYeah.Commons
                         Convert.ToDecimal(result.Total) / take
                     )
                 );
-
-                result.Items =  query.Skip((page - 1) * take)
-                                            .Take(take)
-                                            .ToList();
+                if (page > 0)
+                {
+                    result.Items = query.Skip((page - 1) * take)
+                                                .Take(take)
+                                                .ToList();
+                }
+                else return result;
             }
 
             return result;

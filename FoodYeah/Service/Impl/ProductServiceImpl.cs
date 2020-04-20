@@ -32,6 +32,7 @@ namespace FoodYeah.Service.Impl
                 ProductName = model.ProductName,
                 ProductPrice = model.ProductPrice,
                 Product_CategoryId = model.Product_CategoryId,
+                SellDay = model.SellDay,
                 ProductId = id++
             };
             

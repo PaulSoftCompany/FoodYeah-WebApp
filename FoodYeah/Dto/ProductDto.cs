@@ -12,6 +12,7 @@ namespace FoodYeah.Dto
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public int Product_CategoryId { get; set; }
+        public SellDay SellDay { get; set; }
     }
 
     public class ProductUpdateDto
