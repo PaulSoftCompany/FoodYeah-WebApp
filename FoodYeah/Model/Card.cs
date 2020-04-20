@@ -11,6 +11,7 @@ namespace FoodYeah.Model
     public class Card
     {
         [Key]
+        public int CardId { get; set; }
         public int CardNumber { get; set; }
         public int CostumerId { get; set; }
         public Costumer Costumer { get; set; }

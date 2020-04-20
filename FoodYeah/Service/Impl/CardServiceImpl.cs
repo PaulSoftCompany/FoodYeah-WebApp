@@ -14,10 +14,11 @@ namespace FoodYeah.Service
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
-
+        private static int id;
         public CardServiceImpl(ApplicationDbContext context,
             IMapper mapper)
         {
+            id = 0;
             _context = context;
             _mapper = mapper;
         }
@@ -26,13 +27,14 @@ namespace FoodYeah.Service
         {
             var entry = new Card
             {
+                CardId = id,
                 CardNumber = model.CardNumber,
                 CostumerId = model.CostumerId,
                 CardType = model.CardType,
                 CardCvi = model.CardCvi,
                 CardExpireDate = model.CardExpireDate
             };
-
+            id++;
             _context.Add(entry);
             _context.SaveChanges();
 
@@ -43,15 +45,14 @@ namespace FoodYeah.Service
         {
             _context.Remove(new Card
             {
-                CardNumber = id
+                CardId = id
             });
-
             _context.SaveChanges();
         }
 
         public void Update(int id, CardUpdateDto model)
         {
-            var entry = _context.Cards.Single(x => x.CardNumber == id);
+            var entry = _context.Cards.Single(x => x.CardId == id);
             entry.CardOwnerName = model.CardOwnerName;
 
             _context.SaveChanges();
@@ -71,7 +72,7 @@ namespace FoodYeah.Service
         public CardDto GetById(int id)
         {
             return _mapper.Map<CardDto>(
-                 _context.Cards.Single(x => x.CardNumber == id)
+                 _context.Cards.Single(x => x.CardId == id)
             );
         }
     }
