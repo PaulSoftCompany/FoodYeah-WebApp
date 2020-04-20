@@ -45,7 +45,7 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<DataCollection<ProductDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
-                               .Include(x => x.Product_Category)
+                               .Include(x => x.Product_Category) //eliminar el id
                                .AsQueryable()
                                .Paged(page, take)
              );
