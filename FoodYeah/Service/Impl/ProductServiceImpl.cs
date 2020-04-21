@@ -88,5 +88,11 @@ namespace FoodYeah.Service.Impl
                                   .Paged(page, take)
                 );
         }
+        public DataCollection<ProductDto> GetByDay(Enums.DaySold day)
+        {
+            return _mapper.Map<DataCollection<ProductDto>>(
+                     _context.Products.Where(x => x.SellDay == day).AsQueryable()                        
+                );
+        }
     }
 }

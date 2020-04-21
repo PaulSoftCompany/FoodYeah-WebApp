@@ -8291,19 +8291,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alexi\\.nuget\\packages\\": {}
+    "C:\\Users\\Brandon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+      "projectUniqueName": "C:\\Users\\Brandon\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
       "projectName": "FoodYeah",
-      "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
-      "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah\\FoodYeah\\obj\\",
+      "projectPath": "C:\\Users\\Brandon\\Documents\\GitHub\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+      "packagesPath": "C:\\Users\\Brandon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Brandon\\Documents\\GitHub\\FoodYeah\\FoodYeah\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Brandon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

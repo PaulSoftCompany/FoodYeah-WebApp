@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using FoodYeah.Commons;
 using FoodYeah.Model;
 
 namespace FoodYeah.Dto
@@ -12,14 +13,14 @@ namespace FoodYeah.Dto
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public int Product_CategoryId { get; set; }
-        public SellDay SellDay { get; set; }
+        public Enums.DaySold SellDay { get; set; }
     }
 
     public class ProductUpdateDto
     {
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
-        public SellDay SellDay { get; set; }
+        public Enums.DaySold SellDay { get; set; }
 
     }
 
@@ -34,6 +35,6 @@ namespace FoodYeah.Dto
         public List<OrderDetailDto> OrderDetails { get; set; }
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
-        public SellDay SellDay { get; set; }
+        public Enums.DaySold SellDay { get; set; }
     }
 }

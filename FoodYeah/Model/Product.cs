@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using FoodYeah.Commons;
+using FoodYeah.Migrations;
 
 namespace FoodYeah.Model
 {
-    public enum SellDay
-    {
-        Lunes=1,
-        Martes=2,
-        Miercoles=3,
-        Jueves=4,
-        Viernes=5
-    }
     public class Product
     {
         public int ProductId { get; set; }
@@ -25,6 +19,6 @@ namespace FoodYeah.Model
         [Required]
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
-        public SellDay SellDay { get; set; }
+        public Enums.DaySold SellDay { get; set; }
     }
 }
