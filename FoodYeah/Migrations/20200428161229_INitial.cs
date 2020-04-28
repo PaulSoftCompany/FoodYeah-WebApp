@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FoodYeah.Migrations
 {
-    public partial class Initalize : Migration
+    public partial class INitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +12,7 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     Costumer_CategoryId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Costumer_CategoryName = table.Column<string>(maxLength: 100, nullable: false),
                     Costumer_CategoryDescription = table.Column<string>(nullable: false)
                 },
@@ -25,7 +26,7 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     Product_CategoryId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Product_CategoryName = table.Column<string>(nullable: false),
                     Product_CategoryDescription = table.Column<string>(nullable: false)
                 },
@@ -39,7 +40,7 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     CostumerId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Costumer_CategoryId = table.Column<int>(nullable: false),
                     CostumerName = table.Column<string>(nullable: false),
                     CostumerAge = table.Column<byte>(nullable: false)
@@ -60,10 +61,11 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     ProductId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Product_CategoryId = table.Column<int>(nullable: false),
                     ProductName = table.Column<string>(nullable: false),
-                    ProductPrice = table.Column<decimal>(nullable: false)
+                    ProductPrice = table.Column<decimal>(nullable: false),
+                    SellDay = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,7 +83,7 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     CardId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CardNumber = table.Column<int>(nullable: false),
                     CostumerId = table.Column<int>(nullable: false),
                     CardType = table.Column<bool>(nullable: false),
@@ -105,7 +107,7 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     OrderId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CostumerId = table.Column<int>(nullable: false),
                     Date = table.Column<string>(nullable: false),
                     Time = table.Column<string>(nullable: false),
@@ -127,7 +129,7 @@ namespace FoodYeah.Migrations
                 columns: table => new
                 {
                     OrderDetailId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     OrderId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     Quantity = table.Column<byte>(nullable: false),

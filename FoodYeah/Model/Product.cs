@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using FoodYeah.Commons;
-using FoodYeah.Migrations;
+
 
 namespace FoodYeah.Model
 {
