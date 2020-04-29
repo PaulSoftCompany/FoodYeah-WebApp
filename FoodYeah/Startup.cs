@@ -35,7 +35,8 @@ namespace FoodYeah
                 opts => opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
             services.AddAutoMapper(typeof(Startup));
-
+            services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
             services.AddTransient<CostumerService, CostumerServiceImpl>();
             services.AddTransient<ProductService, ProductServiceImpl>();
             services.AddTransient<OrderService, OrderServiceImpl>();

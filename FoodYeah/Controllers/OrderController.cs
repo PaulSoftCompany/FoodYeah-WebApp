@@ -37,11 +37,8 @@ namespace FoodYeah.Controllers
         {
             var result =  _orderService.Create(model);
 
-            return CreatedAtAction(
-                "GetById",
-                new { id = result.OrderId },
-                result
-            );
+            return new JsonResult(new {Message = "Su Pedido se ha realizado correctamente",
+                DetalleDeOrden = result } );
         }
     }
 }

@@ -883,5 +883,8 @@ D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYea
 D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.genruntimeconfig.cache
 D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\bin\Debug\netcoreapp3.1\Npgsql.dll
 D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csproj.CoreCompileInputs.cache
 D:\Cursos\Aplicaciones Web\Git\FoodYeah\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cache

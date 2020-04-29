@@ -19,10 +19,8 @@ namespace FoodYeah.Dto
     public class Product_CategoryDto
     {
         public int Product_CategoryId { get; set; }
-
-        public List<ProductDto> Products { get; set; }
         public string Product_CategoryName { get; set; }
-        [Required]
         public string Product_CategoryDescription { get; set; }
     }
+
 }
