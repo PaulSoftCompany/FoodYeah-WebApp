@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using FoodYeah.Model;
 
 namespace FoodYeah.Dto
 {

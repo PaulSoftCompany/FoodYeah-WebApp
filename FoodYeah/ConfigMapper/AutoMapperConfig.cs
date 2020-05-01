@@ -1,8 +1,4 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;

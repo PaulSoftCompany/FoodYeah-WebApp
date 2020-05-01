@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
 using FoodYeah.Commons;
 using FoodYeah.Dto;
-using FoodYeah.Model;
 using FoodYeah.Service;
 
 namespace FoodYeah.Controllers
