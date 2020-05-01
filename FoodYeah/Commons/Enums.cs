@@ -4,7 +4,7 @@
     {
         public enum DaySold
         {
-            Lunes, Martes, Miercoles, Jueves, Viernes
+            Lunes = 1, Martes = 2, Miercoles = 3, Jueves = 4, Viernes = 5
         }
     }
 }

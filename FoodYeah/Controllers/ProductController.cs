@@ -30,11 +30,10 @@ namespace FoodYeah.Controllers
         }
 
         [HttpGet("dia/{day}")]
-        public ActionResult<DataCollection<ProductDto>> GetByDay(Enums.DaySold day)
+        public ActionResult<DataCollection<ProductDto>> GetByDay(Enums.DaySold day, int page, int take = 20)
         {
-            return _productService.GetByDay(day);
+            return _productService.GetByDay(day, page, take);
         }
-
 
         // Ex: Products/1
         [HttpGet("{id}")]
