@@ -29,13 +29,14 @@ namespace FoodYeah.Service
                 CardId = id++,
                 CardNumber = model.CardNumber,
                 CostumerId = model.CostumerId,
+                Costumer = costumer,
                 CardType = model.CardType,
                 CardCvi = model.CardCvi,
                 CardOwnerName = costumer.CostumerName,
                 CardExpireDate = model.CardExpireDate
             };
             
-            _context.Add(entry);
+            _context.Cards.Add(entry);
             _context.SaveChanges();
 
             return _mapper.Map<CardDto>(entry);

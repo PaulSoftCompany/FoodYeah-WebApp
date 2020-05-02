@@ -5,6 +5,7 @@ using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
+using System;
 
 namespace FoodYeah.Service
 {
@@ -24,18 +25,22 @@ namespace FoodYeah.Service
 
 
         public CostumerDto Create(CostumerCreateDto model)
-        {
+        {  
+            Costumer_Category costumerCategory = _context.Costumer_Categories
+            .Single(x=> x.Costumer_CategoryId == model.Costumer_CategoryId);
+            
             var entry = new Costumer
             {
                 CostumerName = model.CostumerName,
                 CostumerAge = model.CostumerAge,
                 Costumer_CategoryId = model.Costumer_CategoryId,
+                Costumer_Category = costumerCategory,
                 CostumerId = id++
             };
-            
-            _context.Add(entry);
-            _context.SaveChanges();
 
+            _context.Costumers.Add(entry);
+            _context.SaveChanges();
+            
             return _mapper.Map<CostumerDto>(entry);
         }
 

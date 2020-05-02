@@ -16,15 +16,9 @@ namespace FoodYeah.Controllers
             _costumerService = clientService;
         }
         [HttpGet]
-        public ActionResult<DataCollection<CostumerDto>> GetById(int page, int take=20)
-        {
-            return _costumerService.GetAll(page,take);
-        }
-        [HttpGet]
-        public ActionResult<CostumerDto> GetById(int id)
-        {
-            return _costumerService.GetById(id);
-        }
+        public ActionResult<DataCollection<CostumerDto>> GetAll(int page=1, int take=20) => _costumerService.GetAll(page,take);
+        [HttpGet("{id}")]
+        public ActionResult<CostumerDto> GetById(int id) => _costumerService.GetById(id);
 
         [HttpPost]
         public ActionResult Create(CostumerCreateDto costumer)

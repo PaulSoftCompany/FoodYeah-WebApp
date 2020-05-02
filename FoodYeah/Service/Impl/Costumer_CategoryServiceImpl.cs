@@ -29,7 +29,7 @@ namespace FoodYeah.Service
                 Costumer_CategoryId = id++
             };
             
-            _context.Add(entry);
+            _context.Costumer_Categories.Add(entry);
             _context.SaveChanges();
 
             return _mapper.Map<Costumer_CategoryDto>(entry);
@@ -40,7 +40,6 @@ namespace FoodYeah.Service
             return _mapper.Map<DataCollection<Costumer_CategoryDto>>(
                 _context.Costumer_Categories
                         .Include(x => x.Costumers)
-                        .ThenInclude(x => x.CostumerId)
                         .OrderByDescending(x => x.Costumer_CategoryId)
                         .AsQueryable()
                         .Paged(page, take)

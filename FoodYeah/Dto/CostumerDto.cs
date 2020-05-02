@@ -22,5 +22,6 @@ namespace FoodYeah.Dto
         public int CostumerId { get; set; }
         public string CostumerName { get; set; }
         public byte CostumerAge { get; set; }
+        public Costumer_CategoryDto Costumer_CategoryDto { get; set; }
     }
 }

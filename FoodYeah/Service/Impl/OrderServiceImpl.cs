@@ -35,7 +35,7 @@ namespace FoodYeah.Service.Impl
 
             PrepareHeader(entry);
 
-            _context.Add(entry);
+            _context.Orders.Add(entry);
             _context.SaveChanges();
 
             return _mapper.Map<OrderDto>(GetById(entry.OrderId)

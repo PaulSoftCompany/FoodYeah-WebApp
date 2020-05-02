@@ -30,10 +30,19 @@ namespace FoodYeah
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Para conectarse con Postgre:
+
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(
-                opts => opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
+               opts => opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            // Para conectarse con SQL:
+            //
+            // services.AddDbContext<ApplicationDbContext>(
+            //     opts => opts.UseSqlServer(Configuration.GetConnectionString("SQLConnection"))
+            // );
+            
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );

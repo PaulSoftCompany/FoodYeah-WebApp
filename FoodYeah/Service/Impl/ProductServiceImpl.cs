@@ -24,16 +24,20 @@ namespace FoodYeah.Service.Impl
 
         public ProductDto Create(ProductCreateDto model)
         {
+            Product_Category productCategory = _context.Product_Categories
+            .Single(x=> x.Product_CategoryId == model.Product_CategoryId);
+           
             var entry = new Product
             {
                 ProductName = model.ProductName,
                 ProductPrice = model.ProductPrice,
                 Product_CategoryId = model.Product_CategoryId,
+                Product_Category = productCategory,
                 SellDay = model.SellDay,
                 ProductId = id++
             };
             
-            _context.Add(entry);
+            _context.Products.Add(entry);
             _context.SaveChanges();
 
             return _mapper.Map<ProductDto>(entry);

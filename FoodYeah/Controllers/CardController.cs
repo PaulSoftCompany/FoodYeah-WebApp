@@ -16,16 +16,9 @@ namespace FoodYeah.Controllers
             _CardService = clientService;
         }
         [HttpGet]
-        public ActionResult<DataCollection<CardDto>> GetById(int page, int take=20)
-        {
-            return _CardService.GetAll(page,take);
-        }
-        [HttpGet]
-        public ActionResult<CardDto> GetById(int id)
-        {
-            return _CardService.GetById(id);
-        }
-
+        public ActionResult<DataCollection<CardDto>> GetAll(int page=1, int take=20) => _CardService.GetAll(page,take);
+        [HttpGet("{id}")]
+        public ActionResult<CardDto> GetById(int id) => _CardService.GetById(id);
         [HttpPost]
         public ActionResult Create(CardCreateDto Card)
         {

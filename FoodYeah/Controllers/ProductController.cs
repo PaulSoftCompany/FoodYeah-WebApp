@@ -18,19 +18,16 @@ namespace FoodYeah.Controllers
 
         //http://localhost:52451/products?page=1&take=1
         [HttpGet]
-        public ActionResult<DataCollection<ProductDto>> GetById(int page, int take = 20)
-        {
-            return  _productService.GetAll(page, take);
-        }
+        public ActionResult<DataCollection<ProductDto>> GetAll(int page=1, int take = 20) => _productService.GetAll(page, take);
 
         [HttpGet("week")]
-        public ActionResult<DataCollection<ProductDto>> GetByWeek(int page, int take = 20)
+        public ActionResult<DataCollection<ProductDto>> GetByWeek(int page=1, int take = 20)
         {
             return _productService.GetByWeek(page, take);
         }
 
-        [HttpGet("dia/{day}")]
-        public ActionResult<DataCollection<ProductDto>> GetByDay(Enums.DaySold day, int page, int take = 20)
+        [HttpGet("day/{day}")]
+        public ActionResult<DataCollection<ProductDto>> GetByDay(Enums.DaySold day, int page=1, int take = 20)
         {
             return _productService.GetByDay(day, page, take);
         }

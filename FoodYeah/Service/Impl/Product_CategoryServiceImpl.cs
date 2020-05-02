@@ -29,7 +29,7 @@ namespace FoodYeah.Service
                 Product_CategoryId = id++
             };
             
-            _context.Add(entry);
+            _context.Product_Categories.Add(entry);
             _context.SaveChanges();
 
             return _mapper.Map<Product_CategoryDto>(entry);

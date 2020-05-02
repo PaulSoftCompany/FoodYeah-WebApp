@@ -11,8 +11,14 @@ namespace FoodYeah.Persistence.Config
             entityBuilder.Property(x => x.Quantity).IsRequired();
             entityBuilder.Property(x => x.UnitPrice).IsRequired();
             entityBuilder.Property(x => x.TotalPrice).IsRequired();
-            entityBuilder.HasOne(x => x.Product).WithMany(x => x.OrderDetails).HasForeignKey(x => x.ProductId);
-            entityBuilder.HasOne(x => x.Order).WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
+            entityBuilder
+            .HasOne(x => x.Product)
+            .WithMany(x => x.OrderDetails)
+            .HasForeignKey(x => x.ProductId);
+            entityBuilder
+            .HasOne(x => x.Order)
+            .WithMany(x => x.OrderDetails)
+            .HasForeignKey(x => x.OrderId);
         }
     }
 }
