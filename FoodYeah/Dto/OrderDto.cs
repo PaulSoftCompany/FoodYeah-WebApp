@@ -27,6 +27,7 @@ namespace FoodYeah.Dto
         public string Date { get; set; }
         public string Time { get; set; }
         public byte TotalPrice { get; set; }
+        public string Status { get; set; }
     }
 
     public class OrderDetailDto

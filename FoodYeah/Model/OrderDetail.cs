@@ -13,5 +13,6 @@
         public byte Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
+        public string Status { get; set; }
     }
 }

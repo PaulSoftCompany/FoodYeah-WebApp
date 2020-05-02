@@ -8,5 +8,6 @@ namespace FoodYeah.Service
         DataCollection<OrderDto> GetAll(int page, int take);
         OrderDto GetById(int id);
         OrderDto Create(OrderCreateDto model);
+        OrderDto UpdateStatus(int id, string status);
     }
 }

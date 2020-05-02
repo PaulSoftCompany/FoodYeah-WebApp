@@ -32,5 +32,13 @@ namespace FoodYeah.Controllers
             return new JsonResult(new {Message = "Su Pedido se ha realizado correctamente",
                 DetalleDeOrden = result } );
         }
+
+        [HttpPut("{id}")]
+        public ActionResult OrdenTerminada(int id, string status)
+        {
+            var orden = _orderService.UpdateStatus(id, status);
+            if (orden.Status == "TERMINADA") return new JsonResult(new { DetalleOrden = orden });
+            else return new JsonResult(new { Mensaje = "Orden en preparacion" });
+        }
     }
 }

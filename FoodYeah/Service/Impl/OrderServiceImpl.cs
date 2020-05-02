@@ -66,6 +66,7 @@ namespace FoodYeah.Service.Impl
                                     .ThenInclude(x => x.Order)
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Product)
+                                    .ThenInclude(x=>x.Product_Category)
                      .Single(x => x.OrderId == id)
              );
         }
@@ -85,6 +86,15 @@ namespace FoodYeah.Service.Impl
             order.Time = DateTime.Now.ToString("h:mm tt");
             //order.Time = (new Random().Next(1, 8)).ToString() + ":" + (new Random().Next(1, 59)).ToString();
             order.TotalPrice = order.OrderDetails.Sum(x => x.TotalPrice);
+        }
+
+        public OrderDto UpdateStatus(int id, string status)
+        {
+            var estado = status.ToUpper();
+            var orden = _context.Orders.Single(x => x.OrderId == id);
+            orden.Status = estado;
+            _context.SaveChanges();
+            return _mapper.Map<OrderDto>(GetById(orden.OrderId));
         }
     }
 }
