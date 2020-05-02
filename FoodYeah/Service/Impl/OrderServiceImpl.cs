@@ -46,7 +46,7 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<DataCollection<OrderDto>>(
                 _context.Orders.OrderByDescending(x => x.OrderId)
-                                   .Include(x => x.Costumer)
+                                   .Include(x => x.Customer)
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Order)
                                    .Include(x => x.OrderDetails)
@@ -60,7 +60,7 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<OrderDto>(
                   _context.Orders
-                     .Include(x => x.Costumer)
+                     .Include(x => x.Customer)
 
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Order)

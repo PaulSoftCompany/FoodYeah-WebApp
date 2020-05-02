@@ -8,8 +8,8 @@ namespace FoodYeah.Model
 
         public List<OrderDetail> OrderDetails { get; set; }
 
-        public int CostumerId { get; set; }
-        public Costumer Costumer { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
         public decimal TotalPrice { get; set; }

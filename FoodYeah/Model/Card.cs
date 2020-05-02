@@ -7,8 +7,8 @@ namespace FoodYeah.Model
         [Key]
         public int CardId { get; set; }
         public int CardNumber { get; set; }
-        public int CostumerId { get; set; }
-        public Costumer Costumer { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public bool CardType { get; set; }
         public byte CardCvi  { get; set; }
         [Required]

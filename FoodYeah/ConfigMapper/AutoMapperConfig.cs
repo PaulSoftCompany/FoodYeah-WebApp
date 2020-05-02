@@ -9,8 +9,8 @@ namespace FoodYeah.ConfigMapper
     {
         public AutoMapperConfig()
         {
-            CreateMap<Costumer, CostumerDto>();
-            CreateMap<DataCollection<Costumer>, DataCollection<CostumerDto>>();
+            CreateMap<Customer, CustomerDto>();
+            CreateMap<DataCollection<Customer>, DataCollection<CustomerDto>>();
 
             CreateMap<Product, ProductDto>();
             CreateMap<DataCollection<Product>, DataCollection<ProductDto>>();
@@ -29,8 +29,8 @@ namespace FoodYeah.ConfigMapper
             CreateMap<Product_Category, Product_CategoryDto>();
             CreateMap<DataCollection<Product_Category>, DataCollection<Product_CategoryDto>>();
 
-            CreateMap<Costumer_Category, Costumer_CategoryDto>();
-            CreateMap<DataCollection<Costumer_Category>, DataCollection<Costumer_CategoryDto>>();
+            CreateMap<Customer_Category, Customer_CategoryDto>();
+            CreateMap<DataCollection<Customer_Category>, DataCollection<Customer_CategoryDto>>();
         }
     }
 }

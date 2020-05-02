@@ -8,17 +8,17 @@ namespace FoodYeah.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Costumer_Categories",
+                name: "Customer_Categories",
                 columns: table => new
                 {
-                    Costumer_CategoryId = table.Column<int>(nullable: false)
+                    Customer_CategoryId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Costumer_CategoryName = table.Column<string>(maxLength: 100, nullable: false),
-                    Costumer_CategoryDescription = table.Column<string>(nullable: false)
+                    Customer_CategoryName = table.Column<string>(maxLength: 100, nullable: false),
+                    Customer_CategoryDescription = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Costumer_Categories", x => x.Costumer_CategoryId);
+                    table.PrimaryKey("PK_Customer_Categories", x => x.Customer_CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -36,23 +36,23 @@ namespace FoodYeah.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Costumers",
+                name: "Customers",
                 columns: table => new
                 {
-                    CostumerId = table.Column<int>(nullable: false)
+                    CustomerId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Costumer_CategoryId = table.Column<int>(nullable: false),
-                    CostumerName = table.Column<string>(nullable: false),
-                    CostumerAge = table.Column<byte>(nullable: false)
+                    Customer_CategoryId = table.Column<int>(nullable: false),
+                    CustomerName = table.Column<string>(nullable: false),
+                    CustomerAge = table.Column<byte>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Costumers", x => x.CostumerId);
+                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
                     table.ForeignKey(
-                        name: "FK_Costumers_Costumer_Categories_Costumer_CategoryId",
-                        column: x => x.Costumer_CategoryId,
-                        principalTable: "Costumer_Categories",
-                        principalColumn: "Costumer_CategoryId",
+                        name: "FK_Customers_Customer_Categories_Customer_CategoryId",
+                        column: x => x.Customer_CategoryId,
+                        principalTable: "Customer_Categories",
+                        principalColumn: "Customer_CategoryId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -85,7 +85,7 @@ namespace FoodYeah.Migrations
                     CardId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CardNumber = table.Column<int>(nullable: false),
-                    CostumerId = table.Column<int>(nullable: false),
+                    CustomerId = table.Column<int>(nullable: false),
                     CardType = table.Column<bool>(nullable: false),
                     CardCvi = table.Column<byte>(nullable: false),
                     CardOwnerName = table.Column<string>(nullable: false),
@@ -95,10 +95,10 @@ namespace FoodYeah.Migrations
                 {
                     table.PrimaryKey("PK_Cards", x => x.CardId);
                     table.ForeignKey(
-                        name: "FK_Cards_Costumers_CostumerId",
-                        column: x => x.CostumerId,
-                        principalTable: "Costumers",
-                        principalColumn: "CostumerId",
+                        name: "FK_Cards_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -108,7 +108,7 @@ namespace FoodYeah.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CostumerId = table.Column<int>(nullable: false),
+                    CustomerId = table.Column<int>(nullable: false),
                     Date = table.Column<string>(nullable: false),
                     Time = table.Column<string>(nullable: false),
                     TotalPrice = table.Column<decimal>(nullable: false)
@@ -117,10 +117,10 @@ namespace FoodYeah.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_Orders_Costumers_CostumerId",
-                        column: x => x.CostumerId,
-                        principalTable: "Costumers",
-                        principalColumn: "CostumerId",
+                        name: "FK_Orders_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "CustomerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -154,14 +154,14 @@ namespace FoodYeah.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cards_CostumerId",
+                name: "IX_Cards_CustomerId",
                 table: "Cards",
-                column: "CostumerId");
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Costumers_Costumer_CategoryId",
-                table: "Costumers",
-                column: "Costumer_CategoryId");
+                name: "IX_Customers_Customer_CategoryId",
+                table: "Customers",
+                column: "Customer_CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_OrderId",
@@ -174,9 +174,9 @@ namespace FoodYeah.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_CostumerId",
+                name: "IX_Orders_CustomerId",
                 table: "Orders",
-                column: "CostumerId");
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_Product_CategoryId",
@@ -199,13 +199,13 @@ namespace FoodYeah.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Costumers");
+                name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "Product_Categories");
 
             migrationBuilder.DropTable(
-                name: "Costumer_Categories");
+                name: "Customer_Categories");
         }
     }
 }

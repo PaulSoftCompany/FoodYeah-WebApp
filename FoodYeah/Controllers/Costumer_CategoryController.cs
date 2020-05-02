@@ -5,38 +5,38 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoodYeah.Controllers
 {
-    [Route("costumer_categories")]
+    [Route("Customer_categories")]
     [ApiController]
-    public class Costumer_CategoryController : ControllerBase
+    public class Customer_CategoryController : ControllerBase
     {
-        private readonly Costumer_CategoryService _Costumer_CategoryService;
+        private readonly Customer_CategoryService _Customer_CategoryService;
 
-        public Costumer_CategoryController(Costumer_CategoryService clientService)
+        public Customer_CategoryController(Customer_CategoryService clientService)
         {
-            _Costumer_CategoryService = clientService;
+            _Customer_CategoryService = clientService;
         }
         [HttpGet]
-        public ActionResult<DataCollection<Costumer_CategoryDto>> GetAll(int page=1, int take = 20) => _Costumer_CategoryService.GetAll(page, take);
+        public ActionResult<DataCollection<Customer_CategoryDto>> GetAll(int page=1, int take = 20) => _Customer_CategoryService.GetAll(page, take);
         [HttpGet("{id}")]
-        public ActionResult<Costumer_CategoryDto> GetById(int id) => _Costumer_CategoryService.GetById(id);
+        public ActionResult<Customer_CategoryDto> GetById(int id) => _Customer_CategoryService.GetById(id);
         [HttpPost]
-        public ActionResult Create(Costumer_CategoryCreateDto Costumer_Category)
+        public ActionResult Create(Customer_CategoryCreateDto Customer_Category)
         {
-            _Costumer_CategoryService.Create(Costumer_Category);
+            _Customer_CategoryService.Create(Customer_Category);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(int id, Costumer_CategoryUpdateDto model)
+        public ActionResult Update(int id, Customer_CategoryUpdateDto model)
         {
-            _Costumer_CategoryService.Update(id, model);
+            _Customer_CategoryService.Update(id, model);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public ActionResult Remove(int id)
         {
-            _Costumer_CategoryService.Remove(id);
+            _Customer_CategoryService.Remove(id);
             return NoContent();
         }
     }

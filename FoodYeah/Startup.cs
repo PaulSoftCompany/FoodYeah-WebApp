@@ -46,12 +46,12 @@ namespace FoodYeah
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
-            services.AddTransient<CostumerService, CostumerServiceImpl>();
+            services.AddTransient<CustomerService, CustomerServiceImpl>();
             services.AddTransient<ProductService, ProductServiceImpl>();
             services.AddTransient<OrderService, OrderServiceImpl>();
             services.AddTransient<CardService, CardServiceImpl>();            
             services.AddTransient<Product_CategoryService, Product_CategoryServiceImpl>();    
-            services.AddTransient<Costumer_CategoryService, Costumer_CategoryServiceImpl>();  
+            services.AddTransient<Customer_CategoryService, Customer_CategoryServiceImpl>();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

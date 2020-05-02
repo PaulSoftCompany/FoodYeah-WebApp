@@ -6,38 +6,38 @@ using Microsoft.AspNetCore.Mvc;
 namespace FoodYeah.Controllers
 {
     [ApiController]
-    [Route("costumers")]
-    public class CostumerController : ControllerBase
+    [Route("Customers")]
+    public class CustomerController : ControllerBase
     {
-        private readonly CostumerService _costumerService;
+        private readonly CustomerService _CustomerService;
 
-        public CostumerController(CostumerService clientService)
+        public CustomerController(CustomerService clientService)
         {
-            _costumerService = clientService;
+            _CustomerService = clientService;
         }
         [HttpGet]
-        public ActionResult<DataCollection<CostumerDto>> GetAll(int page=1, int take=20) => _costumerService.GetAll(page,take);
+        public ActionResult<DataCollection<CustomerDto>> GetAll(int page=1, int take=20) => _CustomerService.GetAll(page,take);
         [HttpGet("{id}")]
-        public ActionResult<CostumerDto> GetById(int id) => _costumerService.GetById(id);
+        public ActionResult<CustomerDto> GetById(int id) => _CustomerService.GetById(id);
 
         [HttpPost]
-        public ActionResult Create(CostumerCreateDto costumer)
+        public ActionResult Create(CustomerCreateDto Customer)
         {
-            _costumerService.Create(costumer);
+            _CustomerService.Create(Customer);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(int id, CostumerUpdateDto model)
+        public ActionResult Update(int id, CustomerUpdateDto model)
         {
-            _costumerService.Update(id, model);
+            _CustomerService.Update(id, model);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public ActionResult Remove(int id)
         {
-            _costumerService.Remove(id);
+            _CustomerService.Remove(id);
             return NoContent();
         }
     }
