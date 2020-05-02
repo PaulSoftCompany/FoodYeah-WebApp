@@ -25,16 +25,23 @@ namespace FoodYeah.Controllers
         [HttpGet("{id}")]
         public ActionResult<OrderDto> GetById(int id)
         {
-            return  _orderService.GetById(id);
+            return _orderService.GetById(id);
         }
 
         [HttpPost]
         public ActionResult Create(OrderCreateDto model)
         {
-            var result =  _orderService.Create(model);
+            var result = _orderService.Create(model);
 
-            return new JsonResult(new {Message = "Su Pedido se ha realizado correctamente",
-                DetalleDeOrden = result } );
+            return new JsonResult(new { Message = "Su Pedido se ha realizado correctamente",
+                DetalleDeOrden = result });
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult OrdenTerminada(int id,string status) {
+            var orden = _orderService.UpdateStatus(id, status);
+            if (orden.Status == "TERMINADA") return new JsonResult(new { DetalleOrden = orden });
+            else return new JsonResult(new { Mensaje = "Orden en preparacion" });
         }
     }
 }
