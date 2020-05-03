@@ -98,5 +98,15 @@ namespace FoodYeah.Service.Impl
                      .Paged(page, take)
                 );
         }
+
+        public DataCollection<ProductDto> GetByType(int type, int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductDto>>(
+                     _context.Products.Where(x => x.Product_CategoryId == type)
+                     .OrderBy(x => x.SellDay)
+                     .AsQueryable()
+                     .Paged(page, take)
+                );
+        }
     }
 }
