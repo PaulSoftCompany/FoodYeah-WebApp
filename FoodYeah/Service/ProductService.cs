@@ -10,6 +10,7 @@ namespace FoodYeah.Service
         DataCollection<ProductDto> GetByWeek(int page, int take);
         DataCollection<ProductDto> GetByDay(Enums.DaySold day, int page, int take);
         ProductDto Create(ProductCreateDto model);
+        DataCollection<ProductDto> GetByType(int type, int page, int take);
         void Update(int id, ProductUpdateDto model);
         void Remove(int id);
     }
