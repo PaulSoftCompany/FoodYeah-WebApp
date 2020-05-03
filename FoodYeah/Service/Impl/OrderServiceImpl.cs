@@ -16,6 +16,7 @@ namespace FoodYeah.Service.Impl
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private static int id;
+        private static string averageTime;
 
         public OrderServiceImpl(
             ApplicationDbContext context,
@@ -46,7 +47,7 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<DataCollection<OrderDto>>(
                 _context.Orders.OrderByDescending(x => x.OrderId)
-                                   .Include(x => x.Costumer)
+                                   .Include(x => x.Customer)
                                    .Include(x => x.OrderDetails)
                                     .ThenInclude(x => x.Order)
                                    .Include(x => x.OrderDetails)
@@ -60,13 +61,12 @@ namespace FoodYeah.Service.Impl
         {
             return _mapper.Map<OrderDto>(
                   _context.Orders
-                     .Include(x => x.Costumer)
-
-                                   .Include(x => x.OrderDetails)
-                                    .ThenInclude(x => x.Order)
-                                   .Include(x => x.OrderDetails)
-                                    .ThenInclude(x => x.Product)
-                     .Single(x => x.OrderId == id)
+                    .Include(x => x.Customer)
+                    .Include(x => x.OrderDetails)
+                    .ThenInclude(x => x.Order)
+                    .Include(x => x.OrderDetails)
+                    .ThenInclude(x => x.Product)
+                    .Single(x => x.OrderId == id)
              );
         }
 
@@ -74,6 +74,8 @@ namespace FoodYeah.Service.Impl
         {
             foreach (var item in orderDetails)
             {
+                Product product = _context.Products.Single(x => x.ProductId == item.ProductId);
+                item.UnitPrice = product.ProductPrice;
                 item.TotalPrice = item.UnitPrice * item.Quantity;
             }
         }
@@ -82,9 +84,27 @@ namespace FoodYeah.Service.Impl
         {
             order.OrderId = id++;
             order.Date = DateTime.Now.ToString("yyyy-MM-dd");
-            order.Time = DateTime.Now.ToString("h:mm tt");
-            //order.Time = (new Random().Next(1, 8)).ToString() + ":" + (new Random().Next(1, 59)).ToString();
             order.TotalPrice = order.OrderDetails.Sum(x => x.TotalPrice);
+            order.InitTime = DateTime.Now.ToString("hh:mm:ss tt");
+            order.EndTime = "00:00:00";
+        }
+
+        public void SetEndTime(int id)
+        {
+            var order = _context.Orders.Single(x => x.OrderId == id);
+            order.EndTime = DateTime.Now.ToString("hh:mm:ss tt");
+            _context.SaveChanges();
+
+            UpdateAverageTime(order);
+        }
+
+        private void UpdateAverageTime(Order order)
+        {
+            DateTime _initTime = DateTime.Parse(order.InitTime);
+            DateTime _endTime = DateTime.Parse(order.EndTime);
+            var _averageTime = _endTime - _initTime;
+
+            averageTime = _averageTime.ToString();
         }
     }
 }

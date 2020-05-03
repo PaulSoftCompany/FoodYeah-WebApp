@@ -17,20 +17,30 @@ namespace FoodYeah.Controllers
         }
 
         [HttpGet]
-        public ActionResult<DataCollection<OrderDto>> GetAll(int page=1, int take = 20) => _orderService.GetAll(page, take);
+        public ActionResult<DataCollection<OrderDto>> GetAll(int page = 1, int take = 20) => _orderService.GetAll(page, take);
         [HttpGet("{id}")]
         public ActionResult<OrderDto> GetById(int id)
         {
-            return  _orderService.GetById(id);
+            return _orderService.GetById(id);
         }
 
         [HttpPost]
         public ActionResult Create(OrderCreateDto model)
         {
-            var result =  _orderService.Create(model);
+            var result = _orderService.Create(model);
 
-            return new JsonResult(new {Message = "Su Pedido se ha realizado correctamente",
-                DetalleDeOrden = result } );
+            return new JsonResult(new
+            {
+                Message = "Su Pedido se ha realizado correctamente",
+                DetalleDeOrden = result
+            });
+        }
+
+        [HttpPut("updateEndTime/{id}")]
+        public ActionResult UpdateEndTime(int id)
+        {
+            _orderService.SetEndTime(id);
+            return NoContent();
         }
     }
 }

@@ -5,14 +5,13 @@ namespace FoodYeah.Dto
     public class OrderCreateDto
     {
         public List<OrderDetailCreateDto> OrderDetails { get; set; }
-        public int CostumerId { get; set; }
+        public int CustomerId { get; set; }
     }
 
     public class OrderDetailCreateDto
     {
         public int ProductId { get; set; }
         public byte Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
     }
 
     public class OrderDto
@@ -21,11 +20,12 @@ namespace FoodYeah.Dto
 
         public List<OrderDetailDto> OrderDetails { get; set; }
 
-        public int CostumerId { get; set; }
-        public CostumerDto Costumer { get; set; }
+        public int CustomerId { get; set; }
+        public CustomerDto Customer { get; set; }
         
         public string Date { get; set; }
-        public string Time { get; set; }
+        public string InitTime { get; set; }
+        public string EndTime { get; set; }
         public byte TotalPrice { get; set; }
     }
 

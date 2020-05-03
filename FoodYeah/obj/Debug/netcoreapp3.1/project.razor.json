@@ -20519,62 +20519,6 @@
     "CSharpLanguageVersion": 800
   },
   "RootNamespace": "FoodYeah",
-  "Documents": [
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumers1\\Delete.cshtml",
-      "TargetPath": "Views\\Costumers1\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumers1\\Edit.cshtml",
-      "TargetPath": "Views\\Costumers1\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumer_Category1\\Delete.cshtml",
-      "TargetPath": "Views\\Costumer_Category1\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumers1\\Create.cshtml",
-      "TargetPath": "Views\\Costumers1\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumer_Category1\\Edit.cshtml",
-      "TargetPath": "Views\\Costumer_Category1\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumer_Category1\\Create.cshtml",
-      "TargetPath": "Views\\Costumer_Category1\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumer_Category1\\Index.cshtml",
-      "TargetPath": "Views\\Costumer_Category1\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumers1\\Details.cshtml",
-      "TargetPath": "Views\\Costumers1\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumer_Category1\\Details.cshtml",
-      "TargetPath": "Views\\Costumer_Category1\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\Views\\Costumers1\\Index.cshtml",
-      "TargetPath": "Views\\Costumers1\\Index.cshtml",
-      "FileKind": "mvc"
-    }
-  ],
+  "Documents": [],
   "SerializationFormat": "0.2"
 }

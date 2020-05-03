@@ -6,7 +6,7 @@ namespace FoodYeah.Dto
     {
         [Required]
         public int CardNumber { get; set; }
-        public int CostumerId { get; set; }
+        public int CustomerId { get; set; }
         public bool CardType { get; set; }
         public byte CardCvi  { get; set; }
         public string CardExpireDate { get; set; }
@@ -21,8 +21,8 @@ namespace FoodYeah.Dto
     {
         public int CardId { get; set; }
         public int CardNumber { get; set; }
-        public int CostumerId { get; set; }
-        public CostumerDto Costumer { get; set; }
+        public int CustomerId { get; set; }
+        public CustomerDto Customer { get; set; }
         public bool CardType { get; set; }
         public byte CardCvi  { get; set; }
         [Required]

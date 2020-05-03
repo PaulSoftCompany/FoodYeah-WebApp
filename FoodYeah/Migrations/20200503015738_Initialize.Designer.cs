@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FoodYeah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200502060737_Initialize")]
+    [Migration("20200503015738_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,59 +44,59 @@ namespace FoodYeah.Migrations
                     b.Property<bool>("CardType")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("CostumerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
                     b.HasKey("CardId");
 
-                    b.HasIndex("CostumerId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Cards");
                 });
 
-            modelBuilder.Entity("FoodYeah.Model.Costumer", b =>
+            modelBuilder.Entity("FoodYeah.Model.Customer", b =>
                 {
-                    b.Property<int>("CostumerId")
+                    b.Property<int>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<byte>("CostumerAge")
+                    b.Property<byte>("CustomerAge")
                         .HasColumnType("smallint");
 
-                    b.Property<string>("CostumerName")
+                    b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("Costumer_CategoryId")
+                    b.Property<int>("Customer_CategoryId")
                         .HasColumnType("integer");
 
-                    b.HasKey("CostumerId");
+                    b.HasKey("CustomerId");
 
-                    b.HasIndex("Costumer_CategoryId");
+                    b.HasIndex("Customer_CategoryId");
 
-                    b.ToTable("Costumers");
+                    b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("FoodYeah.Model.Costumer_Category", b =>
+            modelBuilder.Entity("FoodYeah.Model.Customer_Category", b =>
                 {
-                    b.Property<int>("Costumer_CategoryId")
+                    b.Property<int>("Customer_CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("Costumer_CategoryDescription")
+                    b.Property<string>("Customer_CategoryDescription")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Costumer_CategoryName")
+                    b.Property<string>("Customer_CategoryName")
                         .IsRequired()
                         .HasColumnType("character varying(100)")
                         .HasMaxLength(100);
 
-                    b.HasKey("Costumer_CategoryId");
+                    b.HasKey("Customer_CategoryId");
 
-                    b.ToTable("Costumer_Categories");
+                    b.ToTable("Customer_Categories");
                 });
 
             modelBuilder.Entity("FoodYeah.Model.Order", b =>
@@ -106,14 +106,18 @@ namespace FoodYeah.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("CostumerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Date")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Time")
+                    b.Property<string>("EndTime")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("InitTime")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -122,7 +126,7 @@ namespace FoodYeah.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("CostumerId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -208,27 +212,27 @@ namespace FoodYeah.Migrations
 
             modelBuilder.Entity("FoodYeah.Model.Card", b =>
                 {
-                    b.HasOne("FoodYeah.Model.Costumer", "Costumer")
+                    b.HasOne("FoodYeah.Model.Customer", "Customer")
                         .WithMany("Cards")
-                        .HasForeignKey("CostumerId")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FoodYeah.Model.Costumer", b =>
+            modelBuilder.Entity("FoodYeah.Model.Customer", b =>
                 {
-                    b.HasOne("FoodYeah.Model.Costumer_Category", "Costumer_Category")
-                        .WithMany("Costumers")
-                        .HasForeignKey("Costumer_CategoryId")
+                    b.HasOne("FoodYeah.Model.Customer_Category", "Customer_Category")
+                        .WithMany("Customers")
+                        .HasForeignKey("Customer_CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("FoodYeah.Model.Order", b =>
                 {
-                    b.HasOne("FoodYeah.Model.Costumer", "Costumer")
+                    b.HasOne("FoodYeah.Model.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CostumerId")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -23,16 +23,16 @@ namespace FoodYeah.Service
 
         public CardDto Create(CardCreateDto model)
         {
-            Costumer costumer = _context.Costumers.Single(x => x.CostumerId == model.CostumerId);
+            Customer Customer = _context.Customers.Single(x => x.CustomerId == model.CustomerId);
             var entry = new Card
             {
                 CardId = id++,
                 CardNumber = model.CardNumber,
-                CostumerId = model.CostumerId,
-                Costumer = costumer,
+                CustomerId = model.CustomerId,
+                Customer = Customer,
                 CardType = model.CardType,
                 CardCvi = model.CardCvi,
-                CardOwnerName = costumer.CostumerName,
+                CardOwnerName = Customer.CustomerName,
                 CardExpireDate = model.CardExpireDate
             };
             
@@ -63,8 +63,8 @@ namespace FoodYeah.Service
         {
             return _mapper.Map<DataCollection<CardDto>>(
                  _context.Cards
-                              .Include(x => x.Costumer)
-                              .OrderByDescending(x => x.CostumerId)
+                              .Include(x => x.Customer)
+                              .OrderByDescending(x => x.CustomerId)
                               .AsQueryable()
                               .Paged(page, take)
             );
