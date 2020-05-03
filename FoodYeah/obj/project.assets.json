@@ -8797,19 +8797,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alexi\\.nuget\\packages\\": {}
+    "C:\\Users\\ACER\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
+      "projectUniqueName": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
       "projectName": "FoodYeah",
-      "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
-      "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\obj\\",
+      "projectPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+      "outputPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
