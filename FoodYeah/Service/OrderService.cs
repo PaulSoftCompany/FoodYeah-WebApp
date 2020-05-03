@@ -9,5 +9,6 @@ namespace FoodYeah.Service
         OrderDto GetById(int id);
         OrderDto Create(OrderCreateDto model);
         void SetEndTime(int id);
+        string GetAverageTime();
     }
 }

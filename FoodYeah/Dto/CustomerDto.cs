@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FoodYeah.Dto
 {
@@ -8,6 +9,7 @@ namespace FoodYeah.Dto
         public string CustomerName { get; set; }
         public byte CustomerAge { get; set; }
         public int Customer_CategoryId { get; set; }
+        public Customer_CategoryDto Customer_Category { get; set; }
     }
 
     public class CustomerUpdateDto
@@ -22,6 +24,8 @@ namespace FoodYeah.Dto
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public byte CustomerAge { get; set; }
-        public Customer_CategoryDto Customer_CategoryDto { get; set; }
+        public Customer_CategoryDto Customer_Category { get; set; }
+        public List<CardDto> Cards { get; set; } 
+        public List<OrderDto> Orders {get; set;}
     }
 }

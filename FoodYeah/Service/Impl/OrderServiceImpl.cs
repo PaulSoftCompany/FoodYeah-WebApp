@@ -8,6 +8,7 @@ using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
+using System.Globalization;
 
 namespace FoodYeah.Service.Impl
 {
@@ -16,7 +17,6 @@ namespace FoodYeah.Service.Impl
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private static int id;
-        private static string averageTime;
 
         public OrderServiceImpl(
             ApplicationDbContext context,
@@ -94,17 +94,23 @@ namespace FoodYeah.Service.Impl
             var order = _context.Orders.Single(x => x.OrderId == id);
             order.EndTime = DateTime.Now.ToString("hh:mm:ss tt");
             _context.SaveChanges();
-
-            UpdateAverageTime(order);
         }
 
-        private void UpdateAverageTime(Order order)
+        public string GetAverageTime()
         {
-            DateTime _initTime = DateTime.Parse(order.InitTime);
-            DateTime _endTime = DateTime.Parse(order.EndTime);
-            var _averageTime = _endTime - _initTime;
+            var averageTime = TimeSpan.Parse("00:00:00");
+            int cantidad=0;
 
-            averageTime = _averageTime.ToString();
+            foreach(var order in _context.Orders){
+                if (order.EndTime == "00:00:00") 
+                    continue;
+                cantidad++;
+                DateTime _initTime = DateTime.Parse(order.InitTime);
+                DateTime _endTime = DateTime.Parse(order.EndTime);
+                averageTime += _endTime - _initTime;
+            }
+            averageTime = averageTime.Divide(cantidad);
+            return averageTime.ToString();
         }
     }
 }
