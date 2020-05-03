@@ -33,16 +33,19 @@ namespace FoodYeah
             // Para conectarse con Postgre:
 
             services.AddControllers();
+
+            //Para conectarse con Postgress
+
             services.AddDbContext<ApplicationDbContext>(
                opts => opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
 
-            // Para conectarse con SQL:
-            //
-            // services.AddDbContext<ApplicationDbContext>(
+            //Para conectarse con SQL:
+
+            //services.AddDbContext<ApplicationDbContext>(
             //     opts => opts.UseSqlServer(Configuration.GetConnectionString("SQLConnection"))
             // );
-            
+
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
