@@ -23,6 +23,7 @@ namespace FoodYeah.Controllers
         
         [HttpGet("{id}")]
         public ActionResult<Customer_CategoryDto> GetById(int id) => _Customer_CategoryService.GetById(id);
+        
         [HttpPost]
         public ActionResult Create(Customer_CategoryCreateDto Customer_Category)
         {

@@ -49,6 +49,8 @@ namespace FoodYeah.ConfigMapper
 
             CreateMap<Customer_Category, Customer_CategorySimpleDto>();
             CreateMap<DataCollection<Customer_Category>, DataCollection<Customer_CategorySimpleDto>>();
+
+            
         }
     }
 }

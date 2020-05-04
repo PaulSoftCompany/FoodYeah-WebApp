@@ -25,8 +25,8 @@ namespace FoodYeah.Service.Impl
         public ProductDto Create(ProductCreateDto model)
         {
             Product_Category productCategory = _context.Product_Categories
-            .Single(x=> x.Product_CategoryId == model.Product_CategoryId);
-           
+            .Single(x => x.Product_CategoryId == model.Product_CategoryId);
+
             var entry = new Product
             {
                 ProductName = model.ProductName,
@@ -39,7 +39,7 @@ namespace FoodYeah.Service.Impl
                 Ingredients = model.Ingredients,
                 ProductId = id++
             };
-            
+
             _context.Products.Add(entry);
             _context.SaveChanges();
 
@@ -56,7 +56,7 @@ namespace FoodYeah.Service.Impl
              );
         }
 
-         public DataCollection<ProductSimpleDto> GetAllSimple(int page, int take)
+        public DataCollection<ProductSimpleDto> GetAllSimple(int page, int take)
         {
             return _mapper.Map<DataCollection<ProductSimpleDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
@@ -88,6 +88,7 @@ namespace FoodYeah.Service.Impl
 
             entry.ProductName = model.ProductName;
             entry.ProductPrice = model.ProductPrice;
+            entry.Product_CategoryId = model.Product_CategoryId;
             entry.SellDay = model.SellDay;
             entry.Stock = model.Stock;
             entry.ImageUrl = model.ImageUrl;
@@ -96,15 +97,14 @@ namespace FoodYeah.Service.Impl
             _context.SaveChanges();
         }
 
-        public DataCollection<ProductDto> GetByWeek(int page, int take)
+        public void AddStock(int id, ProductUpdateStockDto model)
         {
-            return _mapper.Map<DataCollection<ProductDto>>(
-                     _context.Products.Where(x=>x.SellDay > 0)
-                                  .OrderBy(x => x.SellDay)
-                                  .AsQueryable()
-                                  .Paged(page, take)
-                );
+            var entry = _context.Products.Single(x => x.ProductId == id);
+            entry.Stock += model.AddStock;
+
+             _context.SaveChanges();
         }
+        
         public DataCollection<ProductDto> GetByDay(Enums.DaySold day, int page, int take)
         {
             return _mapper.Map<DataCollection<ProductDto>>(

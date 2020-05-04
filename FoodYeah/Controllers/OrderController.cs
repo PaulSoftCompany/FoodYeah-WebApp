@@ -47,10 +47,11 @@ namespace FoodYeah.Controllers
             });
         }
 
-        [HttpPut("updateEndTime/{id}")]
-        public ActionResult UpdateEndTime(int id)
+        [HttpPut("orderDelivered/{id}")]
+        public ActionResult orderDelivered(int id)
         {
             _orderService.SetEndTime(id);
+            _orderService.DecreaseStock(id);
             return NoContent();
         }
         

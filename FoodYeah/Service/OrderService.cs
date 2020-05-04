@@ -12,5 +12,6 @@ namespace FoodYeah.Service
         OrderDto Create(OrderCreateDto model);
         void SetEndTime(int id);
         string GetAverageTime();
+        void DecreaseStock(int id);
     }
 }

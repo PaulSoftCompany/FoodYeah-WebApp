@@ -79,7 +79,7 @@ namespace FoodYeah.Service.Impl
              );
         }
 
-         public OrderSimpleDto GetByIdSimple(int id)
+        public OrderSimpleDto GetByIdSimple(int id)
         {
             return _mapper.Map<OrderSimpleDto>(
                   _context.Orders
@@ -110,16 +110,31 @@ namespace FoodYeah.Service.Impl
         {
             var order = _context.Orders.Single(x => x.OrderId == id);
             order.EndTime = DateTime.Now.ToString("hh:mm:ss tt");
+
+            _context.SaveChanges();
+        }
+
+        public void DecreaseStock(int id)
+        {
+            var order = _context.Orders
+                .Include(x => x.OrderDetails)
+                .ThenInclude(x => x.Product)
+                .Single(x => x.OrderId == id);
+            foreach (var item in order.OrderDetails) {
+                item.Product.Stock -= item.Quantity;
+            }
+
             _context.SaveChanges();
         }
 
         public string GetAverageTime()
         {
             var averageTime = TimeSpan.Parse("00:00:00");
-            int cantidad=0;
+            int cantidad = 0;
 
-            foreach(var order in _context.Orders){
-                if (order.EndTime == "00:00:00") 
+            foreach (var order in _context.Orders)
+            {
+                if (order.EndTime == "00:00:00")
                     continue;
                 cantidad++;
                 DateTime _initTime = DateTime.Parse(order.InitTime);
