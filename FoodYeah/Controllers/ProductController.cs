@@ -17,13 +17,19 @@ namespace FoodYeah.Controllers
         }
 
         [HttpGet]
-        public ActionResult<DataCollection<ProductDto>> GetAll(int page=1, int take = 20) => _productService.GetAll(page, take);
+        public ActionResult<DataCollection<ProductDto>> GetAll(int page = 1, int take = 20) => _productService.GetAll(page, take);
 
         [HttpGet("simple")]
-        public ActionResult<DataCollection<ProductSimpleDto>> GetAllSimple(int page=1, int take = 20) => _productService.GetAllSimple(page, take);
+        public ActionResult<DataCollection<ProductSimpleDto>> GetAllSimple(int page = 1, int take = 20) => _productService.GetAllSimple(page, take);
+
+        [HttpGet("week")]
+        public ActionResult<DataCollection<ProductDto>> GetByWeek(int page, int take = 20)
+        {
+            return _productService.GetByWeek(page, take);
+        }
 
         [HttpGet("day/{day}")]
-        public ActionResult<DataCollection<ProductDto>> GetByDay(Enums.DaySold day, int page=1, int take = 20)
+        public ActionResult<DataCollection<ProductDto>> GetByDay(Enums.DaySold day, int page = 1, int take = 20)
         {
             return _productService.GetByDay(day, page, take);
         }
@@ -32,7 +38,7 @@ namespace FoodYeah.Controllers
         [HttpGet("{id}")]
         public ActionResult<ProductDto> GetById(int id)
         {
-            return  _productService.GetById(id);
+            return _productService.GetById(id);
         }
 
         [HttpPost]
@@ -48,21 +54,21 @@ namespace FoodYeah.Controllers
         }
 
         [HttpPut("{id}")]
-        public  ActionResult Update(int id, ProductUpdateDto model)
+        public ActionResult Update(int id, ProductUpdateDto model)
         {
             _productService.Update(id, model);
             return NoContent();
         }
 
         [HttpPut("addStock/{id}")]
-        public  ActionResult AddStock(int id, ProductUpdateStockDto model)
+        public ActionResult AddStock(int id, ProductUpdateStockDto model)
         {
             _productService.AddStock(id, model);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public  ActionResult Remove(int id)
+        public ActionResult Remove(int id)
         {
             _productService.Remove(id);
             return NoContent();

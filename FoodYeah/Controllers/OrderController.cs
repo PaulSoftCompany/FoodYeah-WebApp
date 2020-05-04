@@ -15,7 +15,7 @@ namespace FoodYeah.Controllers
         {
             _orderService = OrderService;
         }
-
+        
         [HttpGet]
         public ActionResult<DataCollection<OrderDto>> GetAll(int page = 1, int take = 20) => _orderService.GetAll(page, take);
 

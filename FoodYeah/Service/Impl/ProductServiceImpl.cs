@@ -102,14 +102,24 @@ namespace FoodYeah.Service.Impl
             var entry = _context.Products.Single(x => x.ProductId == id);
             entry.Stock += model.AddStock;
 
-             _context.SaveChanges();
+            _context.SaveChanges();
         }
-        
+        public DataCollection<ProductDto> GetByWeek(int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductDto>>(
+                     _context.Products.OrderByDescending(x => x.ProductId)
+                                .OrderBy(x => x.SellDay)
+                                  .Include(x => x.Product_Category)
+                                  .AsQueryable()
+                                  .Paged(page, take)
+                );
+        }
         public DataCollection<ProductDto> GetByDay(Enums.DaySold day, int page, int take)
         {
             return _mapper.Map<DataCollection<ProductDto>>(
                      _context.Products.Where(x => x.SellDay == day)
                      .OrderBy(x => x.SellDay)
+                     .Include(x => x.Product_Category)
                      .AsQueryable()
                      .Paged(page, take)
                 );
