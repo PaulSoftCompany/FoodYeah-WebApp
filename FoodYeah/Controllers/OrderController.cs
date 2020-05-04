@@ -18,10 +18,20 @@ namespace FoodYeah.Controllers
 
         [HttpGet]
         public ActionResult<DataCollection<OrderDto>> GetAll(int page = 1, int take = 20) => _orderService.GetAll(page, take);
+
+        [HttpGet("simple")]
+        public ActionResult<DataCollection<OrderSimpleDto>> GetAllSimple(int page = 1, int take = 20) => _orderService.GetAllSimple(page, take);
+
         [HttpGet("{id}")]
         public ActionResult<OrderDto> GetById(int id)
         {
             return _orderService.GetById(id);
+        }
+
+        [HttpGet("simple{id}")]
+        public ActionResult<OrderSimpleDto> GetByIdSimple(int id)
+        {
+            return _orderService.GetByIdSimple(id);
         }
 
         [HttpPost]

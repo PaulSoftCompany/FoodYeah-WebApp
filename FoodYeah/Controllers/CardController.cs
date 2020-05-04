@@ -17,6 +17,10 @@ namespace FoodYeah.Controllers
         }
         [HttpGet]
         public ActionResult<DataCollection<CardDto>> GetAll(int page=1, int take=20) => _CardService.GetAll(page,take);
+        
+        [HttpGet("simple")]
+        public ActionResult<DataCollection<CardSimpleDto>> GetAllSimple(int page=1, int take=20) => _CardService.GetAllSimple(page,take); 
+
         [HttpGet("{id}")]
         public ActionResult<CardDto> GetById(int id) => _CardService.GetById(id);
         [HttpPost]

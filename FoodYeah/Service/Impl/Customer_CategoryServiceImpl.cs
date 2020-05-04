@@ -46,6 +46,16 @@ namespace FoodYeah.Service
             );
         }
 
+        public DataCollection<Customer_CategorySimpleDto> GetAllSimple(int page, int take)
+        {
+            return _mapper.Map<DataCollection<Customer_CategorySimpleDto>>(
+                _context.Customer_Categories
+                        .OrderByDescending(x => x.Customer_CategoryId)
+                        .AsQueryable()
+                        .Paged(page, take)
+            );
+        }
+
         public Customer_CategoryDto GetById(int id)
         {
             return _mapper.Map<Customer_CategoryDto>(
@@ -66,6 +76,7 @@ namespace FoodYeah.Service
         public void Update(int id, Customer_CategoryUpdateDto model)
         {
             var entry = _context.Customer_Categories.Single(x => x.Customer_CategoryId == id);
+            
             entry.Customer_CategoryName = model.Customer_CategoryName;
             entry.Customer_CategoryDescription = model.Customer_CategoryDescription;
 

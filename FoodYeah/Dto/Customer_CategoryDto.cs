@@ -23,4 +23,12 @@ namespace FoodYeah.Dto
         public string Customer_CategoryName { get; set; }
         public string Customer_CategoryDescription { get; set; }
     }
+
+    public class Customer_CategorySimpleDto
+    {
+        public int Customer_CategoryId { get; set; }
+        [Required]
+        public string Customer_CategoryName { get; set; }
+        public string Customer_CategoryDescription { get; set; }
+    }
 }

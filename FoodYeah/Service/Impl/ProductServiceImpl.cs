@@ -34,6 +34,9 @@ namespace FoodYeah.Service.Impl
                 Product_CategoryId = model.Product_CategoryId,
                 Product_Category = productCategory,
                 SellDay = model.SellDay,
+                Stock = model.Stock,
+                ImageUrl = model.ImageUrl,
+                Ingredients = model.Ingredients,
                 ProductId = id++
             };
             
@@ -48,6 +51,15 @@ namespace FoodYeah.Service.Impl
             return _mapper.Map<DataCollection<ProductDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
                                .Include(x => x.Product_Category)
+                               .AsQueryable()
+                               .Paged(page, take)
+             );
+        }
+
+         public DataCollection<ProductSimpleDto> GetAllSimple(int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductSimpleDto>>(
+                  _context.Products.OrderByDescending(x => x.ProductId)
                                .AsQueryable()
                                .Paged(page, take)
              );
@@ -76,6 +88,10 @@ namespace FoodYeah.Service.Impl
 
             entry.ProductName = model.ProductName;
             entry.ProductPrice = model.ProductPrice;
+            entry.SellDay = model.SellDay;
+            entry.Stock = model.Stock;
+            entry.ImageUrl = model.ImageUrl;
+            entry.Ingredients = model.Ingredients;
 
             _context.SaveChanges();
         }

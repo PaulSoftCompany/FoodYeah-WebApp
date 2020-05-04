@@ -19,7 +19,6 @@ namespace FoodYeah.ConfigMapper
             CreateMap<OrderDetail, OrderDetailDto>();
             CreateMap<DataCollection<Order>, DataCollection<OrderDto>>();
 
-            // Order creation
             CreateMap<OrderCreateDto, Order>();
             CreateMap<OrderDetailCreateDto, OrderDetail>();
 
@@ -31,6 +30,25 @@ namespace FoodYeah.ConfigMapper
 
             CreateMap<Customer_Category, Customer_CategoryDto>();
             CreateMap<DataCollection<Customer_Category>, DataCollection<Customer_CategoryDto>>();
+
+            //Simple Dtos
+            CreateMap<Customer, CustomerSimpleDto>();
+            CreateMap<DataCollection<Customer>, DataCollection<CustomerSimpleDto>>();
+
+            CreateMap<Product, ProductSimpleDto>();
+            CreateMap<DataCollection<Product>, DataCollection<ProductSimpleDto>>();
+
+            CreateMap<Order, OrderSimpleDto>();
+            CreateMap<DataCollection<Order>, DataCollection<OrderSimpleDto>>();
+
+            CreateMap<Card, CardSimpleDto>();
+            CreateMap<DataCollection<Card>, DataCollection<CardSimpleDto>>();
+
+            CreateMap<Product_Category, Product_CategorySimpleDto>();
+            CreateMap<DataCollection<Product_Category>, DataCollection<Product_CategorySimpleDto>>();
+
+            CreateMap<Customer_Category, Customer_CategorySimpleDto>();
+            CreateMap<DataCollection<Customer_Category>, DataCollection<Customer_CategorySimpleDto>>();
         }
     }
 }

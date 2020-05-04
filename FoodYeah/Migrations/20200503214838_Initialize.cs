@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FoodYeah.Migrations
@@ -65,7 +66,10 @@ namespace FoodYeah.Migrations
                     Product_CategoryId = table.Column<int>(nullable: false),
                     ProductName = table.Column<string>(nullable: false),
                     ProductPrice = table.Column<decimal>(nullable: false),
-                    SellDay = table.Column<string>(nullable: false)
+                    SellDay = table.Column<string>(nullable: false),
+                    Stock = table.Column<int>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: false),
+                    Ingredients = table.Column<List<string>>(nullable: false)
                 },
                 constraints: table =>
                 {

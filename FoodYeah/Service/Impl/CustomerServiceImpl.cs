@@ -59,7 +59,10 @@ namespace FoodYeah.Service
         public void Update(int id, CustomerUpdateDto model)
         {
             var entry = _context.Customers.Single(x => x.CustomerId == id);
+            
             entry.CustomerName = model.CustomerName;
+            entry.CustomerAge = model.CustomerAge;
+            entry.Customer_CategoryId = model.Customer_CategoryId;
 
             _context.SaveChanges();
         }
@@ -71,6 +74,16 @@ namespace FoodYeah.Service
                               .Include(x => x.Orders)
                               .Include(x => x.Cards)
                               .Include(x => x.Customer_Category)
+                              .OrderByDescending(x => x.CustomerId)
+                              .AsQueryable()
+                              .Paged(page, take)
+            );
+        }
+
+        public DataCollection<CustomerSimpleDto> GetAllSimple(int page, int take)
+        {
+            return _mapper.Map<DataCollection<CustomerSimpleDto>>(
+                 _context.Customers
                               .OrderByDescending(x => x.CustomerId)
                               .AsQueryable()
                               .Paged(page, take)

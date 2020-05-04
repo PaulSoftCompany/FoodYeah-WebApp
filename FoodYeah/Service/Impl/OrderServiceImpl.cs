@@ -57,6 +57,15 @@ namespace FoodYeah.Service.Impl
            );
         }
 
+        public DataCollection<OrderSimpleDto> GetAllSimple(int page, int take)
+        {
+            return _mapper.Map<DataCollection<OrderSimpleDto>>(
+                _context.Orders.OrderByDescending(x => x.OrderId)
+                    .AsQueryable()
+                    .Paged(page, take)
+           );
+        }
+
         public OrderDto GetById(int id)
         {
             return _mapper.Map<OrderDto>(
@@ -66,6 +75,14 @@ namespace FoodYeah.Service.Impl
                     .ThenInclude(x => x.Order)
                     .Include(x => x.OrderDetails)
                     .ThenInclude(x => x.Product)
+                    .Single(x => x.OrderId == id)
+             );
+        }
+
+         public OrderSimpleDto GetByIdSimple(int id)
+        {
+            return _mapper.Map<OrderSimpleDto>(
+                  _context.Orders
                     .Single(x => x.OrderId == id)
              );
         }
@@ -109,6 +126,10 @@ namespace FoodYeah.Service.Impl
                 DateTime _endTime = DateTime.Parse(order.EndTime);
                 averageTime += _endTime - _initTime;
             }
+
+            if (cantidad == 0)
+                return ("00:05:00");
+
             averageTime = averageTime.Divide(cantidad);
             return averageTime.ToString();
         }
