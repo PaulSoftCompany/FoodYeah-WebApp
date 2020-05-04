@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FoodYeah.Service
 {
-    class Product_CategoryServiceImpl : Product_CategoryService
+    public class Product_CategoryServiceImpl : Product_CategoryService
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
