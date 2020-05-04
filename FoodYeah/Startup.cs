@@ -15,6 +15,7 @@ using FoodYeah.Service;
 using AutoMapper;
 using FoodYeah.Service.Impl;
 using FoodYeah.Model;
+using Microsoft.OpenApi.Models;
 
 namespace FoodYeah
 {
@@ -30,6 +31,14 @@ namespace FoodYeah
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //Para utilizar Swagger
+            services.AddSwaggerGen(c => {
+
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api FoodYeah", Version = "v1" });
+            
+            });
+
             // Para conectarse con Postgre:
             //
             services.AddControllers();
@@ -57,6 +66,15 @@ namespace FoodYeah
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+
+                c.SwaggerEndpoint("/swagger/v1/swagger.json","API FOOD YEAH");  
+            }
+            );
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
