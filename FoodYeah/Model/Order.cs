@@ -14,5 +14,6 @@ namespace FoodYeah.Model
         public string InitTime { get; set; }
         public string EndTime { get; set; }
         public decimal TotalPrice { get; set; }
+        public string Status { get; set; }
     }
 }

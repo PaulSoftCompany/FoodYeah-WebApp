@@ -42,7 +42,8 @@ namespace FoodYeah.Controllers
             return new JsonResult(new
             {
                 Message = "Su Pedido se ha realizado correctamente. Espere aproximadamente " 
-                + _orderService.GetAverageTime() + " para recibir su orden",
+                + _orderService.GetAverageTime() 
+                + " para recibir su orden",
                 DetalleDeOrden = result
             });
         }
@@ -52,9 +53,25 @@ namespace FoodYeah.Controllers
         {
             _orderService.SetEndTime(id);
             _orderService.DecreaseStock(id);
-            return NoContent();
+            string message;
+            message = _orderService.GetDeliveredOrder(id);
+            var result = _orderService.UpdateStatus(id, "DELIVERED");
+            return new JsonResult(new{
+                Message = message,
+                orderDelivered = result
+            });
         }
-        
+
+        [HttpGet("OrderDelivered/{id}")]
+        public ActionResult isOrderDelivered(int id)
+        {
+            string message;
+            message = _orderService.GetDeliveredOrder(id);
+            return new JsonResult(new{
+                Message = message
+            });
+        }
+
         [HttpGet("getAverageTime")]
         public ActionResult GetAverageTime()
         {

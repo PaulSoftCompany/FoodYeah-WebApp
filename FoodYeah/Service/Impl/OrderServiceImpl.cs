@@ -39,6 +39,7 @@ namespace FoodYeah.Service.Impl
             _context.Orders.Add(entry);
             _context.SaveChanges();
 
+
             return _mapper.Map<OrderDto>(GetById(entry.OrderId)
             );
         }
@@ -87,6 +88,15 @@ namespace FoodYeah.Service.Impl
              );
         }
 
+        public OrderSimpleDto UpdateStatus(int id, string status)
+        {
+            var estado = status.ToUpper();
+            var orden = _context.Orders.Single(x => x.OrderId == id);
+            orden.Status = estado;
+
+            _context.SaveChanges();
+            return _mapper.Map<OrderSimpleDto>(GetByIdSimple(orden.OrderId));
+        }
         private void PrepareDetail(IEnumerable<OrderDetail> orderDetails)
         {
             foreach (var item in orderDetails)
@@ -120,10 +130,10 @@ namespace FoodYeah.Service.Impl
                 .Include(x => x.OrderDetails)
                 .ThenInclude(x => x.Product)
                 .Single(x => x.OrderId == id);
-            foreach (var item in order.OrderDetails) {
+            foreach (var item in order.OrderDetails)
+            {
                 item.Product.Stock -= item.Quantity;
             }
-
             _context.SaveChanges();
         }
 
@@ -148,5 +158,18 @@ namespace FoodYeah.Service.Impl
             averageTime = averageTime.Divide(cantidad);
             return averageTime.ToString();
         }
+
+        public string GetDeliveredOrder(int id)
+        {
+            string message;
+            var item = _context.Orders.Single(x => x.OrderId == id);
+            if (item.Status == "DELIVERED")
+                message = "La orden se ha entregado correctamente";
+            else
+                message = "Orden en preparacion";
+            return message;
+        }
     }
 }
+//  if (orden.Status == "TERMINADA") return new JsonResult(new { Message = "La orden se ha entregado correctamente", DetalleOrden = orden });
+//             else return new JsonResult(new { Mensaje = "Orden en preparacion" });
