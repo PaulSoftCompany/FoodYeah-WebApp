@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeahTest\\FoodYeahTest.csproj": {}
+    "C:\\ap\\FoodYeah-WebApp\\FoodYeahTest\\FoodYeahTest.csproj": {}
   },
   "projects": {
-    "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeahTest\\FoodYeahTest.csproj": {
+    "C:\\ap\\FoodYeah-WebApp\\FoodYeahTest\\FoodYeahTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeahTest\\FoodYeahTest.csproj",
+        "projectUniqueName": "C:\\ap\\FoodYeah-WebApp\\FoodYeahTest\\FoodYeahTest.csproj",
         "projectName": "FoodYeahTest",
-        "projectPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeahTest\\FoodYeahTest.csproj",
+        "projectPath": "C:\\ap\\FoodYeah-WebApp\\FoodYeahTest\\FoodYeahTest.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeahTest\\obj\\",
+        "outputPath": "C:\\ap\\FoodYeah-WebApp\\FoodYeahTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {
-                "projectPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj"
+              "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
+                "projectPath": "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj"
               }
             }
           }
@@ -100,14 +100,14 @@
         }
       }
     },
-    "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {
+    "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+        "projectUniqueName": "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
         "projectName": "FoodYeah",
-        "projectPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+        "projectPath": "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\obj\\",
+        "outputPath": "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -162,6 +162,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.8, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

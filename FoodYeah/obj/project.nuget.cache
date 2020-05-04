@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q2uVp0O2aHoBm/LkAZC9VsLwApbA9N59mZh+giv/PIBiC73rdnCfcHO/XjclcYd/vcOXxqdmonT/1FWbjHU+oQ==",
+  "dgSpecHash": "7OVBKRoZWuDFSqVE+8pzwEU7XC4ZjDe9M85KAiJmuxgDABLjHvR+GfzMMMyUUQcL6yFnVWVCseLO2tpKvLXY+A==",
   "success": true,
-  "projectFilePath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+  "projectFilePath": "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
@@ -50,6 +50,7 @@
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.2\\microsoft.visualstudio.web.codegeneration.3.1.2.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.2\\microsoft.visualstudio.web.codegeneration.contracts.3.1.2.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.2\\microsoft.visualstudio.web.codegeneration.core.3.1.2.nupkg.sha512",
