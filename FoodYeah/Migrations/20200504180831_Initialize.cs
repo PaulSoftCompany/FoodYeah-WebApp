@@ -116,7 +116,8 @@ namespace FoodYeah.Migrations
                     Date = table.Column<string>(nullable: false),
                     InitTime = table.Column<string>(nullable: false),
                     EndTime = table.Column<string>(nullable: false),
-                    TotalPrice = table.Column<decimal>(nullable: false)
+                    TotalPrice = table.Column<decimal>(nullable: false),
+                    Status = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -53,9 +53,9 @@ namespace FoodYeah.Controllers
         {
             _orderService.SetEndTime(id);
             _orderService.DecreaseStock(id);
+            var result = _orderService.UpdateStatus(id, "DELIVERED");
             string message;
             message = _orderService.GetDeliveredOrder(id);
-            var result = _orderService.UpdateStatus(id, "DELIVERED");
             return new JsonResult(new{
                 Message = message,
                 orderDelivered = result

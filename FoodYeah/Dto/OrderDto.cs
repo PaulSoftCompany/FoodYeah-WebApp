@@ -50,6 +50,7 @@ namespace FoodYeah.Dto
         public string InitTime { get; set; }
         public string EndTime { get; set; }
         public byte TotalPrice { get; set; }
+        public string Status { get; set; }
     }
 
     // public class OrderDetailSimpleDto

@@ -87,16 +87,6 @@ namespace FoodYeah.Service.Impl
                     .Single(x => x.OrderId == id)
              );
         }
-
-        public OrderSimpleDto UpdateStatus(int id, string status)
-        {
-            var estado = status.ToUpper();
-            var orden = _context.Orders.Single(x => x.OrderId == id);
-            orden.Status = estado;
-
-            _context.SaveChanges();
-            return _mapper.Map<OrderSimpleDto>(GetByIdSimple(orden.OrderId));
-        }
         private void PrepareDetail(IEnumerable<OrderDetail> orderDetails)
         {
             foreach (var item in orderDetails)
@@ -114,8 +104,10 @@ namespace FoodYeah.Service.Impl
             order.TotalPrice = order.OrderDetails.Sum(x => x.TotalPrice);
             order.InitTime = DateTime.Now.ToString("hh:mm:ss tt");
             order.EndTime = "00:00:00";
+            order.Status = "NOTDELIVERED";
         }
 
+        ////////////////////////////////////////////////////////////////////////////
         public void SetEndTime(int id)
         {
             var order = _context.Orders.Single(x => x.OrderId == id);
@@ -157,6 +149,16 @@ namespace FoodYeah.Service.Impl
 
             averageTime = averageTime.Divide(cantidad);
             return averageTime.ToString();
+        }
+
+        public OrderSimpleDto UpdateStatus(int id, string status)
+        {
+            var estado = status.ToUpper();
+            var orden = _context.Orders.Single(x => x.OrderId == id);
+            orden.Status = estado;
+
+            _context.SaveChanges();
+            return _mapper.Map<OrderSimpleDto>(GetByIdSimple(orden.OrderId));
         }
 
         public string GetDeliveredOrder(int id)

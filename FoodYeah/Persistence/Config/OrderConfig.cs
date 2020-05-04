@@ -9,6 +9,7 @@ namespace FoodYeah.Persistence.Config
         {
             entityBuilder.Property(x => x.OrderId).IsRequired();
             entityBuilder.Property(x => x.Date).IsRequired();
+            entityBuilder.Property(x => x.Status).IsRequired();
             entityBuilder.Property(x => x.InitTime).IsRequired();
             entityBuilder.Property(x => x.EndTime).IsRequired();
             entityBuilder.Property(x => x.TotalPrice).IsRequired();
