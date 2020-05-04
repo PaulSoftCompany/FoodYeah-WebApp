@@ -28,7 +28,18 @@ namespace FoodYeah.Controllers
             return _productService.GetByDay(day, page, take);
         }
 
-        // Ex: Products/1
+        [HttpGet("week")]
+        public ActionResult<DataCollection<ProductDto>> GetByWeek(int page = 1, int take = 20)
+        {
+            return _productService.GetByWeek(page, take);
+        }
+
+        [HttpGet("type/{type}")]
+        public ActionResult<DataCollection<ProductDto>> GetByType(int type, int page = 1, int take = 20)
+        {
+            return _productService.GetByType(type, page, take);
+        }
+
         [HttpGet("{id}")]
         public ActionResult<ProductDto> GetById(int id)
         {
@@ -67,6 +78,10 @@ namespace FoodYeah.Controllers
             _productService.Remove(id);
             return NoContent();
         }
+
+
+
+
 
     }
 }

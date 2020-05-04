@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FoodYeah.Service.Impl
 {
+
     public class ProductServiceImpl : ProductService
     {
 
@@ -105,6 +106,8 @@ namespace FoodYeah.Service.Impl
              _context.SaveChanges();
         }
         
+        //Platos Por dia de venta
+
         public DataCollection<ProductDto> GetByDay(Enums.DaySold day, int page, int take)
         {
             return _mapper.Map<DataCollection<ProductDto>>(
@@ -113,6 +116,25 @@ namespace FoodYeah.Service.Impl
                      .AsQueryable()
                      .Paged(page, take)
                 );
+        }
+        //Solo se pondran los menus disponibles
+        public DataCollection<ProductDto> GetByWeek(int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductDto>>(
+                       _context.Products.OrderByDescending(x=>x.SellDay)
+                       .Where(x=>x.SellDay != Enums.DaySold.NoDisponible)
+                       .AsQueryable()
+                       .Paged(page,take)
+                       );
+        }
+        //Por tipo de plato (Menu o Plato a la carta)
+        public DataCollection<ProductDto> GetByType(int type, int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductDto>>(
+                         _context.Products.Where(x => x.Product_CategoryId == type)
+                         .Include(x=>x.Product_Category)
+                         .AsQueryable()
+                         .Paged(page, take));
         }
     }
 }

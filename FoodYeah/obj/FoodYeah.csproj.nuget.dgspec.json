@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FAMILIA\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {}
+    "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FAMILIA\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
+    "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FAMILIA\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
+        "projectUniqueName": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
         "projectName": "FoodYeah",
-        "projectPath": "C:\\Users\\FAMILIA\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
-        "packagesPath": "C:\\Users\\FAMILIA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FAMILIA\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\obj\\",
+        "projectPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\FoodYeah.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\Cursos\\Aplicaciones Web\\Git\\FoodYeah\\FoodYeah\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\FAMILIA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
