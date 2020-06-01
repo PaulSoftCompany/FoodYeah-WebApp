@@ -6,6 +6,8 @@ using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
 using System;
+using Stripe;
+using System.Threading.Tasks.Dataflow;
 
 namespace FoodYeah.Service
 {
@@ -18,6 +20,7 @@ namespace FoodYeah.Service
         public CustomerServiceImpl(ApplicationDbContext context,
             IMapper mapper)
         {
+            StripeConfiguration.ApiKey = "sk_test_Q0IOeF2i1XAEQsnoeLNcdC4o007MXqlyvo";
             id = 0;
             _context = context;
             _mapper = mapper;
@@ -28,15 +31,25 @@ namespace FoodYeah.Service
         {  
             Customer_Category CustomerCategory = _context.Customer_Categories
             .Single(x=> x.Customer_CategoryId == model.Customer_CategoryId);
-            
-            var entry = new Customer
+
+            Stripe.Customer customer = new Stripe.CustomerService().Create(
+                new CustomerCreateOptions
+                {
+                    Name =model.CustomerName
+                }
+                );
+
+            var entry = new Model.Customer
             {
                 CustomerName = model.CustomerName,
                 CustomerAge = model.CustomerAge,
                 Customer_CategoryId = model.Customer_CategoryId,
                 Customer_Category = CustomerCategory,
-                CustomerId = id++
+                CustomerId = id++,
+                StripeIdentificador = customer.Id
             };
+
+           
 
             _context.Customers.Add(entry);
             _context.SaveChanges();
@@ -47,7 +60,7 @@ namespace FoodYeah.Service
 
         public void Remove(int id)
         {
-            _context.Remove(new Customer
+            _context.Remove(new Model.Customer
             {
                 CustomerId = id
             });

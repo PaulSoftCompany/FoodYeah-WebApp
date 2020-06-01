@@ -12,7 +12,9 @@ namespace FoodYeah.Persistence.Config
             entityBuilder.Property(x => x.CardType).IsRequired();
             entityBuilder.Property(x => x.CardCvi).IsRequired();
             entityBuilder.Property(x => x.CardOwnerName).IsRequired();
-            entityBuilder.Property(x => x.CardExpireDate).IsRequired();
+            entityBuilder.Property(x => x.CardExpireYear).IsRequired();
+            entityBuilder.Property(x => x.CardExpireMonth).IsRequired();
+
             entityBuilder
             .HasOne(x => x.Customer)
             .WithMany(x => x.Cards)

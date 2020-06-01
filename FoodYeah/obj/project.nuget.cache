@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7OVBKRoZWuDFSqVE+8pzwEU7XC4ZjDe9M85KAiJmuxgDABLjHvR+GfzMMMyUUQcL6yFnVWVCseLO2tpKvLXY+A==",
+  "dgSpecHash": "OO1AGR+BdoZGK4k0AbReBKFp4e9T+dg8oxpl5EGEjbcNikURzJVyhRXCDw3fIFME6h9PEff+59NXS9nhoUdzSg==",
   "success": true,
   "projectFilePath": "C:\\ap\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
   "expectedPackageFiles": [
@@ -91,6 +91,7 @@
     "C:\\Users\\ACER\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\stripe.net\\37.6.0\\stripe.net.37.6.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\swashbuckle.aspnetcore\\5.4.1\\swashbuckle.aspnetcore.5.4.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.4.1\\swashbuckle.aspnetcore.swagger.5.4.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.4.1\\swashbuckle.aspnetcore.swaggergen.5.4.1.nupkg.sha512",

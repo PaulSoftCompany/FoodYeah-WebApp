@@ -10,6 +10,7 @@ namespace FoodYeah.Model
         public Customer_Category Customer_Category { get; set; }
         public List<Card> Cards { get; set; } 
         public List<Order> Orders {get; set;}
+        public string StripeIdentificador { get; set; }
 
         [Required]
         public string CustomerName { get; set; }

@@ -5,6 +5,8 @@ using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
+using Stripe;
+using Microsoft.CodeAnalysis.Options;
 
 namespace FoodYeah.Service
 {
@@ -16,6 +18,7 @@ namespace FoodYeah.Service
         public CardServiceImpl(ApplicationDbContext context,
             IMapper mapper)
         {
+            StripeConfiguration.ApiKey = "sk_test_Q0IOeF2i1XAEQsnoeLNcdC4o007MXqlyvo";
             id = 0;
             _context = context;
             _mapper = mapper;
@@ -23,8 +26,11 @@ namespace FoodYeah.Service
 
         public CardDto Create(CardCreateDto model)
         {
-            Customer Customer = _context.Customers.Single(x => x.CustomerId == model.CustomerId);
-            var entry = new Card
+
+
+
+            Model.Customer Customer = _context.Customers.Single(x => x.CustomerId == model.CustomerId);
+            var entry = new Model.Card
             {
                 CardId = id++,
                 CardNumber = model.CardNumber,
@@ -33,18 +39,46 @@ namespace FoodYeah.Service
                 CardType = model.CardType,
                 CardCvi = model.CardCvi,
                 CardOwnerName = Customer.CustomerName,
-                CardExpireDate = model.CardExpireDate
+                CardExpireYear = model.CardExpireYear,
+                CardExpireMonth = model.CardExpireMonth
             };
-            
+            //STRIPE
+            var paymentMethod = new PaymentMethodCreateOptions
+            {
+                Type = "card",
+                Card = new PaymentMethodCardCreateOptions
+                {
+                    Number = entry.CardNumber,
+                    ExpMonth = entry.CardExpireMonth,
+                    ExpYear = entry.CardExpireYear,
+                    Cvc = entry.CardCvi.ToString(),
+                },
+
+            };
+            var service = new PaymentMethodService();
+
+            var customerStripe = new PaymentMethodAttachOptions
+            {
+                Customer = Customer.StripeIdentificador,
+            };
+
+            service.Create(paymentMethod);
+
+            var IdMethod = service.Create(paymentMethod).Id;
+            service.Attach(IdMethod, customerStripe);
+
             _context.Cards.Add(entry);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
+
+          
+            
 
             return _mapper.Map<CardDto>(entry);
         }
 
         public void Remove(int id)
         {
-            _context.Remove(new Card
+            _context.Remove(new Model.Card
             {
                 CardId = id
             });
