@@ -16,18 +16,35 @@ namespace FoodYeah.Controllers
             _CardService = clientService;
         }
         [HttpGet]
-        public ActionResult<DataCollection<CardDto>> GetAll(int page=1, int take=20) => _CardService.GetAll(page,take);
-        
+        public ActionResult<DataCollection<CardDto>> GetAll(int page = 1, int take = 20) => _CardService.GetAll(page, take);
+
         [HttpGet("simple")]
-        public ActionResult<DataCollection<CardSimpleDto>> GetAllSimple(int page=1, int take=20) => _CardService.GetAllSimple(page,take); 
+        public ActionResult<DataCollection<CardSimpleDto>> GetAllSimple(int page = 1, int take = 20) => _CardService.GetAllSimple(page, take);
 
         [HttpGet("{id}")]
         public ActionResult<CardDto> GetById(int id) => _CardService.GetById(id);
+
+        [HttpGet("{customer/id}")]
+        public ActionResult<CardDto> GetByCustomerId(int id) => _CardService.GetByCustomerId(id);
+
         [HttpPost]
         public ActionResult Create(CardCreateDto Card)
         {
-            _CardService.Create(Card);
-            return Ok();
+            var result = _CardService.Create(Card);
+            if (result != null)
+            {
+                return new JsonResult(new
+                {
+                    Message = "Datos de la tarjeta ingresados correctamente. ¿Desearía que la aplicación recuerde los datos de su tarjeta?",
+                    TarjetaRegistrada = result
+                });
+            }
+            else {
+                 return new JsonResult(new
+                {
+                    Message = "Error al ingresar los datos, verifique bien si los datos que ha ingresado existen o estan correctos."
+                });
+            }
         }
 
         [HttpPut("{id}")]

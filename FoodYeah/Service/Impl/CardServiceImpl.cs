@@ -20,10 +20,21 @@ namespace FoodYeah.Service
             _context = context;
             _mapper = mapper;
         }
+        private bool ValidateCard(Card entry) {
+            bool validation =  true;
+
+            if (entry.CardNumber < 1000000000000000 && entry.CardNumber > 9999999999999999)
+                validation = false;
+            else if (entry.CardCvi < 100 && entry.CardCvi > 9999)
+                validation = false;
+
+            return validation;
+        }
 
         public CardDto Create(CardCreateDto model)
         {
             Customer Customer = _context.Customers.Single(x => x.CustomerId == model.CustomerId);
+
             var entry = new Card
             {
                 CardId = id++,
@@ -36,10 +47,18 @@ namespace FoodYeah.Service
                 CardExpireDate = model.CardExpireDate
             };
             
-            _context.Cards.Add(entry);
-            _context.SaveChanges();
+            bool validation = ValidateCard(entry);
 
-            return _mapper.Map<CardDto>(entry);
+
+            if (validation) 
+            {
+                _context.Cards.Add(entry);
+                _context.SaveChanges();
+                return _mapper.Map<CardDto>(entry);
+            }
+            
+            CardDto nullEntry = new CardDto();
+            return nullEntry;
         }
 
         public void Remove(int id)
@@ -85,6 +104,13 @@ namespace FoodYeah.Service
         {
             return _mapper.Map<CardDto>(
                  _context.Cards.Single(x => x.CardId == id)
+            );
+        }
+
+        public CardDto GetByCustomerId(int id)
+        {
+            return _mapper.Map<CardDto>(
+                 _context.Cards.Single(x => x.CustomerId == id)
             );
         }
     }

@@ -7,6 +7,7 @@ namespace FoodYeah.Service
     {
         DataCollection<CardDto> GetAll(int page, int take);
         DataCollection<CardSimpleDto> GetAllSimple(int page, int take);
+        CardDto GetByCustomerId(int id);
         CardDto GetById(int id);
         CardDto Create(CardCreateDto model);
         void Update(int id, CardUpdateDto model);
