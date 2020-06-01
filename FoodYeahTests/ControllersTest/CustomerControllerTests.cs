@@ -1,15 +1,11 @@
 ﻿using FoodYeah.Commons;
 using FoodYeah.Controllers;
 using FoodYeah.Dto;
-using FoodYeah.Model;
 using FoodYeah.Service;
 using GenFu;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace FoodYeahTest.ControllersTest

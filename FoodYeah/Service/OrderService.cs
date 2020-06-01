@@ -1,6 +1,5 @@
 ﻿using FoodYeah.Commons;
 using FoodYeah.Dto;
-using FoodYeah.Model;
 
 namespace FoodYeah.Service
 {

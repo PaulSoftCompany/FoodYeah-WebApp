@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {}
+    "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {
+    "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
+        "projectUniqueName": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
         "projectName": "FoodYeahTests",
-        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
-        "packagesPath": "C:\\Users\\akira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\obj\\",
+        "projectPath": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
+        "packagesPath": "C:\\Users\\Brandon\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeahTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\akira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Brandon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
-                "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj"
+              "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
+                "projectPath": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj"
               }
             }
           }
@@ -93,21 +93,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
+    "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
+        "projectUniqueName": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
         "projectName": "FoodYeah",
-        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
-        "packagesPath": "C:\\Users\\akira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\obj\\",
+        "projectPath": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
+        "packagesPath": "C:\\Users\\Brandon\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub Repos\\FoodYeah-WebApp\\FoodYeah\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\akira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Brandon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -184,7 +184,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

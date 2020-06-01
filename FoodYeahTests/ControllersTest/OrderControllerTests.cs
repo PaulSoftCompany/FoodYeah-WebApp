@@ -1,15 +1,11 @@
 ﻿using FoodYeah.Commons;
 using FoodYeah.Controllers;
 using FoodYeah.Dto;
-using FoodYeah.Model;
 using FoodYeah.Service;
 using GenFu;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace FoodYeahTest.ControllersTest
@@ -29,8 +25,7 @@ namespace FoodYeahTest.ControllersTest
 
             //Act
             var controller = new OrderController(service.Object);
-            var results = controller.GetAll();//Este result en el codigo original es un IEnumerable
-                                              //Por ende, se podría contar con Count, que es una funcion de ^, pero como no tenemos eso tenemos que usar otro metodo
+            var results = controller.GetAll();
 
             // Assert
             var count = results.Value.Items.Count();
