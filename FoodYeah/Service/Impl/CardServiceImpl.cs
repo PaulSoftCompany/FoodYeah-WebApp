@@ -44,7 +44,8 @@ namespace FoodYeah.Service
                 CardType = model.CardType,
                 CardCvi = model.CardCvi,
                 CardOwnerName = Customer.CustomerName,
-                CardExpireDate = model.CardExpireDate
+                CardExpireDate = model.CardExpireDate,
+                Money = 100 //no hay manera de extraer el valor del dinero de una tarjeta por el momento, por lo que le coloco 100 por defecto.
             };
             
             bool validation = ValidateCard(entry);

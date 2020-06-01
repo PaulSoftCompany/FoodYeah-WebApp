@@ -28,6 +28,7 @@ namespace FoodYeah.Dto
         [Required]
         public string CardOwnerName { get; set; }
         public string CardExpireDate { get; set; }
+        public decimal Money { get; set; }
     }
 
      public class CardSimpleDto
@@ -40,5 +41,6 @@ namespace FoodYeah.Dto
         [Required]
         public string CardOwnerName { get; set; }
         public string CardExpireDate { get; set; }
+        public decimal Money { get; set; }
     }
 }

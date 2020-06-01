@@ -171,7 +171,19 @@ namespace FoodYeah.Service.Impl
                 message = "Orden en preparacion";
             return message;
         }
+
+        public bool DecreaseCostumerMoney(int cardId, int orderId)
+        {
+            var order = _context.Orders.Single(x => x.OrderId == orderId);
+            var card = _context.Cards.Single(x => x.CardId == cardId);
+
+            if ((card.Money - order.TotalPrice) >= 0)
+            {
+                card.Money -= order.TotalPrice;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }
-//  if (orden.Status == "TERMINADA") return new JsonResult(new { Message = "La orden se ha entregado correctamente", DetalleOrden = orden });
-//             else return new JsonResult(new { Mensaje = "Orden en preparacion" });

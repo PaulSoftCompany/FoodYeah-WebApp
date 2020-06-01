@@ -16,5 +16,6 @@ namespace FoodYeah.Service
         void SetEndTime(int id);
         string GetAverageTime();
         void DecreaseStock(int id);
+        bool DecreaseCostumerMoney(int cardId, int orderId);
     }
 }

@@ -10,10 +10,12 @@ namespace FoodYeah.Controllers
     public class CardController : ControllerBase
     {
         private readonly CardService _CardService;
+         private readonly OrderService _OrderService;
 
-        public CardController(CardService clientService)
+        public CardController(CardService clientService, OrderService orderService)
         {
             _CardService = clientService;
+            _OrderService = orderService;
         }
         [HttpGet]
         public ActionResult<DataCollection<CardDto>> GetAll(int page = 1, int take = 20) => _CardService.GetAll(page, take);
@@ -59,6 +61,28 @@ namespace FoodYeah.Controllers
         {
             _CardService.Remove(id);
             return NoContent();
+        }
+
+        [HttpPut("{cardId}/orderDelivered/{orderId}")]
+        public ActionResult orderDelivered(int cardId, int orderId)
+        {
+            if (_OrderService.DecreaseCostumerMoney(cardId, orderId))
+            {
+                _OrderService.SetEndTime(orderId);
+                _OrderService.DecreaseStock(orderId);
+                var result = _OrderService.UpdateStatus(orderId, "DELIVERED");
+                string message;
+                message = _OrderService.GetDeliveredOrder(orderId);
+                return new JsonResult(new
+                {
+                    Message = message,
+                    orderDelivered = result
+                });
+            }
+            return new JsonResult(new
+                {
+                    Message = "No hay suficiente dinero en la tarjeta para pagar la orden."
+                });
         }
     }
 }

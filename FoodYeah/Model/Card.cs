@@ -14,6 +14,7 @@ namespace FoodYeah.Model
         [Required]
         public string CardOwnerName { get; set; }
         public string CardExpireDate { get; set; }
+        public decimal Money { get; set; }
 
     }
 }
