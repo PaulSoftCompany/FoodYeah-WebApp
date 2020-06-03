@@ -2,6 +2,7 @@
 using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Service;
+using System.Collections.Generic;
 
 namespace FoodYeah.Controllers
 {
@@ -17,7 +18,7 @@ namespace FoodYeah.Controllers
         }
 
         [HttpGet]
-        public ActionResult<DataCollection<ProductDto>> GetAll(int page=1, int take = 20) => _productService.GetAll(page, take);
+        public ActionResult<DataCollection<ProductDto>> GetAll(int page=1,int take = 20) => _productService.GetAll(page,take);
 
         [HttpGet("simple")]
         public ActionResult<DataCollection<ProductSimpleDto>> GetAllSimple(int page=1, int take = 20) => _productService.GetAllSimple(page, take);

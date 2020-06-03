@@ -32,6 +32,7 @@ namespace FoodYeah
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             //Para utilizar Swagger
             services.AddSwaggerGen(c => {
 
@@ -41,6 +42,15 @@ namespace FoodYeah
 
             // Para conectarse con Postgre:
             //
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyAllowSpecificOrigins",
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                                  });
+            }); 
+
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(
                opts => opts.UseNpgsql(Configuration.GetConnectionString("AnotherConnection"))
@@ -60,7 +70,7 @@ namespace FoodYeah
             services.AddTransient<OrderService, OrderServiceImpl>();
             services.AddTransient<CardService, CardServiceImpl>();            
             services.AddTransient<Product_CategoryService, Product_CategoryServiceImpl>();    
-            services.AddTransient<Customer_CategoryService, Customer_CategoryServiceImpl>();  
+            services.AddTransient<Customer_CategoryService, Customer_CategoryServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,13 +91,15 @@ namespace FoodYeah
             }
 
             app.UseRouting();
-
+            app.UseCors("MyAllowSpecificOrigins");
             app.UseAuthorization();
+         
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+           
         }
     }
 }

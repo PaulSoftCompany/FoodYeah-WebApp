@@ -1529,9 +1529,6 @@ C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e
 C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csproj.CoreCompileInputs.cache
-C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cs
-C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cache
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.AssemblyInfoInputs.cache
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.AssemblyInfo.cs
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.RazorTargetAssemblyInfo.cache
@@ -1542,3 +1539,6 @@ C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.dll
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.pdb
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.genruntimeconfig.cache
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csprojAssemblyReference.cache
+C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csproj.CoreCompileInputs.cache
+C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cs
+C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cache

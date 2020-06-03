@@ -5,6 +5,7 @@ using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace FoodYeah.Service.Impl
 {
@@ -56,7 +57,10 @@ namespace FoodYeah.Service.Impl
                                .Paged(page, take)
              );
         }
-
+        //public List<ProductDto> GetAll2()
+        //{
+        //    return _mapper.Map<List<ProductDto>>(_context.Products);
+        //}
         public DataCollection<ProductSimpleDto> GetAllSimple(int page, int take)
         {
             return _mapper.Map<DataCollection<ProductSimpleDto>>(
