@@ -88,12 +88,13 @@ namespace FoodYeah.Migrations
                 {
                     CardId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CardNumber = table.Column<int>(nullable: false),
+                    CardNumber = table.Column<long>(nullable: false),
                     CustomerId = table.Column<int>(nullable: false),
                     CardType = table.Column<bool>(nullable: false),
-                    CardCvi = table.Column<byte>(nullable: false),
+                    CardCvi = table.Column<int>(nullable: false),
                     CardOwnerName = table.Column<string>(nullable: false),
-                    CardExpireDate = table.Column<string>(nullable: false)
+                    CardExpireDate = table.Column<string>(nullable: false),
+                    Money = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

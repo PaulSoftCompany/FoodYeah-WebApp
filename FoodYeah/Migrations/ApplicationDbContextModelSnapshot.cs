@@ -26,15 +26,15 @@ namespace FoodYeah.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<byte>("CardCvi")
-                        .HasColumnType("smallint");
+                    b.Property<int>("CardCvi")
+                        .HasColumnType("integer");
 
                     b.Property<string>("CardExpireDate")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("CardNumber")
-                        .HasColumnType("integer");
+                    b.Property<long>("CardNumber")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("CardOwnerName")
                         .IsRequired()
@@ -45,6 +45,9 @@ namespace FoodYeah.Migrations
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
+
+                    b.Property<decimal>("Money")
+                        .HasColumnType("numeric");
 
                     b.HasKey("CardId");
 

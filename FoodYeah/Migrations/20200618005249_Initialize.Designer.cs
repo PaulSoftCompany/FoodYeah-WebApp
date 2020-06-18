@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FoodYeah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200504180831_Initialize")]
+    [Migration("20200618005249_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,15 +28,15 @@ namespace FoodYeah.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<byte>("CardCvi")
-                        .HasColumnType("smallint");
+                    b.Property<int>("CardCvi")
+                        .HasColumnType("integer");
 
                     b.Property<string>("CardExpireDate")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("CardNumber")
-                        .HasColumnType("integer");
+                    b.Property<long>("CardNumber")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("CardOwnerName")
                         .IsRequired()
@@ -47,6 +47,9 @@ namespace FoodYeah.Migrations
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("integer");
+
+                    b.Property<decimal>("Money")
+                        .HasColumnType("numeric");
 
                     b.HasKey("CardId");
 

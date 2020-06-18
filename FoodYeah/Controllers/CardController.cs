@@ -26,7 +26,7 @@ namespace FoodYeah.Controllers
         [HttpGet("{id}")]
         public ActionResult<CardDto> GetById(int id) => _CardService.GetById(id);
 
-        [HttpGet("{customer/id}")]
+        [HttpGet("customer/{id}")]
         public ActionResult<CardDto> GetByCustomerId(int id) => _CardService.GetByCustomerId(id);
 
         [HttpPost]
@@ -66,6 +66,12 @@ namespace FoodYeah.Controllers
         [HttpPut("{cardId}/orderDelivered/{orderId}")]
         public ActionResult orderDelivered(int cardId, int orderId)
         {
+            if (_OrderService.GetById(orderId).Status == "DELIVERED")
+                return new JsonResult(new
+                {
+                    Message = "La orden que intenta pagar, ya ha sido entregada."
+                });
+
             if (_OrderService.DecreaseCostumerMoney(cardId, orderId))
             {
                 _OrderService.SetEndTime(orderId);

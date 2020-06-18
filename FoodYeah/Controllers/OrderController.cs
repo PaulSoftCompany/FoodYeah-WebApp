@@ -28,7 +28,7 @@ namespace FoodYeah.Controllers
             return _orderService.GetById(id);
         }
 
-        [HttpGet("simple{id}")]
+        [HttpGet("simple/{id}")]
         public ActionResult<OrderSimpleDto> GetByIdSimple(int id)
         {
             return _orderService.GetByIdSimple(id);
