@@ -44,6 +44,8 @@ namespace FoodYeah.Controllers
             };
             //El createAsync directamente encripta el password(solito)
             var result = await _userManager.CreateAsync(user, model.Password);
+            var DefaultRole = await _userManager.AddToRoleAsync(user, "User");
+
             if (!result.Succeeded)
             {
                 throw new Exception("No se pudo crear el usuario");
@@ -76,12 +78,12 @@ namespace FoodYeah.Controllers
                 new Claim(ClaimTypes.Name, user.FirstName),
                 new Claim(ClaimTypes.Surname, user.LastName)
             };
-            ////Roles
-            //var roles = await _userManager.GetRolesAsync(user);
-            //foreach (var role in roles)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role,role))
-            //};
+            //Roles
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            };
             //Convtiene la información del token
             var tokenDescriptor = new SecurityTokenDescriptor
             {

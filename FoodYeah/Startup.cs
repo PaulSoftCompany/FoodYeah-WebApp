@@ -34,9 +34,20 @@ namespace FoodYeah
         {
             // Para conectarse con Postgre:
             //
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Cors",
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                                  });
+            });
+
+
+
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(
-               opts => opts.UseNpgsql(Configuration.GetConnectionString("AlexisConnection"))
+               opts => opts.UseNpgsql(Configuration.GetConnectionString("LinoConnection"))
             );
             //Para la seguridad:
             services.AddIdentity<ApplicationUser, ApplicationRole>()
@@ -78,7 +89,7 @@ namespace FoodYeah
             }
 
             app.UseRouting();
-
+            app.UseCors("Cors");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
