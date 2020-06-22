@@ -1200,3 +1200,11 @@ C:\ap\FoodYeah-WebApp\FoodYeahTest\obj\Debug\netcoreapp3.1\FoodYeahTest.csproj.C
 C:\ap\FoodYeah-WebApp\FoodYeahTest\obj\Debug\netcoreapp3.1\FoodYeahTest.dll
 C:\ap\FoodYeah-WebApp\FoodYeahTest\obj\Debug\netcoreapp3.1\FoodYeahTest.pdb
 C:\ap\FoodYeah-WebApp\FoodYeahTest\obj\Debug\netcoreapp3.1\FoodYeahTest.genruntimeconfig.cache
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\Stripe.net.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\ap\FoodYeah-WebApp\FoodYeahTest\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll

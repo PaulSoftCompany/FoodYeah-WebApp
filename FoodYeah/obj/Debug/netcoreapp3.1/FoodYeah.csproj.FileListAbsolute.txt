@@ -1539,6 +1539,13 @@ C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.dll
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.pdb
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.genruntimeconfig.cache
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csprojAssemblyReference.cache
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\ap\FoodYeah-WebApp\FoodYeah\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.csproj.CoreCompileInputs.cache
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cs
 C:\ap\FoodYeah-WebApp\FoodYeah\obj\Debug\netcoreapp3.1\FoodYeah.MvcApplicationPartsAssemblyInfo.cache

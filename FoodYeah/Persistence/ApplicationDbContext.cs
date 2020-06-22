@@ -1,10 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FoodYeah.Model;
 using FoodYeah.Persistence.Config;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using FoodYeah.Model.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodYeah.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string, IdentityUserClaim<string>,
+        ApplicationUserRole, IdentityUserLogin<string>,
+        IdentityRoleClaim<string>, IdentityUserToken<string>>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -29,6 +34,9 @@ namespace FoodYeah.Persistence
             new Product_CategoryConfig(builder.Entity<Product_Category>());
             new ProductConfig(builder.Entity<Product>());
             new Customer_CategoryConfig(builder.Entity<Customer_Category>());
+            new ApplicationUserConfig(builder.Entity<ApplicationUser>());
+            new ApplicationRoleConfig(builder.Entity<ApplicationRole>());
+
         }
     }
 }
