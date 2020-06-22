@@ -5,6 +5,7 @@ using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
+using System.Threading.Tasks;
 
 namespace FoodYeah.Service
 {
@@ -80,10 +81,10 @@ namespace FoodYeah.Service
             _context.SaveChanges();
         }
 
-        public DataCollection<CardDto> GetAll(int page, int take)
+        public  DataCollection<CardDto> GetAll(int page, int take)
         {
             return _mapper.Map<DataCollection<CardDto>>(
-                 _context.Cards
+                  _context.Cards
                               .Include(x => x.Customer)
                               .OrderByDescending(x => x.CustomerId)
                               .AsQueryable()

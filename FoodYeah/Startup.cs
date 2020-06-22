@@ -15,6 +15,8 @@ using FoodYeah.Service;
 using AutoMapper;
 using FoodYeah.Service.Impl;
 using FoodYeah.Model;
+using FoodYeah.Model.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodYeah
 {
@@ -36,13 +38,26 @@ namespace FoodYeah
             services.AddDbContext<ApplicationDbContext>(
                opts => opts.UseNpgsql(Configuration.GetConnectionString("AlexisConnection"))
             );
-
+            //Para la seguridad:
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //Para hacer la contraseña especial:
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+            });
             // Para conectarse con SQL:
             //
             // services.AddDbContext<ApplicationDbContext>(
             //     opts => opts.UseSqlServer(Configuration.GetConnectionString("SQLConnection"))
             // );
-            
+
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );

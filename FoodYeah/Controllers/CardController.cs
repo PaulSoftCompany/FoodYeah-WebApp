@@ -2,6 +2,7 @@ using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace FoodYeah.Controllers
 {
@@ -10,7 +11,7 @@ namespace FoodYeah.Controllers
     public class CardController : ControllerBase
     {
         private readonly CardService _CardService;
-         private readonly OrderService _OrderService;
+        private readonly OrderService _OrderService;
 
         public CardController(CardService clientService, OrderService orderService)
         {
@@ -18,7 +19,10 @@ namespace FoodYeah.Controllers
             _OrderService = orderService;
         }
         [HttpGet]
-        public ActionResult<DataCollection<CardDto>> GetAll(int page = 1, int take = 20) => _CardService.GetAll(page, take);
+        public ActionResult<DataCollection<CardDto>> GetAll(int page = 1, int take = 20)
+        {
+            return _CardService.GetAll(page, take);
+        }
 
         [HttpGet("simple")]
         public ActionResult<DataCollection<CardSimpleDto>> GetAllSimple(int page = 1, int take = 20) => _CardService.GetAllSimple(page, take);

@@ -9,6 +9,7 @@ namespace FoodYeah.Model.Identity
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
+        public string LastName { get; set; }
         public int Age { get; set; }
 
         public List<ApplicationUserRole> UserRoles { get; set; }
