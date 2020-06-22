@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {}
+    "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {
+    "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
+        "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
         "projectName": "FoodYeahTests",
-        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
-        "packagesPath": "C:\\Users\\akira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeahTests\\obj\\",
+        "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeahTests\\FoodYeahTests.csproj",
+        "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeahTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\akira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
-                "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj"
+              "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
+                "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj"
               }
             }
           }
@@ -93,21 +93,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
+    "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
+        "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
         "projectName": "FoodYeah",
-        "projectPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
-        "packagesPath": "C:\\Users\\akira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akira\\Desktop\\GitRepo\\FoodYeah-WebApp\\FoodYeah\\obj\\",
+        "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
+        "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\akira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -139,6 +139,14 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -164,6 +172,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.4.1, )"
             }
           },
           "imports": [
@@ -184,7 +196,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
