@@ -1,6 +1,6 @@
 <template>
   <div class="hero-head">
-    <header class="navbar">
+    <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
@@ -16,7 +16,6 @@
           <div class="navbar-end">
              <router-link :class="{'is-active': $route.name === 'default'}" class="navbar-item" to="/">Inicio</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/orders')}" class="navbar-item" to="/orders">Órdenes</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/clients')}" class="navbar-item" to="/clients">Clientes</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/products')}" class="navbar-item" to="/products">Productos</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/users')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/users">Usuarios</router-link>
           
@@ -31,7 +30,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   </div>
 </template>
 
