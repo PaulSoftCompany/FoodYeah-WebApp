@@ -4,9 +4,11 @@ export default class IdentityProxy {
         this.axios = axios;
         this.url = url;
     }
-
     register(params) {
         return this.axios.post(this.url + 'identity/register', params);
+    }
+    registerAdmin(params) {
+        return this.axios.post(this.url + 'identity/registerAdmin', params);
     }
 
     login(params) {

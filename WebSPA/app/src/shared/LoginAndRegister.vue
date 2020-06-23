@@ -14,6 +14,9 @@
             <li :class="{'is-active': tab === 'register'}">
               <a @click="tab = 'register'">Registro</a>
             </li>
+            <li :class="{'is-active': tab === 'registerAdmin'}">
+              <a @click="tab = 'registerAdmin'">RegistroAdmin</a>
+            </li>
           </ul>
         </div>
 
@@ -92,6 +95,57 @@
             <button :disabled="register.loading" type="submit" class="button is-info">Registrarse</button>
           </div>
         </form>
+
+        <form @submit.prevent="addNewUser" v-if="tab === 'registerAdmin'">
+          <div class="field">
+            <input
+              :disabled="register.loading"
+              v-model="register.email"
+              required
+              autocomplete="false"
+              class="input"
+              type="email"
+              placeholder="Ingrese su e-mail"
+            />
+          </div>
+          <div class="field">
+            <input
+              :disabled="register.loading"
+              v-model="register.firstName"
+              required
+              autocomplete="false"
+              class="input"
+              type="text"
+              placeholder="Su nombre"
+            />
+          </div>
+          <div class="field">
+            <input
+              :disabled="register.loading"
+              v-model="register.lastName"
+              required
+              autocomplete="false"
+              class="input"
+              type="text"
+              placeholder="Su apellido"
+            />
+          </div>
+          <div class="field">
+            <input
+              :disabled="register.loading"
+              v-model="register.password"
+              required
+              autocomplete="false"
+              class="input"
+              type="password"
+              placeholder="Ingrese su password"
+            />
+          </div>
+          <div class="field">
+            <button :disabled="register.loading" type="submit" class="button is-info">Registrarse</button>
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
@@ -155,6 +209,34 @@ export default {
       this.register.loading = true;
       this.$proxies.identityProxy
         .register(this.register)
+        .then(() => {
+          this.register.email = null;
+          this.register.password = null;
+          this.register.firstName = null;
+          this.register.lastName = null;
+
+          this.$notify({
+            group: "global",
+            type: "is-success",
+            text: "Su cuenta ha sido creada con éxito"
+          });
+          this.register.loading = false;
+        })
+        .catch(x => {
+          if (x.response.status === 400) {
+            this.$notify({
+              group: "global",
+              type: "is-warning",
+              text: x.response.data
+            });
+          }
+          this.register.loading = false;
+        });
+    },
+    addNewAdmin() {
+      this.register.loading = true;
+      this.$proxies.identityProxy
+        .registerAdmin(this.register)
         .then(() => {
           this.register.email = null;
           this.register.password = null;

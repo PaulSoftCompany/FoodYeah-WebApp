@@ -68,7 +68,7 @@ function authorization(to, from, next) {
 
   if (user) {
     //Si nombre de la ruta es users && el usuario no incluye al admin 
-    if (to.name === 'users' && !user.roles.includes('ADMIN')) {
+    if (to.name === 'users' && !user.roles.includes('Admin')) {
       return next('/');//ir a la pagina principal
     }
   }

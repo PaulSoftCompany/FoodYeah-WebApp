@@ -53,7 +53,26 @@ namespace FoodYeah.Controllers
             }
             return Ok();
         }
+        [HttpPost("registerAdmin")]
+        public async Task<IActionResult> CreateAdmin(ApplicationUserRegisterDto model)
+        {
+            var user = new ApplicationUser
+            {
+                Email = model.Email,
+                UserName = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+            };
+            //El createAsync directamente encripta el password(solito)
+            var result = await _userManager.CreateAsync(user, model.Password);
+            var DefaultRole = await _userManager.AddToRoleAsync(user, "Admin");
 
+            if (!result.Succeeded)
+            {
+                throw new Exception("No se pudo crear el usuario");
+            }
+            return Ok();
+        }
         [HttpPost("login")]
         public async Task<IActionResult> Login(ApplicationUserLoginDto model)
         {
