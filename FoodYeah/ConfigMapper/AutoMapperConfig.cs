@@ -2,6 +2,8 @@
 using FoodYeah.Commons;
 using FoodYeah.Dto;
 using FoodYeah.Model;
+using FoodYeah.Model.Identity;
+using System.Linq;
 
 namespace FoodYeah.ConfigMapper
 {
@@ -50,7 +52,15 @@ namespace FoodYeah.ConfigMapper
             CreateMap<Customer_Category, Customer_CategorySimpleDto>();
             CreateMap<DataCollection<Customer_Category>, DataCollection<Customer_CategorySimpleDto>>();
 
-            
+            CreateMap<ApplicationUser, ApplicationUserDto>()
+                .ForMember(
+                    dest => dest.FullName,
+                    opts => opts.MapFrom(src => src.LastName + ", " + src.FirstName)
+                ).ForMember(
+                    dest => dest.Roles,
+                    opts => opts.MapFrom(src => src.UserRoles.Select(y => y.Role.Name).ToList())
+                );
+            CreateMap<DataCollection<ApplicationUser>, DataCollection<ApplicationUserDto>>();
         }
     }
 }

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ap\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj": {}
+    "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj": {}
   },
   "projects": {
-    "C:\\ap\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj": {
+    "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ap\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj",
+        "projectUniqueName": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj",
         "projectName": "WebSPA",
-        "projectPath": "C:\\ap\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\ap\\FoodYeah-WebApp\\WebSPA\\obj\\",
+        "projectPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\WebSPA\\WebSPA.csproj",
+        "packagesPath": "C:\\Users\\alexi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\WebSPA\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

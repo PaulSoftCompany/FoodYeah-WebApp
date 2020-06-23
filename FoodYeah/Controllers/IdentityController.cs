@@ -1,5 +1,6 @@
 ﻿using FoodYeah.Dto;
 using FoodYeah.Model.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -57,13 +58,30 @@ namespace FoodYeah.Controllers
         public async Task<IActionResult> Login(ApplicationUserLoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
-            var check = await _signInManager.CheckPasswordSignInAsync(user,model.Password,false);
-            if (check.Succeeded)
+            if (user != null)
             {
-                //Return token 
-                return Ok(await GenerateToken(user));
+                var check = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                if (check.Succeeded)
+                {
+                    //Return token 
+                    return Ok(await GenerateToken(user));
+                }
             }
-            else return BadRequest("Acceso no valido a la aplicación");
+            return BadRequest("Acceso no valido a la aplicación");
+        }
+        [Authorize]
+        [HttpGet("refresh_token")]
+        public async Task<IActionResult> Refresh()
+        {
+            var userId = User.Claims.Where(x =>
+                x.Type.Equals(ClaimTypes.NameIdentifier)
+            ).Single().Value;
+
+            var user = await _userManager.FindByIdAsync(userId);
+
+            return Ok(
+                await GenerateToken(user)
+            );
         }
         private async Task<string> GenerateToken(ApplicationUser user)
         {

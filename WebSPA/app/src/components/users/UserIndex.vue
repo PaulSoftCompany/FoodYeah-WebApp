@@ -10,7 +10,7 @@
           <th>Nombre</th>
           <th>E-mail</th>
           <th style="width:100px;">Admin</th>
-          <th style="width:100px;">Seller</th>
+          <th style="width:100px;">User</th>
         </thead>
         <tbody>
           <tr v-for="item in collection.items" :key="item.id">
@@ -24,7 +24,7 @@
             </td>
             <td>
               <span class="icon">
-                <i v-if="item.roles.includes('Seller')" class="fa fa-check"></i>
+                <i v-if="item.roles.includes('User')" class="fa fa-check"></i>
                 <i v-else class="fa fa-times"></i>
               </span>
             </td>

@@ -123,9 +123,9 @@ export default {
       this.$proxies.identityProxy
         .login(this.login)
         .then(x => {
-          //let token=x.data.split('.');
-          //let user=atob(token[1]);
-          //console.log(user);
+          let token=x.data.split('.');
+          let user=atob(token[1]);
+          console.log(user);
 
           this.login.loading = false;
           this.$parent.isLoggedIn = true;

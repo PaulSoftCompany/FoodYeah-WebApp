@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="../assets/logo.png" alt="COMMERCE" />
+            <img src="../assets/logo.png" alt="logo" />
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroC">
             <span></span>
@@ -18,7 +18,7 @@
             <router-link :class="{'is-active': $route.path.startsWith('/orders')}" class="navbar-item" to="/orders">Órdenes</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/products')}" class="navbar-item" to="/products">Productos</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/users')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/users">Usuarios</router-link>
-          
+            
             <span class="navbar-item">
               <a  @click="logout"  class="button is-danger is-inverted">
                 <span class="icon">

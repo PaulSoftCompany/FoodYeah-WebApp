@@ -19,17 +19,16 @@ namespace FoodYeah.Persistence.Config
                 new ApplicationRole
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Name = "Admin",
+                    Name = "ADMIN",
                     NormalizedName = "ADMIN"
 
                 },
-                 new ApplicationRole
-                 {
-                     Id = Guid.NewGuid().ToString(),
-                     Name = "User",
-                     NormalizedName = "USER"
-
-                 }
+                new ApplicationRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "USER",
+                    NormalizedName = "USER"
+                }
                 );
         }
 
