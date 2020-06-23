@@ -17,11 +17,12 @@
         </thead>
         <tbody>
           <tr v-for="item in collection.items" :key="item.id">
-            <td>{{item.Product_CategoryName}}</td> 
-            <td>{{item.Product_CategoryDescription}}</td>
+            <td>{{item.product_CategoryId}}</td> 
+            <td>{{item.product_CategoryName}}</td> 
+            <td>{{item.product_CategoryDescription}}</td>
             <td class="has-text-centered">
-              <router-link :to="`/productcategories/${item.productId}/edit`">Editar</router-link>-
-              <a @click="remove(item.productId)">Eliminar</a>
+              <router-link :to="`/productcategories/${item.product_CategoryId}/edit`">Editar</router-link>-
+              <a @click="remove(item.product_CategoryId)">Eliminar</a>
             </td>
           </tr>
         </tbody>

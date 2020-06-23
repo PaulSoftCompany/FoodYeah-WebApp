@@ -58,6 +58,12 @@ const routes = [
     beforeEnter: authorization
   },
   {
+    path: '/productcategories/:id/edit',
+    name: 'productscategoriesedit',
+    component: ProductCategoryCreateOrUpdate,
+    beforeEnter: authorization
+  },
+  {
     path: '/productcategories/create',
     name: 'productscategoriescreate',
     component: ProductCategoryCreateOrUpdate,

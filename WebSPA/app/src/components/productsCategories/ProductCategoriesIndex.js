@@ -25,7 +25,7 @@ export default {
         getAll(page) {
             this.isLoading = true;
 
-            this.$proxies.productProxy.getAll(page, 10)
+            this.$proxies.productcategoryProxy.getAll(page, 10)
                 .then(x => {
                     this.collection = x.data;
                     this.isLoading = false;
@@ -36,7 +36,7 @@ export default {
         },
         remove(id) {
             this.isLoading = true;
-            this.$proxies.productProxy.remove(id)
+            this.$proxies.productcategoryProxy.remove(id)
                 .then(() => {
                     this.getAll(1);
                 }).catch(() => {

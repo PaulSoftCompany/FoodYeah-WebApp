@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="title">{{model.productId ? model.name : 'Nueva Categoría'}}</h1>
-    <h2 class="subtitle">{{model.productId ? model.description : 'Creación de la categoría.'}}</h2>
+    <h1 class="title">{{model.product_CategoryId ? model.Product_CategoryName : 'Nueva Categoría'}}</h1>
+    <h2 class="subtitle">{{model.product_CategoryId ? model.Product_CategoryDescription : 'Creación de la categoría.'}}</h2>
 
     <Loader v-if="isLoading" />
     <form v-else @submit.prevent="save">
@@ -13,7 +13,7 @@
           type="text"
           placeholder="Ingrese el nombre"
         />
-        <p class="help is-danger">{{validation.firstError('model.ProductCategoryName')}}</p>
+        <p class="help is-danger">{{validation.firstError('model.Product_CategoryName')}}</p>
       </div>
 
       <div class="field">
@@ -26,7 +26,8 @@
         />
         <p class="help is-danger">{{validation.firstError('model.Product_CategoryDescription')}}</p>
       </div>
-        <div class="field">
+
+      <div class="field">
         <button type="submit" class="button is-info">Guardar</button>
       </div>
     </form>

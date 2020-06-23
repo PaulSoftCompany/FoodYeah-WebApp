@@ -63,7 +63,7 @@ export default {
         this.isLoading = true;
 
         ////////////////
-        if(this.model.productId) {
+        if(this.model.product_CategoryId) {
           this.$proxies.productcategoryProxy.update(this.model.product_CategoryId, this.model)
           .then(() => {
             this.$notify({
