@@ -9,8 +9,8 @@ import ProductIndex from '../components/products/ProductIndex.vue';
 import ProductCreateOrUpdate from '../components/products/ProductCreateOrUpdate.vue';
 import UserIndex from '../components/users/UserIndex.vue';
 import store from '../store/index'
-
-
+import ProductCategoryCreateOrUpdate from '../components/productsCategories/ProductCategoryCreateOrUpdate.vue';
+import ProductCategoriesIndex from '../components/productsCategories/ProductCategoriesIndex.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -37,7 +37,8 @@ const routes = [
   {
     path: '/clients',
     name: 'clients',
-    component: ClientIndex
+    component: ClientIndex,
+    beforeEnter: authorization
   },
   {
     path: '/products',
@@ -47,12 +48,26 @@ const routes = [
   {
     path: '/products/create',
     name: 'productscreate',
-    component: ProductCreateOrUpdate
+    component: ProductCreateOrUpdate,
+    beforeEnter: authorization
   },
   {
     path: '/products/:id/edit',
     name: 'productsedit',
-    component: ProductCreateOrUpdate
+    component: ProductCreateOrUpdate,
+    beforeEnter: authorization
+  },
+  {
+    path: '/productcategories/create',
+    name: 'productscategoriescreate',
+    component: ProductCategoryCreateOrUpdate,
+    beforeEnter: authorization
+  },
+  {
+    path: '/productcategories',
+    name: 'productcategories',
+    component: ProductCategoriesIndex,
+    beforeEnter: authorization
   },
   {
     path: '/users',

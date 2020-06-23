@@ -4,7 +4,7 @@ import UserProxy from './UserProxy';
 import ProductProxy from './ProductProxy';
 import OrderProxy from './OrderProxy';
 import ClientProxy from './ClientProxy';
-
+import ProductCategoryProxy from './ProductCategoryProxy';
 // Axios default behavior
 Axios.defaults.headers.common.Accept = 'application/json';
 
@@ -44,5 +44,6 @@ export default {
     userProxy: new UserProxy(Axios, url),
     productProxy: new ProductProxy(Axios, url),
     orderProxy: new OrderProxy(Axios, url),
-    clientProxy: new ClientProxy(Axios, url)
+    clientProxy: new ClientProxy(Axios, url),
+    productcategoryProxy: new ProductCategoryProxy(Axios,url)
 }
