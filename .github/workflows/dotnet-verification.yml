@@ -21,7 +21,7 @@ jobs:
       run: dotnet restore
     - name: Build
       working-directory: ./FoodYeah
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --no-restore
     - name: Test
       working-directory: ./FoodYeah
       run: dotnet test --no-restore --verbosity normal
