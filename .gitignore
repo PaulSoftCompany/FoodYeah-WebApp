@@ -4,3 +4,5 @@ FoodYeah/.vs/FoodYeah/v16/.suo
 *.cache
 *.cache
 FoodYeah/obj/Debug/netcoreapp3.1/FoodYeah.assets.cache
+[diff]
+    tool = vimdiff

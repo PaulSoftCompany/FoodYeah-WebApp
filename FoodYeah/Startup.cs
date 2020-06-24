@@ -15,6 +15,8 @@ using FoodYeah.Service;
 using AutoMapper;
 using FoodYeah.Service.Impl;
 using FoodYeah.Model;
+using FoodYeah.Model.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodYeah
 {
@@ -31,27 +33,51 @@ namespace FoodYeah
         public void ConfigureServices(IServiceCollection services)
         {
             // Para conectarse con Postgre:
+            //
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Cors",
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                                  });
+            });
+
+
 
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(
-               opts => opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
+               opts => opts.UseNpgsql(Configuration.GetConnectionString("AlexisConnection"))
             );
-
+            //Para la seguridad:
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //Para hacer la contraseña especial:
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Default Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+            });
             // Para conectarse con SQL:
             //
             // services.AddDbContext<ApplicationDbContext>(
             //     opts => opts.UseSqlServer(Configuration.GetConnectionString("SQLConnection"))
             // );
-            
+
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
-            services.AddTransient<CostumerService, CostumerServiceImpl>();
+            services.AddTransient<CustomerService, CustomerServiceImpl>();
             services.AddTransient<ProductService, ProductServiceImpl>();
             services.AddTransient<OrderService, OrderServiceImpl>();
             services.AddTransient<CardService, CardServiceImpl>();            
             services.AddTransient<Product_CategoryService, Product_CategoryServiceImpl>();    
-            services.AddTransient<Costumer_CategoryService, Costumer_CategoryServiceImpl>();  
+            services.AddTransient<Customer_CategoryService, Customer_CategoryServiceImpl>();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +89,7 @@ namespace FoodYeah
             }
 
             app.UseRouting();
-
+            app.UseCors("Cors");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

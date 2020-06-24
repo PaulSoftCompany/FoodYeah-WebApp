@@ -16,5 +16,8 @@ namespace FoodYeah.Model
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public Enums.DaySold SellDay { get; set; }
+        public int Stock { get; set; }
+        public string ImageUrl { get; set; }
+        public List<string> Ingredients { get; set; }
     }
 }

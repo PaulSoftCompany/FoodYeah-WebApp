@@ -15,8 +15,13 @@ namespace FoodYeah.Controllers
         {
             _Product_CategoryService = clientService;
         }
+
         [HttpGet]
-        public ActionResult<DataCollection<Product_CategoryDto>> GetAll(int page=1, int take = 20) => _Product_CategoryService.GetAll(page,take);
+        public ActionResult<DataCollection<Product_CategoryDto>> GetAll(int page = 1, int take = 20) => _Product_CategoryService.GetAll(page, take);
+
+        [HttpGet("simple")]
+        public ActionResult<DataCollection<Product_CategorySimpleDto>> GetAllSimple(int page = 1, int take = 20) => _Product_CategoryService.GetAllSimple(page, take);
+        
         [HttpGet("{id}")]  //agregar el id
         public ActionResult<Product_CategoryDto> GetById(int id) => _Product_CategoryService.GetById(id);
         [HttpPost]

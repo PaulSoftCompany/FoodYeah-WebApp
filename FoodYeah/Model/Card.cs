@@ -6,14 +6,15 @@ namespace FoodYeah.Model
     {
         [Key]
         public int CardId { get; set; }
-        public int CardNumber { get; set; }
-        public int CostumerId { get; set; }
-        public Costumer Costumer { get; set; }
+        public long CardNumber { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public bool CardType { get; set; }
-        public byte CardCvi  { get; set; }
+        public int CardCvi  { get; set; }
         [Required]
         public string CardOwnerName { get; set; }
         public string CardExpireDate { get; set; }
+        public decimal Money { get; set; }
 
     }
 }

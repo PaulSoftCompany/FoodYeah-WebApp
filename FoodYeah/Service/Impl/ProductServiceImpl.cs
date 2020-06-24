@@ -25,8 +25,8 @@ namespace FoodYeah.Service.Impl
         public ProductDto Create(ProductCreateDto model)
         {
             Product_Category productCategory = _context.Product_Categories
-            .Single(x=> x.Product_CategoryId == model.Product_CategoryId);
-           
+            .Single(x => x.Product_CategoryId == model.Product_CategoryId);
+
             var entry = new Product
             {
                 ProductName = model.ProductName,
@@ -34,9 +34,12 @@ namespace FoodYeah.Service.Impl
                 Product_CategoryId = model.Product_CategoryId,
                 Product_Category = productCategory,
                 SellDay = model.SellDay,
+                Stock = model.Stock,
+                ImageUrl = model.ImageUrl,
+                Ingredients = model.Ingredients,
                 ProductId = id++
             };
-            
+
             _context.Products.Add(entry);
             _context.SaveChanges();
 
@@ -48,6 +51,15 @@ namespace FoodYeah.Service.Impl
             return _mapper.Map<DataCollection<ProductDto>>(
                   _context.Products.OrderByDescending(x => x.ProductId)
                                .Include(x => x.Product_Category)
+                               .AsQueryable()
+                               .Paged(page, take)
+             );
+        }
+
+        public DataCollection<ProductSimpleDto> GetAllSimple(int page, int take)
+        {
+            return _mapper.Map<DataCollection<ProductSimpleDto>>(
+                  _context.Products.OrderByDescending(x => x.ProductId)
                                .AsQueryable()
                                .Paged(page, take)
              );
@@ -76,15 +88,28 @@ namespace FoodYeah.Service.Impl
 
             entry.ProductName = model.ProductName;
             entry.ProductPrice = model.ProductPrice;
+            entry.Product_CategoryId = model.Product_CategoryId;
+            entry.SellDay = model.SellDay;
+            entry.Stock = model.Stock;
+            entry.ImageUrl = model.ImageUrl;
+            entry.Ingredients = model.Ingredients;
 
             _context.SaveChanges();
         }
 
+        public void AddStock(int id, ProductUpdateStockDto model)
+        {
+            var entry = _context.Products.Single(x => x.ProductId == id);
+            entry.Stock += model.AddStock;
+
+            _context.SaveChanges();
+        }
         public DataCollection<ProductDto> GetByWeek(int page, int take)
         {
             return _mapper.Map<DataCollection<ProductDto>>(
-                     _context.Products.Where(x=>x.SellDay > 0)
-                                  .OrderBy(x => x.SellDay)
+                     _context.Products.OrderByDescending(x => x.ProductId)
+                                .OrderBy(x => x.SellDay)
+                                  .Include(x => x.Product_Category)
                                   .AsQueryable()
                                   .Paged(page, take)
                 );
@@ -94,6 +119,7 @@ namespace FoodYeah.Service.Impl
             return _mapper.Map<DataCollection<ProductDto>>(
                      _context.Products.Where(x => x.SellDay == day)
                      .OrderBy(x => x.SellDay)
+                     .Include(x => x.Product_Category)
                      .AsQueryable()
                      .Paged(page, take)
                 );
