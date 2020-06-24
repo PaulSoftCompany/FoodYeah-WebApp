@@ -21,7 +21,7 @@ namespace FoodYeahTest.ControllersTest
             service.Setup(x => x.GetAll(1, 20)).Returns(cards);
 
             //Act
-            var controller = new CardController(service.Object);
+            var controller = new CardController(service.Object, new Mock<OrderService>().Object);
             var results = controller.GetAll();//Este result en el codigo original es un IEnumerable
                                               //Por ende, se podría contar con Count, que es una funcion de ^, pero como no tenemos eso tenemos que usar otro metodo
 
@@ -41,7 +41,7 @@ namespace FoodYeahTest.ControllersTest
             service.Setup(x => x.GetById(1)).Returns(firstCard);
 
             // Act
-            var controller = new CardController(service.Object);
+            var controller = new CardController(service.Object, new Mock<OrderService>().Object);
             var result = controller.GetById(1);
             var card = result.Value;
 
@@ -60,7 +60,7 @@ namespace FoodYeahTest.ControllersTest
                 .Returns(new CardDto());
 
             // Act
-            var controller = new CardController(service.Object);
+            var controller = new CardController(service.Object, new Mock<OrderService>().Object);
             var result = controller.Create(fakeCard.Object);
 
             // Assert
@@ -79,7 +79,7 @@ namespace FoodYeahTest.ControllersTest
             service.Setup(x => x.Update(It.IsAny<int>(), fakeCard.Object));
 
             // Act
-            var controller = new CardController(service.Object);
+            var controller = new CardController(service.Object, new Mock<OrderService>().Object);
             var result = controller.Update(firstCard.CardId, fakeCard.Object);
 
             // Assert
@@ -96,7 +96,7 @@ namespace FoodYeahTest.ControllersTest
             service.Setup(x => x.Remove(It.IsAny<int>()));
 
             // Act
-            var controller = new CardController(service.Object);
+            var controller = new CardController(service.Object, new Mock<OrderService>().Object);
             var result = controller.Remove(fakeCard.Object.CardId);
 
             // Assert
