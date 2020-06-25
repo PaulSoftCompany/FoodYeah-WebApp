@@ -36,6 +36,7 @@ namespace FoodYeah.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Create(ApplicationUserRegisterDto model)
         {
+            //Con esta funcion se puede crear usuarios, es aqui donde definimos si el usuario es user o admin
             var user = new ApplicationUser
             {
                 Email = model.Email,
@@ -45,32 +46,14 @@ namespace FoodYeah.Controllers
             };
             //El createAsync directamente encripta el password(solito)
             var result = await _userManager.CreateAsync(user, model.Password);
-            var DefaultRole = await _userManager.AddToRoleAsync(user, "User");
-
-            if (!result.Succeeded)
-            {
+            //A base del email definimos si el usuario va a ser user o admin:
+            string userRole;
+            if (model.Email.EndsWith("foodyeah.com"))
+                userRole = "Admin";
+            else userRole = "User";
+            var DefaultRole = await _userManager.AddToRoleAsync(user, userRole);
+            if (!result.Succeeded)            
                 throw new Exception("No se pudo crear el usuario");
-            }
-            return Ok();
-        }
-        [HttpPost("registerAdmin")]
-        public async Task<IActionResult> CreateAdmin(ApplicationUserRegisterDto model)
-        {
-            var user = new ApplicationUser
-            {
-                Email = model.Email,
-                UserName = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-            };
-            //El createAsync directamente encripta el password(solito)
-            var result = await _userManager.CreateAsync(user, model.Password);
-            var DefaultRole = await _userManager.AddToRoleAsync(user, "Admin");
-
-            if (!result.Succeeded)
-            {
-                throw new Exception("No se pudo crear el usuario");
-            }
             return Ok();
         }
         [HttpPost("login")]
@@ -102,6 +85,7 @@ namespace FoodYeah.Controllers
                 await GenerateToken(user)
             );
         }
+
         private async Task<string> GenerateToken(ApplicationUser user)
         {
             //Definir un secretKey:

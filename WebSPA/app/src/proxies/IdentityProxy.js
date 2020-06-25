@@ -7,10 +7,6 @@ export default class IdentityProxy {
     register(params) {
         return this.axios.post(this.url + 'identity/register', params);
     }
-    registerAdmin(params) {
-        return this.axios.post(this.url + 'identity/registerAdmin', params);
-    }
-
     login(params) {
         return this.axios.post(this.url + 'identity/login', params);
     }
