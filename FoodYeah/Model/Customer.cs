@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FoodYeah.Model.Identity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FoodYeah.Model
@@ -10,9 +11,9 @@ namespace FoodYeah.Model
         public Customer_Category Customer_Category { get; set; }
         public List<Card> Cards { get; set; } 
         public List<Order> Orders {get; set;}
-
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
         [Required]
         public string CustomerName { get; set; }
-        public byte CustomerAge { get; set; }
     }
 }

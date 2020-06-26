@@ -1,4 +1,5 @@
-﻿using FoodYeah.Model.Identity;
+﻿using FoodYeah.Commons;
+using FoodYeah.Model.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -19,15 +20,15 @@ namespace FoodYeah.Persistence.Config
                 new ApplicationRole
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Name = "ADMIN",
-                    NormalizedName = "ADMIN"
+                    Name = RoleHelper.Admin,
+                    NormalizedName = RoleHelper.Admin
 
                 },
                 new ApplicationRole
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Name = "USER",
-                    NormalizedName = "USER"
+                    Name = RoleHelper.User,
+                    NormalizedName = RoleHelper.User
                 }
                 );
         }

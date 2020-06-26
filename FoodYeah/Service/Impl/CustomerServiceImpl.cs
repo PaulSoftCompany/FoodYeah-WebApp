@@ -32,7 +32,6 @@ namespace FoodYeah.Service
             var entry = new Customer
             {
                 CustomerName = model.CustomerName,
-                CustomerAge = model.CustomerAge,
                 Customer_CategoryId = model.Customer_CategoryId,
                 Customer_Category = CustomerCategory,
                 CustomerId = id++
@@ -61,7 +60,6 @@ namespace FoodYeah.Service
             var entry = _context.Customers.Single(x => x.CustomerId == id);
             
             entry.CustomerName = model.CustomerName;
-            entry.CustomerAge = model.CustomerAge;
             entry.Customer_CategoryId = model.Customer_CategoryId;
 
             _context.SaveChanges();

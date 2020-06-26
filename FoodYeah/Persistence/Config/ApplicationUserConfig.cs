@@ -16,6 +16,7 @@ namespace FoodYeah.Persistence.Config
             entityBuilder.Property(x => x.Age).IsRequired();
             entityBuilder.HasMany(x => x.UserRoles).WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId).IsRequired();
+            entityBuilder.HasOne(x => x.CustomerObj).WithOne(x => x.User).HasForeignKey<ApplicationUser>(x => x.CustomerId);
         }
     }
 }

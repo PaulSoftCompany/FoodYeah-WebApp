@@ -8,6 +8,6 @@ namespace FoodYeah.Commons
     public class RoleHelper
     {
         public const string Admin = "ADMIN";
-        public const string Use = "USER";
+        public const string User = "USER";
     }
 }
