@@ -9,6 +9,7 @@ namespace FoodYeah.Dto
         public string CustomerName { get; set; }
         public byte CustomerAge { get; set; }
         public int Customer_CategoryId { get; set; }
+        public string Email { get; set; }
     }
 
     public class CustomerUpdateDto
@@ -26,7 +27,8 @@ namespace FoodYeah.Dto
         public byte CustomerAge { get; set; }
         public Customer_CategoryDto Customer_Category { get; set; }
         public List<CardDto> Cards { get; set; } 
-        public List<OrderDto> Orders {get; set;}
+        public List<OrderDto> Orders {get; set; }
+        public string Email { get; set; }
     }
 
     public class CustomerSimpleDto
@@ -35,5 +37,6 @@ namespace FoodYeah.Dto
         public string CustomerName { get; set; }
         public byte CustomerAge { get; set; }
         public int Customer_CategoryId { get; set; }
+        public string Email { get; set; }
     }
 }

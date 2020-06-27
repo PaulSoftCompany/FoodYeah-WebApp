@@ -1,5 +1,7 @@
 ﻿using FoodYeah.Dto;
+using FoodYeah.Model;
 using FoodYeah.Model.Identity;
+using FoodYeah.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,11 +24,13 @@ namespace FoodYeah.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
-        public IdentityController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
+        private readonly CustomerService _customerService;
+        public IdentityController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, CustomerService customerService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _customerService = customerService;
         }
 
         public string Index()
@@ -49,8 +53,15 @@ namespace FoodYeah.Controllers
             //A base del email definimos si el usuario va a ser user o admin:
             string userRole;
             if (model.Email.EndsWith("foodyeah.com"))
+            {
                 userRole = "Admin";
-            else userRole = "User";
+                _customerService.Create(new CustomerCreateDto { CustomerName = user.FirstName, Customer_CategoryId = 1, CustomerAge = 0, Email = user.Email});
+            }
+            else
+            {
+                userRole = "User";
+                _customerService.Create(new CustomerCreateDto { CustomerName = user.FirstName, Customer_CategoryId = 2, CustomerAge = 0, Email = user.Email });
+            }
             var DefaultRole = await _userManager.AddToRoleAsync(user, userRole);
             if (!result.Succeeded)            
                 throw new Exception("No se pudo crear el usuario");

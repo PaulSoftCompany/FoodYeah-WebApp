@@ -17,6 +17,8 @@
     <Compile Remove="Migrations\20200503214838_Initialize.Designer.cs" />
     <Compile Remove="Migrations\20200504180831_Initialize.cs" />
     <Compile Remove="Migrations\20200504180831_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20200627231514_addedemailsFK.cs" />
+    <Compile Remove="Migrations\20200627231514_addedemailsFK.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

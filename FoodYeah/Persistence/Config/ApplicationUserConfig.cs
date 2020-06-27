@@ -1,4 +1,5 @@
-﻿using FoodYeah.Model.Identity;
+﻿using FoodYeah.Model;
+using FoodYeah.Model.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace FoodYeah.Persistence.Config
             entityBuilder.Property(x => x.Age).IsRequired();
             entityBuilder.HasMany(x => x.UserRoles).WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId).IsRequired();
+            entityBuilder.HasOne(x => x.Customer).WithOne(x => x.User).HasForeignKey<Customer>(x => x.Email);
         }
     }
 }

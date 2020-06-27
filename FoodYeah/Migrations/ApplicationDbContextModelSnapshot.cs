@@ -74,9 +74,15 @@ namespace FoodYeah.Migrations
                     b.Property<int>("Customer_CategoryId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
                     b.HasKey("CustomerId");
 
                     b.HasIndex("Customer_CategoryId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Customers");
                 });
@@ -100,6 +106,20 @@ namespace FoodYeah.Migrations
                     b.HasKey("Customer_CategoryId");
 
                     b.ToTable("Customer_Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Customer_CategoryId = 1,
+                            Customer_CategoryDescription = "ADMIN",
+                            Customer_CategoryName = "ADMIN"
+                        },
+                        new
+                        {
+                            Customer_CategoryId = 2,
+                            Customer_CategoryDescription = "USER",
+                            Customer_CategoryName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("FoodYeah.Model.Identity.ApplicationRole", b =>
@@ -130,16 +150,16 @@ namespace FoodYeah.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7f858f41-e5e2-4ddb-86a9-39ee04f5f62d",
-                            ConcurrencyStamp = "7ed6ab38-9e9f-46c9-826c-1025e0720d38",
-                            Name = "Admin",
+                            Id = "83abce12-4f29-4e2e-9974-fdb407bce269",
+                            ConcurrencyStamp = "8c448f5b-65e5-47d7-ac45-c5826ea5206d",
+                            Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "fb029378-8fe8-474a-92c4-13446510ff7d",
-                            ConcurrencyStamp = "6c1c5f42-061c-4c11-954e-e7497f592b8d",
-                            Name = "User",
+                            Id = "3b4f7ade-b3e8-4a5c-bb4e-161c4e6d08d1",
+                            ConcurrencyStamp = "54993085-36af-4cc9-bd2b-9f40f90d206c",
+                            Name = "USER",
                             NormalizedName = "USER"
                         });
                 });
@@ -464,6 +484,10 @@ namespace FoodYeah.Migrations
                         .HasForeignKey("Customer_CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("FoodYeah.Model.Identity.ApplicationUser", "User")
+                        .WithOne("Customer")
+                        .HasForeignKey("FoodYeah.Model.Customer", "Email");
                 });
 
             modelBuilder.Entity("FoodYeah.Model.Identity.ApplicationUserRole", b =>

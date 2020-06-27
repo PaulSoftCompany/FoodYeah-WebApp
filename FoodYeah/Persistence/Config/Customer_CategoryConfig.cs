@@ -10,6 +10,24 @@ namespace FoodYeah.Persistence.Config
             entityBuilder.Property(x => x.Customer_CategoryId).IsRequired();
             entityBuilder.Property(x => x.Customer_CategoryName).IsRequired().HasMaxLength(100);
             entityBuilder.Property(x => x.Customer_CategoryDescription).IsRequired();
+            entityBuilder.HasData(
+                new Customer_Category
+                {
+                    Customer_CategoryId = 1,
+                    Customer_CategoryName = "ADMIN",
+                    Customer_CategoryDescription = "ADMIN"
+
+                },
+                new Customer_Category
+                {
+                    Customer_CategoryId = 2,
+                    Customer_CategoryName = "USER",
+                    Customer_CategoryDescription = "USER"
+                }
+                ); ; 
+                
+
+
         }
     }
 }

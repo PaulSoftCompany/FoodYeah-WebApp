@@ -11,7 +11,8 @@ namespace FoodYeah.Model.Identity
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-
+        //public string Email { get; set; }
+        public Customer Customer { get; set; }
         public List<ApplicationUserRole> UserRoles { get; set; }
     }
 }

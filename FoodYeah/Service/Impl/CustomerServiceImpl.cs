@@ -6,6 +6,7 @@ using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Persistence;
 using System;
+using FoodYeah.Model.Identity;
 
 namespace FoodYeah.Service
 {
@@ -28,13 +29,15 @@ namespace FoodYeah.Service
         {  
             Customer_Category CustomerCategory = _context.Customer_Categories
             .Single(x=> x.Customer_CategoryId == model.Customer_CategoryId);
-            
+            ApplicationUser user = _context.Users.Single(x => x.Email == model.Email);
             var entry = new Customer
             {
                 CustomerName = model.CustomerName,
                 CustomerAge = model.CustomerAge,
                 Customer_CategoryId = model.Customer_CategoryId,
                 Customer_Category = CustomerCategory,
+                Email = model.Email,
+                User = user,
                 CustomerId = id++
             };
 
@@ -63,7 +66,7 @@ namespace FoodYeah.Service
             entry.CustomerName = model.CustomerName;
             entry.CustomerAge = model.CustomerAge;
             entry.Customer_CategoryId = model.Customer_CategoryId;
-
+            
             _context.SaveChanges();
         }
 
