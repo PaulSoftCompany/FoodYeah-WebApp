@@ -1,6 +1,5 @@
 ﻿using FoodYeah.Dto;
 using FoodYeah.Model.Identity;
-using FoodYeah.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,14 +21,12 @@ namespace FoodYeah.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly CustomerService _customerService;
         private readonly IConfiguration _configuration;
-        public IdentityController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, CustomerService clientService, IConfiguration configuration)
+        public IdentityController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
-            _customerService = clientService;
         }
 
         public string Index()
@@ -49,31 +46,14 @@ namespace FoodYeah.Controllers
             };
             //El createAsync directamente encripta el password(solito)
             var result = await _userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)            
-                throw new Exception("No se pudo crear el usuario");
             //A base del email definimos si el usuario va a ser user o admin:
             string userRole;
-            CustomerDto aux;
             if (model.Email.EndsWith("foodyeah.com"))
-            {
                 userRole = "Admin";
-                aux = _customerService.Create(new CustomerCreateDto { 
-                    CustomerName = model.FirstName + " " + model.LastName, 
-                    Customer_CategoryId = 1,
-                    UserId = user.Id
-                });
-            }
-            else
-            {
-                userRole = "User";
-                aux = _customerService.Create(new CustomerCreateDto { 
-                    CustomerName = model.FirstName + " " + model.LastName, 
-                    Customer_CategoryId = 2,
-                    UserId = user.Id
-                });
-            }
-            user.CustomerId = aux.CustomerId;
+            else userRole = "User";
             var DefaultRole = await _userManager.AddToRoleAsync(user, userRole);
+            if (!result.Succeeded)            
+                throw new Exception("No se pudo crear el usuario");
             return Ok();
         }
         [HttpPost("login")]

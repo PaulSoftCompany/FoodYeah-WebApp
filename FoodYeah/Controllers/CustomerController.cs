@@ -24,12 +24,12 @@ namespace FoodYeah.Controllers
         [HttpGet("{id}")]
         public ActionResult<CustomerDto> GetById(int id) => _CustomerService.GetById(id);
 
-        //[HttpPost]
-        //public ActionResult Create(CustomerCreateDto Customer)
-        //{
-        //    _CustomerService.Create(Customer);
-        //    return Ok();
-        //}
+        [HttpPost]
+        public ActionResult Create(CustomerCreateDto Customer)
+        {
+            _CustomerService.Create(Customer);
+            return Ok();
+        }
 
         [HttpPut("{id}")]
         public ActionResult Update(int id, CustomerUpdateDto model)

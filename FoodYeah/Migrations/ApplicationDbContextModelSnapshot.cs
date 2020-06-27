@@ -64,15 +64,15 @@ namespace FoodYeah.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<byte>("CustomerAge")
+                        .HasColumnType("smallint");
+
                     b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("Customer_CategoryId")
                         .HasColumnType("integer");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
 
                     b.HasKey("CustomerId");
 
@@ -100,20 +100,6 @@ namespace FoodYeah.Migrations
                     b.HasKey("Customer_CategoryId");
 
                     b.ToTable("Customer_Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Customer_CategoryId = 1,
-                            Customer_CategoryDescription = "ADMIN",
-                            Customer_CategoryName = "ADMIN"
-                        },
-                        new
-                        {
-                            Customer_CategoryId = 2,
-                            Customer_CategoryDescription = "USER",
-                            Customer_CategoryName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("FoodYeah.Model.Identity.ApplicationRole", b =>
@@ -144,16 +130,16 @@ namespace FoodYeah.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ed14d414-2e1e-45af-9d01-0ab0330352f5",
-                            ConcurrencyStamp = "95c2a6db-959b-49f0-abd1-ba288545fbfb",
-                            Name = "ADMIN",
+                            Id = "7f858f41-e5e2-4ddb-86a9-39ee04f5f62d",
+                            ConcurrencyStamp = "7ed6ab38-9e9f-46c9-826c-1025e0720d38",
+                            Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0e522ab4-cef7-4d0a-ab7b-ac85256506e8",
-                            ConcurrencyStamp = "b25aac5f-0dae-4587-8731-35da556e425f",
-                            Name = "USER",
+                            Id = "fb029378-8fe8-474a-92c4-13446510ff7d",
+                            ConcurrencyStamp = "6c1c5f42-061c-4c11-954e-e7497f592b8d",
+                            Name = "User",
                             NormalizedName = "USER"
                         });
                 });
@@ -172,9 +158,6 @@ namespace FoodYeah.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Email")
                         .HasColumnType("character varying(256)")
@@ -224,9 +207,6 @@ namespace FoodYeah.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -482,15 +462,6 @@ namespace FoodYeah.Migrations
                     b.HasOne("FoodYeah.Model.Customer_Category", "Customer_Category")
                         .WithMany("Customers")
                         .HasForeignKey("Customer_CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FoodYeah.Model.Identity.ApplicationUser", b =>
-                {
-                    b.HasOne("FoodYeah.Model.Customer", "CustomerObj")
-                        .WithOne("User")
-                        .HasForeignKey("FoodYeah.Model.Identity.ApplicationUser", "CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
