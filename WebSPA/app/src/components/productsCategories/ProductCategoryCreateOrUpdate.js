@@ -10,14 +10,14 @@ export default {
     this.get();
   },
   validators: {
-    'model.Product_CategoryName'(value) {
+    'model.product_CategoryName'(value) {
       return this.$validator
         .value(value)
         .required()
         .minLength(5)
         .maxLength(50);
     },
-    'model.Product_CategoryDescription'(value) {
+    'model.product_CategoryDescription'(value) {
       return this.$validator
         .value(value)
         .required()
@@ -30,8 +30,8 @@ export default {
       isLoading: false,
       model: {
         product_CategoryId: 0,
-        Product_CategoryName: null,
-        Product_CategoryDescription: null,
+        product_CategoryName: null,
+        product_CategoryDescription: null,
       }
     }
   },

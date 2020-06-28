@@ -68,7 +68,7 @@ namespace FoodYeah.Service.Impl
         public ProductDto GetById(int id)
         {
             return _mapper.Map<ProductDto>(
-                _context.Products.Single(x => x.ProductId == id)
+                _context.Products.Include(x => x.Product_Category).Single(x => x.ProductId == id)
            );
         }
 

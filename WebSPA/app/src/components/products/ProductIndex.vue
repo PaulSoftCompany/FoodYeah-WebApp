@@ -8,12 +8,13 @@
       <div class="field has-text-right">
         <router-link to="/products/create">Agregar nuevo producto</router-link>
       </div>
-      <table class="table is-striped is-fullwidth">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <th>Nombre</th>
           <th>Stock</th>
-          <th >Precio</th>
-          <th >Dia de venta</th>
+          <th>Categoria</th>
+          <th>Precio</th>
+          <th>Dia de venta</th>
           <th>Ingredientes</th>
           <th style="width:150px;"></th>
         </thead>
@@ -21,6 +22,7 @@
           <tr v-for="item in collection.items" :key="item.id">
             <td>{{item.productName}}</td>
             <td>{{item.stock}}</td>
+            <td>{{item.product_Category.product_CategoryName}}</td>
             <td>S/. {{item.productPrice}}</td>
              <td> {{item.sellDay}}</td>
               <td> {{item.ingredients.join(',')}}</td>

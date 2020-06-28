@@ -5,12 +5,10 @@
 
     <Loader v-if="isLoading" />
     <template v-else>
-      <table class="table is-striped is-fullwidth">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <th>Nombre</th>
           <th>Categoria</th>
-          <!-- <th style="width:100px;">Admin</th>
-          <th style="width:100px;">User</th> -->
         </thead>
         <tbody>
           <tr v-for="item in collection.items" :key="item.CustomerId">

@@ -10,14 +10,14 @@ export default {
     this.get();
   },
   validators: {
-    'model.ProductName'(value) {
+    'model.productName'(value) {
       return this.$validator
         .value(value)
         .required()
         .minLength(5)
         .maxLength(50);
     },
-    'model.ProductPrice'(value) {
+    'model.productPrice'(value) {
       return this.$validator
         .value(value)
         .required()
@@ -29,14 +29,14 @@ export default {
       isLoading: false,
       model: {
         productId: 0,
-        ProductName: null,
-        Product_CategoryId: null,
-        ProductPrice: null,
-        Stock:null,
-        SellDay:null,
-        Ingredients: new Array,
-        ImageUrl:"test",
-        Ingrediente:null
+        productName: null,
+        product_CategoryId: null,
+        productPrice: null,
+        stock:null,
+        sellDay:null,
+        ingredients: new Array,
+        imageUrl:"test",
+        ingrediente:null
 
       }
     }

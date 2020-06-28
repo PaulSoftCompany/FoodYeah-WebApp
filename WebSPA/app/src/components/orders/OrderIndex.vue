@@ -17,11 +17,11 @@
           <th style="width:150px;"></th>
         </thead>
         <tbody>
-          <tr v-for="item in collection.items" :key="item.id">
-            <td>{{item.client.name}}</td>
-            <td class="has-text-right">US$ {{item.iva.toFixed(2)}}</td>
+          <tr v-for="item in collection.items" :key="item.orderId">
+            <td>{{item.customer.customerName}}</td>
+            <!-- <td class="has-text-right">US$ {{item.iva.toFixed(2)}}</td>
             <td class="has-text-right">US$ {{item.subTotal.toFixed(2)}}</td>
-            <td class="has-text-right">US$ {{item.total.toFixed(2)}}</td>
+            <td class="has-text-right">US$ {{item.total.toFixed(2)}}</td> -->
             <td class="has-text-centered">
               <router-link :to="`/orders/${item.orderId}/detail`">Ver detalle</router-link>
             </td>
@@ -34,3 +34,80 @@
 </template>
 
 <script src="./OrderIndex.js"></script>
+//El juason:
+// {
+//     "hasItems": true,
+//     "items": [
+//         {
+//             "orderId": 1,
+//             "orderDetails": [
+//                 {
+//                     "orderDetailId": 1,
+//                     "orderId": 1,
+//                     "productId": 1,
+//                     "product": {
+//                         "productId": 1,
+//                         "product_Category": null,
+//                         "productName": "dadsdsasaddas",
+//                         "productPrice": 20.0,
+//                         "sellDay": 1,
+//                         "stock": 100,
+//                         "imageUrl": "test",
+//                         "ingredients": []
+//                     },
+//                     "quantity": 1,
+//                     "unitPrice": 20.0,
+//                     "totalPrice": 20.0
+//                 }
+//             ],
+//             "customerId": 1,
+//             "customer": {
+//                 "customerId": 1,
+//                 "customerName": "nombre",
+//                 "customerAge": 0,
+//                 "customer_Category": null,
+//                 "cards": [],
+//                 "orders": [
+//                     {
+//                         "orderId": 1,
+//                         "orderDetails": [
+//                             {
+//                                 "orderDetailId": 1,
+//                                 "orderId": 1,
+//                                 "productId": 1,
+//                                 "product": {
+//                                     "productId": 1,
+//                                     "product_Category": null,
+//                                     "productName": "dadsdsasaddas",
+//                                     "productPrice": 20.0,
+//                                     "sellDay": 1,
+//                                     "stock": 100,
+//                                     "imageUrl": "test",
+//                                     "ingredients": []
+//                                 },
+//                                 "quantity": 1,
+//                                 "unitPrice": 20.0,
+//                                 "totalPrice": 20.0
+//                             }
+//                         ],
+//                         "customerId": 1,
+//                         "date": "2020-06-28",
+//                         "initTime": "04:38:30 AM",
+//                         "endTime": "00:00:00",
+//                         "totalPrice": 20,
+//                         "status": "NOTDELIVERED"
+//                     }
+//                 ],
+//                 "email": "d1b11643-aa99-49fc-a3bb-f79f430e0dd8"
+//             },
+//             "date": "2020-06-28",
+//             "initTime": "04:38:30 AM",
+//             "endTime": "00:00:00",
+//             "totalPrice": 20,
+//             "status": "NOTDELIVERED"
+//         }
+//     ],
+//     "total": 1,
+//     "page": 1,
+//     "pages": 1
+// }

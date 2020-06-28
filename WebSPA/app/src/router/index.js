@@ -11,6 +11,8 @@ import UserIndex from '../components/users/UserIndex.vue';
 import store from '../store/index'
 import ProductCategoryCreateOrUpdate from '../components/productsCategories/ProductCategoryCreateOrUpdate.vue';
 import ProductCategoriesIndex from '../components/productsCategories/ProductCategoriesIndex.vue';
+import CardIndex from '../components/cards/CardIndex.vue';
+import CardCreateOrUpdate from '../components/cards/CardCreateOrUpdate.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -79,6 +81,24 @@ const routes = [
     path: '/users',
     name: 'users',
     component: UserIndex,
+    beforeEnter: authorization
+  },
+  {
+    path: '/cards',
+    name: 'cards',
+    component: CardIndex,
+    beforeEnter: authorization
+  },
+  {
+    path: '/cards/create',
+    name: 'cardscreate',
+    component: CardCreateOrUpdate,
+    beforeEnter: authorization
+  },
+  {
+    path: '/cards/:id/edit',
+    name: 'cardsupdate',
+    component: CardCreateOrUpdate,
     beforeEnter: authorization
   }
 ]
