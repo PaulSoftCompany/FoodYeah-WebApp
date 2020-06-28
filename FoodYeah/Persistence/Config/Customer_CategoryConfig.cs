@@ -1,4 +1,5 @@
-﻿using FoodYeah.Model;
+﻿using FoodYeah.Commons;
+using FoodYeah.Model;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FoodYeah.Persistence.Config
@@ -14,15 +15,15 @@ namespace FoodYeah.Persistence.Config
                 new Customer_Category
                 {
                     Customer_CategoryId = 1,
-                    Customer_CategoryName = "ADMIN",
-                    Customer_CategoryDescription = "ADMIN"
+                    Customer_CategoryName = RoleHelper.Admin,
+                    Customer_CategoryDescription = RoleHelper.Admin
 
                 },
                 new Customer_Category
                 {
                     Customer_CategoryId = 2,
-                    Customer_CategoryName = "USER",
-                    Customer_CategoryDescription = "USER"
+                    Customer_CategoryName = RoleHelper.User,
+                    Customer_CategoryDescription = RoleHelper.User
                 }
                 ); ; 
                 

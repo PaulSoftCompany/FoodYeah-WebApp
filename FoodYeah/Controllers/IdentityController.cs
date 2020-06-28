@@ -1,4 +1,5 @@
-﻿using FoodYeah.Dto;
+﻿using FoodYeah.Commons;
+using FoodYeah.Dto;
 using FoodYeah.Model;
 using FoodYeah.Model.Identity;
 using FoodYeah.Service;
@@ -54,12 +55,12 @@ namespace FoodYeah.Controllers
             string userRole;
             if (model.Email.EndsWith("foodyeah.com"))
             {
-                userRole = "Admin";
+                userRole = RoleHelper.Admin;
                 _customerService.Create(new CustomerCreateDto { CustomerName = user.FirstName, Customer_CategoryId = 1, CustomerAge = 0, Email = user.Email});
             }
             else
             {
-                userRole = "User";
+                userRole = RoleHelper.User;
                 _customerService.Create(new CustomerCreateDto { CustomerName = user.FirstName, Customer_CategoryId = 2, CustomerAge = 0, Email = user.Email });
             }
             var DefaultRole = await _userManager.AddToRoleAsync(user, userRole);
