@@ -23,4 +23,8 @@ export default class ProductProxy {
     remove(id) {
         return this.axios.delete(this.url + `products/${id}`);
     }
+    
+    addStock(id,ammount) {
+        return this.axios.put(this.url + `products/addStock/${id}`, ammount);
+    }
 }

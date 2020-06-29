@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="../assets/logo.png" alt="logo" />
+              <img src="../assets/logo.png" alt="logo" />
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroC">
             <span></span>
@@ -14,14 +14,48 @@
         </div>
         <div id="navbarMenuHeroC" class="navbar-menu">
           <div class="navbar-end">
-             <router-link :class="{'is-active': $route.name === 'default'}" class="navbar-item" to="/">Inicio</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/orders')}" class="navbar-item" to="/orders">Órdenes</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/products')}" class="navbar-item" to="/products">Productos</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/users')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/users">Usuarios</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/productcategories')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/productcategories">Products Categories</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/cards')}" class="navbar-item" to="/cards">Cards</router-link>
+            <router-link
+              :class="{'is-active': $route.name === 'default'}"
+              class="navbar-item"
+              to="/"
+            >Inicio</router-link>
+            <router-link
+              :class="{'is-active': $route.path.startsWith('/orders')}"
+              class="navbar-item"
+              to="/orders"
+            >Órdenes</router-link>
+            <router-link
+              :class="{'is-active': $route.path.startsWith('/products')}"
+              v-if="user.roles.includes('USER')"
+              class="navbar-item"
+              to="/productsview"
+            >Productos</router-link>
+            <router-link
+              :class="{'is-active': $route.path.startsWith('/products')}"
+              v-if="user.roles.includes('ADMIN')"
+              class="navbar-item"
+              to="/products"
+            >Productos</router-link>
+            <router-link
+              :class="{'is-active': $route.path.startsWith('/users')}"
+              v-if="user.roles.includes('ADMIN')"
+              class="navbar-item"
+              to="/users"
+            >Usuarios</router-link>
+            <router-link
+              :class="{'is-active': $route.path.startsWith('/productcategories')}"
+              v-if="user.roles.includes('ADMIN')"
+              class="navbar-item"
+              to="/productcategories"
+            >Products Categories</router-link>
+            <router-link
+              :class="{'is-active': $route.path.startsWith('/cards')}"
+              v-if="user.roles.includes('ADMIN')"
+              class="navbar-item"
+              to="/cards"
+            >Cards</router-link>
             <span class="navbar-item">
-              <a  @click="logout"  class="button is-danger is-inverted">
+              <a @click="logout" class="button is-danger is-inverted">
                 <span class="icon">
                   <i class="fas fa-sign-out-alt"></i>
                 </span>
@@ -41,7 +75,7 @@ export default {
   data() {
     return {
       user: this.$store.state.user
-    }
+    };
   },
   methods: {
     logout() {
@@ -49,6 +83,5 @@ export default {
       this.$parent.isLoggedIn = false;
     }
   }
-  
 };
 </script>

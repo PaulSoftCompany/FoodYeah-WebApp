@@ -96,8 +96,20 @@ export default {
         },
         onChangeProductSelection() {
             let product = this.products.find(
-                x => x.productId === this.product.productId
+                x => x.stock <= -1000
             );
+            if (product != null) {
+                var params = {
+                    ammount: -1000
+                }
+                this.$proxies.productProxy.addStock(product.productId, params)
+                this.$router.push('/orders/create');
+            }
+            else {
+                product = this.products.find(
+                    x => x.productId === this.product.productId
+                );
+            }    
             //TODO: ver bien lo del stock
             this.product.stock = product.stock;
             this.product.quantity = 1;
@@ -138,8 +150,10 @@ export default {
                         type: "is-success",
                         text: 'La orden ha sido creada'
                     });
-
-                    this.$router.push('/orders');
+                    if (this.user.customer_Category.id == 2)
+                    this.$router.push(`/orders/${item.orderId}/payorder`);
+                    else
+                    this.$router.push("/orders");
                 })
                 .catch(() => {
                     this.isLoading = false;

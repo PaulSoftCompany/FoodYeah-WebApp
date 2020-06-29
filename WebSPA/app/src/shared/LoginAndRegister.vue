@@ -2,7 +2,10 @@
   <div class="columns is-centered">
     <div class="column is-6">
       <div class="has-text-centered">
-        <img src="../assets/logo.png" />
+        <div class="imgSize2">
+          <img src="../assets/logo.png" />
+        </div>
+
         <hr />
       </div>
       <div class="box">
@@ -13,7 +16,7 @@
             </li>
             <li :class="{'is-active': tab === 'register'}">
               <a @click="tab = 'register'">Registro</a>
-            </li>            
+            </li>
           </ul>
         </div>
 
@@ -123,8 +126,8 @@ export default {
       this.$proxies.identityProxy
         .login(this.login)
         .then(x => {
-          let token=x.data.split('.');
-          let user=atob(token[1]);
+          let token = x.data.split(".");
+          let user = atob(token[1]);
           console.log(user);
 
           this.login.loading = false;
@@ -182,3 +185,4 @@ export default {
   }
 };
 </script>
+<style src="./LoginAndRegister.css"></style>

@@ -73,6 +73,17 @@
 
       <div class="field">
         <input
+          :class="{error: validation.hasError('model.imageUrl')}"
+          v-model.number="model.sellDay"
+          class="input"
+          type="text"
+          placeholder="Ingrese la url de la imagen"
+        />
+        <p class="help is-danger">{{validation.firstError('model.imageUrl')}}</p>
+      </div>
+
+      <div class="field">
+        <input
           v-model="Ingrediente"
           class="input"
           type="text"

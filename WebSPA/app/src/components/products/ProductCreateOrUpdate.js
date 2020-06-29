@@ -36,7 +36,7 @@ export default {
         stock:null,
         sellDay:null,
         ingredients: new Array,
-        imageUrl:"test",
+        imageUrl:null,
         ingrediente:null
       },
       product_categories: []

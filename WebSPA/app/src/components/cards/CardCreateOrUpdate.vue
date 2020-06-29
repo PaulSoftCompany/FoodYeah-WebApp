@@ -27,7 +27,6 @@
         <p class="help is-danger">{{validation.firstError('model.cardType')}}</p>
       </div>
 
-
     <div class="field">
         <input
           :class="{error: validation.hasError('model.cardCvi')}"

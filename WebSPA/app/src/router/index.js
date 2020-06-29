@@ -13,6 +13,7 @@ import ProductCategoriesIndex from '../components/productsCategories/ProductCate
 import CardIndex from '../components/cards/CardIndex.vue';
 import CardCreateOrUpdate from '../components/cards/CardCreateOrUpdate.vue';
 import PayOrder from '../components/orders/PayOrder.vue';
+import ProductView from '../components/products/ProductView.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
     path: '/products',
     name: 'products',
     component: ProductIndex
+  },
+  {
+    path: '/productsview',
+    name: 'productsview',
+    component: ProductView
   },
   {
     path: '/products/create',
