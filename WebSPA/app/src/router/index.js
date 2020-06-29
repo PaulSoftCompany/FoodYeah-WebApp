@@ -93,7 +93,6 @@ const routes = [
     path: '/cards/create',
     name: 'cardscreate',
     component: CardCreateOrUpdate,
-    beforeEnter: authorization
   },
   {
     path: '/cards/:id/edit',

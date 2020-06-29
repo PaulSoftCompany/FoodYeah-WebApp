@@ -38,7 +38,7 @@ Axios.interceptors.response.use(
     }
 );
 
-let url = 'http://localhost:7000/';
+let url = 'https://foodyeahwebapp.herokuapp.com/';
 
 export default {
     identityProxy: new IdentityProxy(Axios,url),

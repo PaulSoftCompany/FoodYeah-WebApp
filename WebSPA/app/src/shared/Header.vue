@@ -19,7 +19,7 @@
             <router-link :class="{'is-active': $route.path.startsWith('/products')}" class="navbar-item" to="/products">Productos</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/users')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/users">Usuarios</router-link>
             <router-link :class="{'is-active': $route.path.startsWith('/productcategories')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/productcategories">Products Categories</router-link>
-            <router-link :class="{'is-active': $route.path.startsWith('/cards')}" v-if="user.roles.includes('ADMIN')" class="navbar-item" to="/cards">Cards</router-link>
+            <router-link :class="{'is-active': $route.path.startsWith('/cards')}" class="navbar-item" to="/cards">Cards</router-link>
             <span class="navbar-item">
               <a  @click="logout"  class="button is-danger is-inverted">
                 <span class="icon">

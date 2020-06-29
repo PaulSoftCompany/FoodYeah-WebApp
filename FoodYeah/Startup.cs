@@ -47,7 +47,7 @@ namespace FoodYeah
 
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(
-               opts => opts.UseNpgsql(Configuration.GetConnectionString("AlexisConnection"))
+               opts => opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
             //Para la seguridad:
             services.AddIdentity<ApplicationUser, ApplicationRole>()

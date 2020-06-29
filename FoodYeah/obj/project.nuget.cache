@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HtSJRkhzdTu57L49kV60zBXvfCAIQEMJhv51DcPmaJXfhzVkzC/fJyo77rS6MCP5rL0s22FObgzkd6yH42Ztkg==",
+  "dgSpecHash": "hDOlZg/E5Mpq6jJ5ARRE1KEC99yr9cugXpNYpv6Nz3OGzuiX3d0ivCtjBGuBPnfxdnZwBU0suviT6TgHEmaRlg==",
   "success": true,
   "projectFilePath": "C:\\Users\\alexi\\Documents\\GitHub\\FoodYeah-WebApp\\FoodYeah\\FoodYeah.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\alexi\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.2\\microsoft.visualstudio.web.codegeneration.3.1.2.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.2\\microsoft.visualstudio.web.codegeneration.contracts.3.1.2.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.2\\microsoft.visualstudio.web.codegeneration.core.3.1.2.nupkg.sha512",
