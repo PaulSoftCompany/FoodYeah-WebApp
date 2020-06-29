@@ -151,7 +151,7 @@ export default {
                         text: 'La orden ha sido creada'
                     });
                     if (this.user.customer_Category.id == 2) {
-                        this.$proxies.orderProxy.getAll(page, 10)
+                        this.$proxies.orderProxy.getAll(1, 10)
                         .then(x => {
                             this.collection = x.data;
                             this.$router.push(`/orders/${this.collection.items[0].orderId}/payorder`);
