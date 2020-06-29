@@ -8,8 +8,8 @@
       </div>
       <Loader v-if="isLoading" />
       <template v-else>
-        <div class="card" v-for="item in collection.items" :key="item.productId">
-          <div v-if="item.product_Category.product_CategoryId === 1">
+        <div class="card" v-for="item in menu" :key="item.productId">
+          <div v-if="item.product_Category.product_CategoryName === 'menu01' ">
             <div class="card-header">
               <div class="content">
                 <h1 class="card-header-title">{{item.productName}}</h1>
@@ -22,15 +22,13 @@
             </div>
             <div class="card-content">
               <div class="content">
-                <h3>Categoria</h3>
-                <p>{{item.product_Category.product_CategoryName}}</p>
                 <h3>Precio</h3>
                 <p>S/. {{item.productPrice}}</p>
                 <h3>Stock</h3>
                 <p>{{item.stock}}</p>
 
                 <div class="buttons">
-                  <button class="button is-primary">
+                  <button class="button is-primary" type="button" v-on:click="button(item.productId)">
                     Comprar
                     <div class="imgSize">
                       <img src="../../assets/shoppingcart.png" />
@@ -51,8 +49,8 @@
       </div>
       <Loader v-if="isLoading" />
       <template v-else>
-        <div class="card" v-for="item in collection.items" :key="item.productId">
-          <div v-if="item.product_Category.product_CategoryId === 2">
+        <div class="card" v-for="item in carta" :key="item.productId">
+          <div v-if="item.product_Category.product_CategoryName === 'carta01' ">
             <div class="card-header">
               <div class="content">
                 <h1 class="card-header-title">{{item.productName}}</h1>

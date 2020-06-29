@@ -17,7 +17,7 @@
       </div>
 
       <div class="select is-fullwidth">
-        <select @change="onChangeCategorySelection" v-model.number="model.product_CategoryId">
+        <select v-model.number="model.product_CategoryId">
           <option
             v-for="category in this.product_categories"
             :key="category.product_CategoryId"
@@ -74,7 +74,7 @@
       <div class="field">
         <input
           :class="{error: validation.hasError('model.imageUrl')}"
-          v-model.number="model.sellDay"
+          v-model="model.imageUrl"
           class="input"
           type="text"
           placeholder="Ingrese la url de la imagen"
@@ -84,7 +84,7 @@
 
       <div class="field">
         <input
-          v-model="Ingrediente"
+          v-model="ingrediente"
           class="input"
           type="text"
           placeholder="Ingrese los ingredientes"
@@ -93,15 +93,15 @@
 
       <div class="field">
         <td class="title">Ingredientes</td>
-        <tr v-for="ingrediente in model.ingredients" :key="ingrediente">
-          <td>{{ingrediente}}</td>
+        <tr v-for="item in model.ingredients" :key="item">
+          <td>{{item}}</td>
         </tr>
       </div>
       <div class="field">
         <button
           type="button"
           class="button is-info is-normal"
-          v-on:click="AddIngrediente"
+          v-on:click="AddIngrediente(ingrediente)"
         >Agregar Ingrediente</button>
         <button
           type="button"
@@ -118,3 +118,13 @@
 </template>
 
 <script src="./ProductCreateOrUpdate.js"></script>
+<style scoped>
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+</style>

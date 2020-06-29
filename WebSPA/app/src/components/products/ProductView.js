@@ -18,7 +18,9 @@ export default {
                 total: 0,
                 page: 1,
                 pages: 0
-            }
+            },
+            menu: [],
+            carta: []
         }
     },
     methods: {
@@ -29,6 +31,8 @@ export default {
                 .then(x => {
                     this.collection = x.data;
                     this.isLoading = false;
+                    this.carta = this.collection.items.filter(x => x.product_Category.product_CategoryName === 'carta01');
+                    this.menu = this.collection.items.filter(x => x.product_Category.product_CategoryName === 'menu01');
                 }).catch(() => {
                     this.isLoading = false;
                 });

@@ -6,6 +6,9 @@ export default {
     components: {
         Loader, Pager
     },
+    mounted() {
+        this.getAll(1);
+    },
     validators: {
         'model.cardNumber'(value) {
             return this.$validator
@@ -42,31 +45,40 @@ export default {
                 total: 0,
                 page: 1,
                 pages: 0
-            }
+            },
+            cards: [],
+            card:{
+                cardId: null,
+                cardName: null
+            }        
         }
     },
     methods: {
+        getAll(page){
+            this.isLoading = true;
+            this.$proxies.cardProxy.getAll(page, 10)
+                .then(x => {
+                    this.cards = x.data.items;
+                    this.isLoading = false;
+                }).catch(() => {
+                    this.isLoading = false;
+                });
+                //Falta filtrar tarjetas por cliente!
+            //this.collection.items = this.collection.items.filter(x => x.)
+
+        },
         pay() {
             this.$validate().then(success => {
                 if (!success) return;
                 this.isLoading = true;
-
-                console.log(this.model.cardNumber);
-                console.log(this.model.cardCvi);
-                console.log(this.model.cardExpireDate);
-
                 this.$proxies.cardProxy.getAll(1, 10)
                 .then(x => {
                     this.collection = x.data;
                     this.collection.items.forEach(element => {
-                        
-                        console.log(element.cardNumber);
-                        console.log(element.cardCvi);
-                        console.log(element.cardExpireDate);
     
-                        if (element.cardNumber == this.model.cardNumber &&
-                            element.cardCvi == this.model.cardCvi &&
-                            element.cardExpireDate == this.model.cardExpireDate
+                        if (element.cardNumber === this.model.cardNumber &&
+                            element.cardCvi === this.model.cardCvi &&
+                            element.cardExpireDate === this.model.cardExpireDate
                         ) {
                             let orderid = this.$route.params.id;
                             this.$proxies.orderProxy.pay(element.cardId, orderid).then(() => {
@@ -84,12 +96,12 @@ export default {
                     );
                 });
             });
-                this.isLoading = false;
-                this.$notify({
-                    group: "global",
-                    type: "is-danger",
-                    text: 'Credenciales Erróneas'
-                });
+        },
+        onChangeProductSelection(){
+            let cardaux = this.cards.find(x => x.cardId === this.card.cardId);
+            this.model.cardNumber= cardaux.cardNumber;
+            this.model.cardCvi= cardaux.cardCvi;
+            this.model.cardExpireDate= cardaux.cardExpireDate;
         }
     }
 }

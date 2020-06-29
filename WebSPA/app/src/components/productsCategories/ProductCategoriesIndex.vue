@@ -10,14 +10,12 @@
       </div>
       <table class="table is-striped is-fullwidth">
         <thead>
-          <th>Id</th>
           <th>Nombre</th>
           <th >Descripcion</th>
           <th style="width:150px;"></th>
         </thead>
         <tbody>
           <tr v-for="item in collection.items" :key="item.id">
-            <td>{{item.product_CategoryId}}</td> 
             <td>{{item.product_CategoryName}}</td> 
             <td>{{item.product_CategoryDescription}}</td>
             <td class="has-text-centered">

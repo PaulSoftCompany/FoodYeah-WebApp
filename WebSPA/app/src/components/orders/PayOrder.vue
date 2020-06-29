@@ -2,7 +2,18 @@
   <div>
     <h2 class="subtitle">Pagar la orden</h2>
     <Loader v-if="isLoading" />
+
     <form v-else @submit.prevent="pay">
+      <div v-if="cards.length !==0" class="select is-fullwidth">
+        <h2>Selecciona tu tarjeta</h2>
+        <select @change="onChangeProductSelection" v-model.number="card.cardId">
+          <option v-for="card in cards" :key="card.cardId" :value="card.cardId">{{card.cardNumber}}</option>
+        </select>
+      </div>
+      <br><br>
+      <div v-if="cards.length !==0">
+        <h2>O puedes crear una nueva: </h2>
+      </div>
       <div class="field">
         <input
           :class="{error: validation.hasError('model.cardNumber')}"

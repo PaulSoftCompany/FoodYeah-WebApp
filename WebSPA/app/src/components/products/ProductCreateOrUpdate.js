@@ -7,7 +7,7 @@ export default {
     Loader, Pager
   },
   mounted() {
-    this.get();
+    this.initialize();
   },
   validators: {
     'model.productName'(value) {
@@ -35,21 +35,19 @@ export default {
         productPrice: null,
         stock:null,
         sellDay:null,
+        //ingredients: new Array,
         ingredients: new Array,
         imageUrl:null,
-        ingrediente:null
       },
-      product_categories: []
+      product_categories: [],
+      ingrediente: null,
     }
   },
   methods: {
-    get() {
+    initialize() {
       this.$proxies.productcategoryProxy.getAll(1, 100).then( x => this.product_categories = x.data.items);
-
       let id = this.$route.params.id;
-
       if (!id) return;
-
       this.isLoading = true;
       this.$proxies.productProxy.get(id)
         .then(x => {
@@ -112,21 +110,12 @@ export default {
 
       })
     },
-    AddIngrediente(){
-      this.model.Ingredients.push(this.Ingrediente);
+    AddIngrediente(ingrediente){
+      if(this.model.ingredients.find(x => x === ingrediente)) return;
+      this.model.ingredients.push(ingrediente);
     },
     DeleteIngrediente(){
-      this.model.Ingredients.pop();
-    },
-        onChangeProductSelection() {
-            let product = this.products.find(
-                x => x.productId === this.product.productId
-            );
-            //TODO: ver bien lo del stock
-            this.product.stock = product.stock;
-            this.product.quantity = 1;
-            this.product.productPrice = product.productPrice;
-            this.product.productName = product.productName;
-        },
+      this.model.ingredients.pop();
+    }
   }
 }

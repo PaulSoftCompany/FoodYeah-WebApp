@@ -100,7 +100,7 @@ export default {
             );
             if (product != null) {
                 var params = {
-                    ammount: -1000
+                    ammount: 1000
                 }
                 this.$proxies.productProxy.addStock(product.productId, params)
                 this.$router.push('/orders/create');
@@ -150,16 +150,11 @@ export default {
                         type: "is-success",
                         text: 'La orden ha sido creada'
                     });
-                    if (this.user.customer_Category.id == 2) {
-                        this.$proxies.orderProxy.getAll(1, 10)
-                        .then(x => {
-                            this.collection = x.data;
-                            this.$router.push(`/orders/${this.collection.items[0].orderId}/payorder`);
-                        });
-                    }
-                    
-                    else
-                    this.$router.push("/orders");
+                    this.$proxies.orderProxy.getAll(1, 10)
+                    .then(x => {
+                        this.collection = x.data;
+                        this.$router.push(`/orders/${this.collection.items[0].orderId}/payorder`);
+                    });
                 })
                 .catch(() => {
                     this.isLoading = false;

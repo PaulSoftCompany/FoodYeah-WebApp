@@ -84,3 +84,4 @@ C:\Users\alexi\Documents\GitHub\FoodYeah-WebApp\WebSPA\obj\Debug\netcoreapp3.1\s
 C:\Users\alexi\Documents\GitHub\FoodYeah-WebApp\WebSPA\obj\Debug\netcoreapp3.1\WebSPA.dll
 C:\Users\alexi\Documents\GitHub\FoodYeah-WebApp\WebSPA\obj\Debug\netcoreapp3.1\WebSPA.pdb
 C:\Users\alexi\Documents\GitHub\FoodYeah-WebApp\WebSPA\obj\Debug\netcoreapp3.1\WebSPA.genruntimeconfig.cache
+C:\Users\alexi\Documents\GitHub\FoodYeah-WebApp\WebSPA\bin\Debug\netcoreapp3.1\package-lock.json
