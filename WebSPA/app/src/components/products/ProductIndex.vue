@@ -19,7 +19,7 @@
           <th style="width:150px;"></th>
         </thead>
         <tbody>
-          <tr v-for="item in collection.items" :key="item.id">
+          <tr v-for="item in collection.items" :key="item.productId">
             <td>{{item.productName}}</td>
             <td>{{item.stock}}</td>
             <td>{{item.product_Category.product_CategoryName}}</td>

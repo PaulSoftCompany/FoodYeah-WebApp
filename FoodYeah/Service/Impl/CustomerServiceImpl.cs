@@ -24,7 +24,6 @@ namespace FoodYeah.Service
             _mapper = mapper;
         }
 
-
         public CustomerDto Create(CustomerCreateDto model)
         {  
             Customer_Category CustomerCategory = _context.Customer_Categories
@@ -47,7 +46,6 @@ namespace FoodYeah.Service
             return _mapper.Map<CustomerDto>(entry);
         }
 
-
         public void Remove(int id)
         {
             _context.Remove(new Customer
@@ -57,7 +55,6 @@ namespace FoodYeah.Service
 
             _context.SaveChanges();
         }
-
 
         public void Update(int id, CustomerUpdateDto model)
         {
@@ -94,6 +91,17 @@ namespace FoodYeah.Service
         }
 
         public CustomerDto GetById(int id)
+        {
+            return _mapper.Map<CustomerDto>(
+                 _context.Customers
+                 .Include(x => x.Orders)
+                 .Include(x => x.Cards)
+                 .Include(x => x.Customer_Category)
+                 .Single(x => x.CustomerId == id)
+            );
+        }
+
+        public CustomerDto GetByEmail(int id)
         {
             return _mapper.Map<CustomerDto>(
                  _context.Customers

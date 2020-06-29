@@ -13,6 +13,7 @@ import ProductCategoryCreateOrUpdate from '../components/productsCategories/Prod
 import ProductCategoriesIndex from '../components/productsCategories/ProductCategoriesIndex.vue';
 import CardIndex from '../components/cards/CardIndex.vue';
 import CardCreateOrUpdate from '../components/cards/CardCreateOrUpdate.vue';
+import ProductView from '../components/products/ProductView.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
     path: '/products',
     name: 'products',
     component: ProductIndex
+  },
+  {
+    path: '/productsview',
+    name: 'productsview',
+    component: ProductView
   },
   {
     path: '/products/create',
