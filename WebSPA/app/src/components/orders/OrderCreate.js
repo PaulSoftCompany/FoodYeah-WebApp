@@ -150,8 +150,14 @@ export default {
                         type: "is-success",
                         text: 'La orden ha sido creada'
                     });
-                    if (this.user.customer_Category.id == 2)
-                    this.$router.push(`/orders/${item.orderId}/payorder`);
+                    if (this.user.customer_Category.id == 2) {
+                        this.$proxies.orderProxy.getAll(page, 10)
+                        .then(x => {
+                            this.collection = x.data;
+                            this.$router.push(`/orders/${this.collection.items[0].orderId}/payorder`);
+                        });
+                    }
+                    
                     else
                     this.$router.push("/orders");
                 })
