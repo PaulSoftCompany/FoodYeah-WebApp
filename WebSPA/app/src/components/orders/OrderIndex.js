@@ -28,6 +28,7 @@ export default {
                 .then(x => {
                     this.collection = x.data;
                     this.isLoading = false;
+                    
                 }).catch(() => {
                     this.isLoading = false;
                 });

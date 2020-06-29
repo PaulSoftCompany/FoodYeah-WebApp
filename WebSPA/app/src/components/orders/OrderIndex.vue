@@ -27,7 +27,7 @@
             <td style="width:100px;" class="has-text-right">{{item.totalPrice}}</td>
             <td style="width:100px;" class="has-text-right">{{item.status === "NOTDELIVERED"? "" : item.status}}</td>
             <td class="has-text-centered">
-              <router-link :to="`/orders/${item.orderId}`">Pagar</router-link>
+              <router-link :to="`/orders/${item.orderId}/payorder`">Pagar</router-link>
             </td>
           </tr>
         </tbody>
