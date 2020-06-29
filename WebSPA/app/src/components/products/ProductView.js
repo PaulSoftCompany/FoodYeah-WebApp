@@ -27,7 +27,7 @@ export default {
         getAll(page) {
             this.isLoading = true;
 
-            this.$proxies.productProxy.getAll(page, 10)
+            this.$proxies.productProxy.getAll(page, 100)
                 .then(x => {
                     this.collection = x.data;
                     this.isLoading = false;
@@ -39,7 +39,7 @@ export default {
         },
         button: function (productId) {
             var params = {
-                ammount: -1000
+                AddStock: -1000
             }
             this.$proxies.productProxy.addStock(productId, params)
             this.$router.push('/orders/create');

@@ -43,7 +43,7 @@ export default {
             isLoading: false,
             customers: [],
             products: [],
-            itemsview:[],
+            itemsview: [],
             model: {
                 orderDetails: [
                     // {
@@ -73,54 +73,69 @@ export default {
                 orders: null,
                 email: null
             },
-            subtotal: 0,            
+            subtotal: 0,
         }
     },
     methods: {
         initialize() {
             this.isLoading = true;
-            let customers = this.$proxies.userProxy.getAll(1,100),
-                products = this.$proxies.productProxy.getAll(1,100);
+            let customers = this.$proxies.userProxy.getAll(1, 100),
+                products = this.$proxies.productProxy.getAll(1, 100);
             Promise.all([customers, products])
-            .then(values => {
-                //Cargamos los datos:
-                this.customers = values[0].data.items;
-                this.products = values[1].data.items;
-                //Elegimos los datos iniciales:
-                this.product.productId = this.products[0].productId;
-                this.customer = this.customers.find(x => x.email === this.user.id);
-                this.onChangeProductSelection();
-                this.model.customerId = this.customer.customerId;
-                this.isLoading=false;
-            })
+                .then(values => {
+                    //Cargamos los datos:
+                    this.customers = values[0].data.items;
+                    this.products = values[1].data.items;
+                    //Elegimos los datos iniciales:
+                    this.product.productId = this.products[0].productId;
+                    this.customer = this.customers.find(x => x.email === this.user.id);
+                    this.onChangeProductSelection();
+                    this.model.customerId = this.customer.customerId;
+                    this.isLoading = false;
+                })
+
         },
         onChangeProductSelection() {
+
             let product = this.products.find(
-                x => x.stock <= -1000
+                x => x.stock <= 0
             );
             if (product != null) {
                 var params = {
-                    ammount: 1000
+                    addStock: 1000
+                };
+                this.$proxies.productProxy.addStock(product.productId, params).then(x => {
+                    this.$proxies.productProxy.get(product.productId).then(element => {
+                        console.log(x);
+                        var aux = element.data;
+                        this.product.stock = aux.stock;
+                        this.product.productId = aux.productId;
+                        console.log(aux.stock);
+                        this.product.quantity = 1;
+                        this.product.productPrice = aux.productPrice;
+                        this.product.productName = aux.productName;
+                    }
+                    )
                 }
-                this.$proxies.productProxy.addStock(product.productId, params)
-                this.$router.push('/orders/create');
+                );
             }
             else {
                 product = this.products.find(
                     x => x.productId === this.product.productId
                 );
-            }    
+                this.product.stock = product.stock;
+                this.product.quantity = 1;
+                this.product.productPrice = product.productPrice;
+                this.product.productName = product.productName;
+            }
             //TODO: ver bien lo del stock
-            this.product.stock = product.stock;
-            this.product.quantity = 1;
-            this.product.productPrice = product.productPrice;
-            this.product.productName = product.productName;
+
         },
         addProduct() {
             if (!this.model.orderDetails.some(x => x.productId === this.product.productId)) {
                 let item = {
                     productId: this.product.productId,
-                    quantity: this.product.quantity                    
+                    quantity: this.product.quantity
                 };
                 let itemview = {
                     productId: this.product.productId,
@@ -151,10 +166,10 @@ export default {
                         text: 'La orden ha sido creada'
                     });
                     this.$proxies.orderProxy.getAll(1, 10)
-                    .then(x => {
-                        this.collection = x.data;
-                        this.$router.push(`/orders/${this.collection.items[0].orderId}/payorder`);
-                    });
+                        .then(x => {
+                            this.collection = x.data;
+                            this.$router.push(`/orders/${this.collection.items[0].orderId}/payorder`);
+                        });
                 })
                 .catch(() => {
                     this.isLoading = false;
