@@ -10,20 +10,24 @@
       </div>
       <table class="table is-striped is-fullwidth">
         <thead>
-          <th>Cliente</th>
-          <th style="width:200px;" class="has-text-right">Iva</th>
-          <th style="width:200px;" class="has-text-right">Sub Total</th>
-          <th style="width:200px;" class="has-text-right">Total</th>
-          <th style="width:150px;"></th>
+          <th style="width:100px;" class="has-text-right">Cliente</th>
+          <th style="width:110px;" class="has-text-right">Fecha</th>
+          <th style="width:120px;" class="has-text-right">Hora del pedido</th>
+          <th style="width:100px;" class="has-text-right">Hora de entrega</th>
+          <th style="width:100px;" class="has-text-right">Precio total</th>
+          <th style="width:100px;" class="has-text-right">Estado</th>
+          <th style="width:100px;" class="has-text-right"></th>
         </thead>
         <tbody>
           <tr v-for="item in collection.items" :key="item.orderId">
-            <td>{{item.customer.customerName}}</td>
-            <!-- <td class="has-text-right">US$ {{item.iva.toFixed(2)}}</td>
-            <td class="has-text-right">US$ {{item.subTotal.toFixed(2)}}</td>
-            <td class="has-text-right">US$ {{item.total.toFixed(2)}}</td> -->
+            <td style="width:100px;" class="has-text-right">{{item.customer.customerName}}</td>
+            <td style="width:110px;" class="has-text-right">{{item.date}}</td>
+            <td style="width:120px;" class="has-text-right">{{item.initTime}}</td>
+            <td style="width:100px;" class="has-text-right">{{item.endTime === "00:00:00"? "Pendiente de pago" : item.endTime}}</td>
+            <td style="width:100px;" class="has-text-right">{{item.totalPrice}}</td>
+            <td style="width:100px;" class="has-text-right">{{item.status === "NOTDELIVERED"? "" : item.status}}</td>
             <td class="has-text-centered">
-              <router-link :to="`/orders/${item.orderId}/detail`">Ver detalle</router-link>
+              <router-link :to="`/orders/${item.orderId}`">Pagar</router-link>
             </td>
           </tr>
         </tbody>

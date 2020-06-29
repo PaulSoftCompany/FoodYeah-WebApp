@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Default from '../components/Default.vue';
 import OrderIndex from '../components/orders/OrderIndex.vue';
 import OrderCreate from '../components/orders/OrderCreate.vue';
-import OrderDetail from '../components/orders/OrderDetail.vue';
 import ClientIndex from '../components/clients/ClientIndex.vue';
 import ProductIndex from '../components/products/ProductIndex.vue';
 import ProductCreateOrUpdate from '../components/products/ProductCreateOrUpdate.vue';
@@ -13,6 +12,7 @@ import ProductCategoryCreateOrUpdate from '../components/productsCategories/Prod
 import ProductCategoriesIndex from '../components/productsCategories/ProductCategoriesIndex.vue';
 import CardIndex from '../components/cards/CardIndex.vue';
 import CardCreateOrUpdate from '../components/cards/CardCreateOrUpdate.vue';
+import PayOrder from '../components/orders/PayOrder.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,14 +27,14 @@ const routes = [
     component: OrderIndex
   },  
   {
-    path: '/orders/:id/detail',
-    name: 'ordersdetail',
-    component: OrderDetail
-  },
-  {
     path: '/orders/create',
     name: 'orderscreate',
     component: OrderCreate
+  },
+  {
+    path: '/orders/:id',
+    name: 'payorder',
+    component: PayOrder
   },
   {
     path: '/clients',

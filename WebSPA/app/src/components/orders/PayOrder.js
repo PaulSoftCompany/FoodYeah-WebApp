@@ -2,7 +2,7 @@ import Loader from '../../shared/Loader'
 import Pager from '../../shared/Pager'
 
 export default {
-    name: 'ProductIndex',
+    name: 'PayOrder',
     components: {
         Loader, Pager
     },
@@ -11,7 +11,6 @@ export default {
     },
     data() {
         return {
-            user: this.$store.state.user,
             isLoading: false,
             collection: {
                 hasItems: false,
@@ -25,26 +24,24 @@ export default {
     methods: {
         getAll(page) {
             this.isLoading = true;
-
-            this.$proxies.productProxy.getAll(page, 10)
+            this.$proxies.cardProxy.getAll(page, 10)
                 .then(x => {
                     this.collection = x.data;
                     this.isLoading = false;
-                    console.log(this.collection.items[0].imageUrl);
                 }).catch(() => {
                     this.isLoading = false;
                 });
         },
-        remove(id) {
-            this.isLoading = true;
-            this.$proxies.productProxy.remove(id)
-                .then(() => {
-                    this.getAll(1);
-                }).catch(() => {
-                    this.isLoading = false;
+        pay(cardid){
+            let id = this.$route.params.id;
+            this.$proxies.orderProxy.pay(id, cardid).then(() => {
+                this.$notify({
+                  group: "global",
+                  type: "is-success",
+                  text: 'Orden pagada con exito'
                 });
-        },
-
-      
+                this.$router.push('/orders');
+              });
+        }
     }
 }

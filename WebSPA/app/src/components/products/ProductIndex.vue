@@ -5,7 +5,7 @@
 
     <Loader v-if="isLoading" />
     <template v-else>
-      <div class="field has-text-right">
+      <div class="field has-text-right" v-if="user.roles.includes('ADMIN')">
         <router-link to="/products/create">Agregar nuevo producto</router-link>
       </div>
       <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -26,7 +26,7 @@
             <td>S/. {{item.productPrice}}</td>
              <td> {{item.sellDay}}</td>
               <td> {{item.ingredients.join(',')}}</td>
-            <td class="has-text-centered">
+            <td class="has-text-centered" v-if="user.roles.includes('ADMIN')">
               <router-link :to="`/products/${item.productId}/edit`">Editar</router-link>-
               <a @click="remove(item.productId)">Eliminar</a>
             </td>

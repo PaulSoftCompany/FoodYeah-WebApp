@@ -15,4 +15,7 @@ export default class OrderProxy {
     create(params) {
         return this.axios.post(this.url + `orders`, params);
     }
+    pay(cardid, orderid){
+        return this.axios.put(this.url+`cards/${cardid}/orderDelivered/${orderid}`)
+    }
 }

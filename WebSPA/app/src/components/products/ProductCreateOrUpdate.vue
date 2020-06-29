@@ -1,5 +1,5 @@
-<template>
-  <div>
+<template >
+  <div v-if="user.roles.includes('ADMIN')">
     <h1 class="title">{{model.productId ? 'Editar producto' : 'Nuevo producto'}}</h1>
     <h2 class="subtitle">{{model.productId ? ' ' : 'Creación de producto.'}}</h2>
 
@@ -16,7 +16,18 @@
         <p class="help is-danger">{{validation.firstError('model.productName')}}</p>
       </div>
 
-      <div class="field">
+      <div class="select is-fullwidth">
+        <select @change="onChangeCategorySelection" v-model.number="model.product_CategoryId">
+          <option
+            v-for="category in this.product_categories"
+            :key="category.product_CategoryId"
+            :value="category.product_CategoryId"
+          >{{category.product_CategoryName}}</option>
+        </select>
+        <p class="help is-danger">{{validation.firstError('model.product_CategoryId')}} </p>
+      </div>
+
+      <!-- <div class="field">
         <input
           :class="{error: validation.hasError('model.product_CategoryId')}"
           v-model.number="model.product_CategoryId"
@@ -25,7 +36,7 @@
           placeholder="Ingrese la categoria"
         />
         <p class="help is-danger">{{validation.firstError('model.product_CategoryId')}}</p>
-      </div>
+      </div> -->
 
       <div class="field">
         <input

@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      user: this.$store.state.user,
       isLoading: false,
       model: {
         productId: 0,
@@ -37,12 +38,14 @@ export default {
         ingredients: new Array,
         imageUrl:"test",
         ingrediente:null
-
-      }
+      },
+      product_categories: []
     }
   },
   methods: {
     get() {
+      this.$proxies.productcategoryProxy.getAll(1, 100).then( x => this.product_categories = x.data.items);
+
       let id = this.$route.params.id;
 
       if (!id) return;
@@ -114,6 +117,16 @@ export default {
     },
     DeleteIngrediente(){
       this.model.Ingredients.pop();
-    }
+    },
+        onChangeProductSelection() {
+            let product = this.products.find(
+                x => x.productId === this.product.productId
+            );
+            //TODO: ver bien lo del stock
+            this.product.stock = product.stock;
+            this.product.quantity = 1;
+            this.product.productPrice = product.productPrice;
+            this.product.productName = product.productName;
+        },
   }
 }

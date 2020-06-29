@@ -39,30 +39,18 @@ export default {
     // },
     data() {
         return {
-            // isLoading: false,
-            // clients: [],
-            // products: [],
-            // model: {
-            //     clientId: null,
-            //     items: []
-            // },
-            // product: {
-            //     productId: null,
-            //     quantity: 1,
-            //     unitPrice: 0
-            // }
+            user: this.$store.state.user,
             isLoading: false,
             customers: [],
             products: [],
+            itemsview:[],
             model: {
-                orderDetails: [{
-                    productId: null,
-                    quantity: null
-                }],
-                //orderDetails = [{
-                //    productId = null,
-                //    quantity = null
-                //}],
+                orderDetails: [
+                    // {
+                    // productId: null,
+                    // quantity: null
+                    // }
+                ],
                 customerId: null
             },
             product: {
@@ -73,17 +61,8 @@ export default {
                 sellDay: null,
                 stock: null,
                 imageUrl: null,
-                ingredients: null
-                // productName: null,
-                // product_CategoryId: null,
-                // productPrice: null,
-                // sellDay:null,
-                // ingredients: new Array,
-                // imageUrl:"test",
-                // ingrediente:null
-
-                //stock: null,
-                //productId: null,
+                ingredients: null,
+                quantity: null
             },
             customer: {
                 customerId: null,
@@ -93,77 +72,58 @@ export default {
                 cards: null,
                 orders: null,
                 email: null
-
-                //customerId: null,
-                //customerName: null,
-            }            
+            },
+            subtotal: 0,            
         }
     },
     methods: {
         initialize() {
             this.isLoading = true;
-
-            // let clients = this.$proxies.clientProxy.getAll(1, 100),
-            //     products = this.$proxies.productProxy.getAll(1, 100);
-            let customers = this.$proxies.userProxy.getAll(1,10),
-                products = this.$proxies.productProxy.getAll(1,10);
-                
-
-            // Promise.all([clients, products])
-            //     .then(values => {
-            //         this.clients = values[0].data.items;
-            //         this.products = values[1].data.items;
-
-            //         this.model.clientId = this.clients[0].clientId;
-            //         this.product.productId = this.products[0].productId;
-
-            //         this.onChangeProductSelection();
-            //         this.isLoading = false;
-            //     })
-            //EL ERROR ESTA A CONTINUACION:
+            let customers = this.$proxies.userProxy.getAll(1,100),
+                products = this.$proxies.productProxy.getAll(1,100);
             Promise.all([customers, products])
             .then(values => {
+                //Cargamos los datos:
                 this.customers = values[0].data.items;
                 this.products = values[1].data.items;
-
-                 this.model.customerId = this.customers[0].customerId;
-                 this.product.productId = this.products[0].productId;
-
-                //this.onChangeProductSelection();
+                //Elegimos los datos iniciales:
+                this.product.productId = this.products[0].productId;
+                this.customer = this.customers.find(x => x.email === this.user.id);
+                this.onChangeProductSelection();
+                this.model.customerId = this.customer.customerId;
                 this.isLoading=false;
             })
         },
         onChangeProductSelection() {
             let product = this.products.find(
-                x => x.productId == this.product.productId
+                x => x.productId === this.product.productId
             );
-
-            this.product.stock = 1;
-             this.product.unitPrice = product.unitPrice;
+            //TODO: ver bien lo del stock
+            this.product.stock = product.stock;
+            this.product.quantity = 1;
+            this.product.productPrice = product.productPrice;
+            this.product.productName = product.productName;
         },
         addProduct() {
             if (!this.model.orderDetails.some(x => x.productId === this.product.productId)) {
-                // // Debería venir del servidor
-                // const ivaRate = 0.18;
-
                 let item = {
-                    // Server
                     productId: this.product.productId,
-                    stock: this.product.stock
-                    // unitPrice: this.product.unitPrice,
-                    // quantity: this.product.quantity,
-                    // name: this.products.find(x => x.productId === this.product.productId).name,
-                    // total: this.product.unitPrice * this.product.quantity
+                    quantity: this.product.quantity                    
                 };
-
-                // item.subTotal = Math.round(item.total / (1 + ivaRate) * 100) / 100;
-                // item.iva = Math.round((item.total - item.subTotal) * 100) / 100;
-
+                let itemview = {
+                    productId: this.product.productId,
+                    productName: this.product.productName,
+                    quantity: this.product.quantity,
+                    price: this.product.productPrice * this.product.quantity
+                };
+                let subtotal = subtotal + (this.product.quantity * this.product.productPrice);
+                this.itemsview.push(itemview);
                 this.model.orderDetails.push(item);
                 this.onChangeProductSelection();
             }
         },
         removeProduct(id) {
+            this.itemsview = this.itemsview.filter(x => x.productId != id);
             this.model.orderDetails = this.model.orderDetails.filter(x => x.productId != id);
         },
         create() {

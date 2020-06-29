@@ -45,6 +45,9 @@ export default {
   data() {
     return {
       isLoading: false,
+      user: this.$store.state.user,
+      userName: null,
+      customers: [],
       model: {
         cardNumber: null,
         customerId: null,
@@ -52,18 +55,28 @@ export default {
         cardCvi: null,
         cardExpireDate: null,
       }
+
     }
   },
   methods: {
     get() {
+      let customers = this.$proxies.userProxy.getAll(1, 100);
+      Promise.all([customers])
+        .then(values => {
+          //Cargamos los datos:
+          this.customers = values[0].data.items;
+          let customer = this.customers.find(x=> x.email === this.user.id);
+          this.model.customerId = customer.customerId;
+          this.userName = customer.customerName;
+        })
+
       let id = this.$route.params.id;
-
       if (!id) return;
-
       this.isLoading = true;
       this.$proxies.cardProxy.get(id)
         .then(x => {
           this.model = x.data;
+
           this.isLoading = false;
         })
         .catch(() => {
