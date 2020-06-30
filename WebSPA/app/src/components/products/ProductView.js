@@ -41,13 +41,15 @@ export default {
             var params = {
                 AddStock: -100000
             }
-            this.isLoading = true;
+            
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
               }
-            await sleep(7000);
-            this.isLoading = false;
+            
             this.$proxies.productProxy.addStock(productId, params)
+            this.isLoading = true;
+            await sleep(4000);
+            this.isLoading = false;
             this.$router.push('/orders/create');
         }
     }

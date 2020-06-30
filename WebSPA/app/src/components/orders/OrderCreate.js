@@ -89,6 +89,31 @@ export default {
                     //Elegimos los datos iniciales:
                     this.product.productId = this.products[0].productId;
                     this.customer = this.customers.find(x => x.email === this.user.id);
+
+                    let product = this.products.find(
+                        x => x.stock <= 0
+                    );
+                    console.log("AFUERA product CHAPADO");
+                    console.log(product);
+
+                    if (product != null) {
+                        console.log("ENTRO")
+                        var params = {
+                            addStock: 100000
+                        };
+                        console.log("ADENTRO SUMANDO")
+                        this.$proxies.productProxy.addStock(product.productId, params)
+                        console.log("ADENTRO SUMADO")
+                        console.log("ADENTRO ID DEL CHAPADO")
+                        console.log(product.productId)
+                        this.product.productId = product.productId;
+                        console.log("ADENTRO this.product.productId")
+                        console.log(this.product.productId);
+                        this.onChangeProductSelection();
+                    }
+                    console.log("AFUERA this.product.productId")
+                    console.log(this.product.productId);
+
                     this.onChangeProductSelection();
                     this.model.customerId = this.customer.customerId;
                     this.isLoading = false;
@@ -96,53 +121,20 @@ export default {
 
         },
         onChangeProductSelection() {
-
-            // function sleep(ms) {
-            //     return new Promise(resolve => setTimeout(resolve, ms));
-            // }
-            
+            console.log("onChangeProductSelection")
             let product = this.products.find(
-                x => x.stock <= 0
+                x => x.productId === this.product.productId
             );
-            if (product != null) {
-                var params = {
-                    addStock: 100000
-                };
-                this.$proxies.productProxy.addStock(product.productId, params).then(x => {
-                    console.log(x);
-                    // console.log("ZZZZZZZZ1")
-                    // this.isLoading = true;
-                    // await sleep(7000);
-                    // this.isLoading = false;
+            console.log(product);
 
-                    this.$proxies.productProxy.get(product.productId).then(element => {
-
-                        // console.log("ZZZZZZZZ2")
-                        // this.isLoading = true;
-                        // await sleep(7000);
-                        // this.isLoading = false;
-                        console.log(element.data);
-                        var aux = element.data;
-                        this.product.stock = aux.stock;
-                        this.product.productId = aux.productId;
-                        console.log(aux.stock);
-                        this.product.quantity = 1;
-                        this.product.productPrice = aux.productPrice;
-                        this.product.productName = aux.productName;
-                    }
-                    );
-                }
-                );
-            }
-            else {
-                product = this.products.find(
-                    x => x.productId === this.product.productId
-                );
+            if (product.stock < 0)
+                this.product.stock = product.stock +100000;
+            else
                 this.product.stock = product.stock;
-                this.product.quantity = 1;
-                this.product.productPrice = product.productPrice;
-                this.product.productName = product.productName;
-            }
+            this.product.quantity = 1;
+            this.product.productPrice = product.productPrice;
+            this.product.productName = product.productName;
+
             //TODO: ver bien lo del stock
 
         },
