@@ -33,12 +33,15 @@ export default {
                     this.isLoading = false;
                     console.log("this.user.name");
                     console.log(this.user.name);
-                    
-                    this.orders = this.collection.items.filter(x => 
-                        x.customer.email === this.user.id 
+                    if (this.user.roles == 'USER')
+                        this.orders = this.collection.items.filter(x =>
+                            x.customer.email === this.user.id
                         );
+                    else
+                        this.orders = this.collection.items
+
                     console.log(this.orders)
-                    
+
                 }).catch(() => {
                     this.isLoading = false;
                 });

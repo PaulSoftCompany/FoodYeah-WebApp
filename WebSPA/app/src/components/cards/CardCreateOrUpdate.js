@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     get() {
+      
       let customers = this.$proxies.userProxy.getAll(1, 100);
       Promise.all([customers])
         .then(values => {
@@ -76,7 +77,7 @@ export default {
       this.$proxies.cardProxy.get(id)
         .then(x => {
           this.model = x.data;
-
+          this.cardType();
           this.isLoading = false;
         })
         .catch(() => {
@@ -92,7 +93,8 @@ export default {
     save() {
       this.$validate().then(success => {
         if (!success) return;
-
+        
+        this.cardType();
         this.isLoading = true;
 
         ////////////////
@@ -136,6 +138,12 @@ export default {
 
 
       })
+    },
+    cardType() {
+      if (this.model.cardType == "Credito")
+      this.model.cardType=1;
+      if (this.model.cardType =="Debito")
+      this.model.cardType=0;
     }
   }
 }

@@ -1,9 +1,20 @@
 <template>
   <div>
-    <h1 class="title">FoodYeah</h1>
-    <h2 class="subtitle">Una pagina web dedicada a la creación ordenes de comida en tu comedor favorito!</h2>
+    <div class="imgSize3">
+      <img src="../assets/logo.png" />
+    </div>
+    <br>
+    <div>
+      <h1 class="title">FoodYeah</h1>
+      <h2
+        class="subtitle"
+      >Un servidor web dedicada a la creación de ordenes de comida de tu comedor favorito!</h2>
 
-    <p>Bienvenido <b>{{user.lastName}}, {{user.name}}</b>.</p>
+      <p>
+        Bienvenido
+        <b>{{user.lastName}}, {{user.name}}</b>.
+      </p>
+    </div>
   </div>
 </template>
 
@@ -13,7 +24,7 @@ export default {
   data() {
     return {
       user: this.$store.state.user
-    }
+    };
   }
 };
 </script>

@@ -18,7 +18,8 @@
         <tbody>
           <tr v-for="item in collection.items" :key="item.cardId">
             <td>{{item.cardNumber}}</td>
-            <td>{{item.cardType}}</td>
+            <td v-if="item.cardType == true">Credito</td>
+            <td v-if="item.cardType == false">Debito</td>
             <td>{{item.money}}</td>
             <td class="has-text-centered">
               <router-link :to="`/cards/${item.cardId}/edit`">Editar</router-link>-
