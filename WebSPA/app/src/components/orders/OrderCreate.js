@@ -97,16 +97,31 @@ export default {
         },
         onChangeProductSelection() {
 
+            // function sleep(ms) {
+            //     return new Promise(resolve => setTimeout(resolve, ms));
+            // }
+            
             let product = this.products.find(
                 x => x.stock <= 0
             );
             if (product != null) {
                 var params = {
-                    addStock: 1000
+                    addStock: 100000
                 };
                 this.$proxies.productProxy.addStock(product.productId, params).then(x => {
+                    console.log(x);
+                    // console.log("ZZZZZZZZ1")
+                    // this.isLoading = true;
+                    // await sleep(7000);
+                    // this.isLoading = false;
+
                     this.$proxies.productProxy.get(product.productId).then(element => {
-                        console.log(x);
+
+                        // console.log("ZZZZZZZZ2")
+                        // this.isLoading = true;
+                        // await sleep(7000);
+                        // this.isLoading = false;
+                        console.log(element.data);
                         var aux = element.data;
                         this.product.stock = aux.stock;
                         this.product.productId = aux.productId;
@@ -115,7 +130,7 @@ export default {
                         this.product.productPrice = aux.productPrice;
                         this.product.productName = aux.productName;
                     }
-                    )
+                    );
                 }
                 );
             }

@@ -7,10 +7,12 @@ export default {
         Loader, Pager
     },
     mounted() {
+        console.log(this.user)
         this.getAll(1);
     },
     data() {
         return {
+            user: this.$store.state.user,
             isLoading: false,
             collection: {
                 hasItems: false,
@@ -18,7 +20,8 @@ export default {
                 total: 0,
                 page: 1,
                 pages: 0
-            }
+            },
+            orders: []
         }
     },
     methods: {
@@ -28,10 +31,18 @@ export default {
                 .then(x => {
                     this.collection = x.data;
                     this.isLoading = false;
+                    console.log("this.user.name");
+                    console.log(this.user.name);
+                    
+                    this.orders = this.collection.items.filter(x => 
+                        x.customer.email === this.user.id 
+                        );
+                    console.log(this.orders)
                     
                 }).catch(() => {
                     this.isLoading = false;
                 });
         }
-    }
+    },
 }
+

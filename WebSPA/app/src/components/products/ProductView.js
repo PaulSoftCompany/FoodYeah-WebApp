@@ -37,10 +37,16 @@ export default {
                     this.isLoading = false;
                 });
         },
-        button: function (productId) {
+        button: async function (productId) {
             var params = {
-                AddStock: -1000
+                AddStock: -100000
             }
+            this.isLoading = true;
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+              }
+            await sleep(7000);
+            this.isLoading = false;
             this.$proxies.productProxy.addStock(productId, params)
             this.$router.push('/orders/create');
         }

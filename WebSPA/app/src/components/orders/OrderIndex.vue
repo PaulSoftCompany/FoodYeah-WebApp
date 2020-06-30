@@ -5,7 +5,7 @@
 
     <Loader v-if="isLoading" />
     <template v-else>
-      <div class="field has-text-right">
+      <div class="field has-text-right" div v-if="user.roles === 'ADMIN'">
         <router-link to="/orders/create">Agregar nueva orden</router-link>
       </div>
       <table class="table is-striped is-fullwidth">
@@ -16,17 +16,17 @@
           <th style="width:100px;" class="has-text-right">Hora de entrega</th>
           <th style="width:100px;" class="has-text-right">Precio total</th>
           <th style="width:100px;" class="has-text-right">Estado</th>
-          <th style="width:100px;" class="has-text-right"></th>
+          <th style="width:100px;" class="has-text-right" div v-if="user.roles === 'ADMIN'">Acciones</th>
         </thead>
         <tbody>
-          <tr v-for="item in collection.items" :key="item.orderId">
+          <tr v-for="item in orders" :key="item.orderId">
             <td style="width:100px;" class="has-text-right">{{item.customer.customerName}}</td>
             <td style="width:110px;" class="has-text-right">{{item.date}}</td>
             <td style="width:120px;" class="has-text-right">{{item.initTime}}</td>
             <td style="width:100px;" class="has-text-right">{{item.endTime === "00:00:00"? "Pendiente de pago" : item.endTime}}</td>
             <td style="width:100px;" class="has-text-right">{{item.totalPrice}}</td>
             <td style="width:100px;" class="has-text-right">{{item.status === "NOTDELIVERED"? "" : item.status}}</td>
-            <td class="has-text-centered">
+            <td div v-if="user.roles === 'ADMIN'" class="has-text-centered">
               <router-link :to="`/orders/${item.orderId}/payorder`">Pagar</router-link>
             </td>
           </tr>
